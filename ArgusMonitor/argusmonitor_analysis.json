@@ -1,0 +1,1235 @@
+{
+  "file": "ArgusMonitor.sys",
+  "hashes": {
+    "sha256": "df9b2892498c68805fdc0fabb369f8bcf011e784898cb32fdc5d85f6123f1126",
+    "md5": "2b4c57b09ffd3bedfe33416eb78fddee",
+    "file_size": 71864
+  },
+  "pe_info": {
+    "image_base": 5368709120,
+    "entry_point_rva": 70192,
+    "entry_point_va": 5368779312,
+    "subsystem": 1,
+    "machine": "0x8664",
+    "timestamp": 1743080977,
+    "characteristics": "0x22",
+    "dll_characteristics": "0x4160",
+    "size_of_image": 81920,
+    "checksum": "0x18242",
+    "sections": [
+      {
+        "name": ".text",
+        "rva": "0x1000",
+        "virtual_size": 48465,
+        "raw_size": 48640,
+        "characteristics": "0x68000020",
+        "executable": true,
+        "writable": false,
+        "readable": true,
+        "entropy": 6.3654
+      },
+      {
+        "name": ".rdata",
+        "rva": "0xd000",
+        "virtual_size": 3532,
+        "raw_size": 3584,
+        "characteristics": "0x48000040",
+        "executable": false,
+        "writable": false,
+        "readable": true,
+        "entropy": 4.4801
+      },
+      {
+        "name": ".data",
+        "rva": "0xe000",
+        "virtual_size": 4928,
+        "raw_size": 2048,
+        "characteristics": "0xc8000040",
+        "executable": false,
+        "writable": true,
+        "readable": true,
+        "entropy": 5.1222
+      },
+      {
+        "name": ".pdata",
+        "rva": "0x10000",
+        "virtual_size": 1512,
+        "raw_size": 1536,
+        "characteristics": "0x48000040",
+        "executable": false,
+        "writable": false,
+        "readable": true,
+        "entropy": 4.4712
+      },
+      {
+        "name": "INIT",
+        "rva": "0x11000",
+        "virtual_size": 2418,
+        "raw_size": 2560,
+        "characteristics": "0x62000020",
+        "executable": true,
+        "writable": false,
+        "readable": true,
+        "entropy": 5.4965
+      },
+      {
+        "name": ".rsrc",
+        "rva": "0x12000",
+        "virtual_size": 1112,
+        "raw_size": 1536,
+        "characteristics": "0x42000040",
+        "executable": false,
+        "writable": false,
+        "readable": true,
+        "entropy": 2.7385
+      },
+      {
+        "name": ".reloc",
+        "rva": "0x13000",
+        "virtual_size": 36,
+        "raw_size": 512,
+        "characteristics": "0x42000040",
+        "executable": false,
+        "writable": false,
+        "readable": true,
+        "entropy": 0.5111
+      }
+    ]
+  },
+  "imports": {
+    "ntoskrnl.exe": [
+      "KeWaitForSingleObject",
+      "IofCompleteRequest",
+      "IoCreateDevice",
+      "IoCreateSymbolicLink",
+      "IoDeleteDevice",
+      "IoDeleteSymbolicLink",
+      "IoGetDeviceObjectPointer",
+      "ObfDereferenceObject",
+      "_vsnwprintf",
+      "KeGetCurrentIrql",
+      "KeLowerIrql",
+      "KfRaiseIrql",
+      "RtlCompareMemory",
+      "MmUnmapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "RtlCopyUnicodeString",
+      "ZwCreateFile",
+      "ZwQueryInformationFile",
+      "ZwReadFile",
+      "ZwClose",
+      "KeSetEvent",
+      "ZwSetInformationFile",
+      "ZwWriteFile",
+      "MmIsAddressValid",
+      "KeDelayExecutionThread",
+      "MmBuildMdlForNonPagedPool",
+      "MmUnmapLockedPages",
+      "IoAllocateMdl",
+      "IoFreeMdl",
+      "__C_specific_handler",
+      "RtlWriteRegistryValue",
+      "ZwOpenKey",
+      "ZwQueryValueKey",
+      "KeQueryTimeIncrement",
+      "ExAllocatePool2",
+      "ExFreePoolWithTag",
+      "ExSystemTimeToLocalTime",
+      "MmMapIoSpace",
+      "IoBuildDeviceIoControlRequest",
+      "IofCallDriver",
+      "RtlTimeToSecondsSince1970",
+      "KeInitializeEvent",
+      "RtlIsNtDdiVersionAvailable",
+      "RtlGetVersion",
+      "MmGetSystemRoutineAddress",
+      "RtlRandomEx",
+      "RtlInitUnicodeString"
+    ],
+    "HAL.dll": [
+      "HalTranslateBusAddress",
+      "KeQueryPerformanceCounter",
+      "KeStallExecutionProcessor",
+      "HalGetBusDataByOffset",
+      "HalSetBusDataByOffset"
+    ]
+  },
+  "security_imports": [
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "IoCreateDevice"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "IoCreateSymbolicLink"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "IoDeleteDevice"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "IoDeleteSymbolicLink"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "MmUnmapIoSpace"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "MmMapLockedPagesSpecifyCache"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "MmBuildMdlForNonPagedPool"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "IoAllocateMdl"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "ExAllocatePool2"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "MmMapIoSpace"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "function": "RtlInitUnicodeString"
+    },
+    {
+      "dll": "HAL.dll",
+      "function": "HalTranslateBusAddress"
+    },
+    {
+      "dll": "HAL.dll",
+      "function": "HalGetBusDataByOffset"
+    },
+    {
+      "dll": "HAL.dll",
+      "function": "HalSetBusDataByOffset"
+    }
+  ],
+  "function_count": 126,
+  "functions": [
+    {
+      "rva": "0x1000",
+      "size": 37
+    },
+    {
+      "rva": "0x1030",
+      "size": 10144
+    },
+    {
+      "rva": "0x37d0",
+      "size": 291
+    },
+    {
+      "rva": "0x38f4",
+      "size": 65
+    },
+    {
+      "rva": "0x3938",
+      "size": 162
+    },
+    {
+      "rva": "0x39dc",
+      "size": 147
+    },
+    {
+      "rva": "0x3a70",
+      "size": 31
+    },
+    {
+      "rva": "0x3a90",
+      "size": 2285
+    },
+    {
+      "rva": "0x4380",
+      "size": 110
+    },
+    {
+      "rva": "0x43f0",
+      "size": 472
+    },
+    {
+      "rva": "0x45c8",
+      "size": 557
+    },
+    {
+      "rva": "0x47f8",
+      "size": 426
+    },
+    {
+      "rva": "0x49a4",
+      "size": 1936
+    },
+    {
+      "rva": "0x5134",
+      "size": 520
+    },
+    {
+      "rva": "0x533c",
+      "size": 722
+    },
+    {
+      "rva": "0x5610",
+      "size": 833
+    },
+    {
+      "rva": "0x5954",
+      "size": 861
+    },
+    {
+      "rva": "0x5cb4",
+      "size": 459
+    },
+    {
+      "rva": "0x5e80",
+      "size": 398
+    },
+    {
+      "rva": "0x6010",
+      "size": 366
+    },
+    {
+      "rva": "0x6180",
+      "size": 552
+    },
+    {
+      "rva": "0x63a8",
+      "size": 728
+    },
+    {
+      "rva": "0x6680",
+      "size": 460
+    },
+    {
+      "rva": "0x684c",
+      "size": 444
+    },
+    {
+      "rva": "0x6a08",
+      "size": 135
+    },
+    {
+      "rva": "0x6a90",
+      "size": 129
+    },
+    {
+      "rva": "0x6b14",
+      "size": 375
+    },
+    {
+      "rva": "0x6c8c",
+      "size": 121
+    },
+    {
+      "rva": "0x6d08",
+      "size": 157
+    },
+    {
+      "rva": "0x6da8",
+      "size": 216
+    },
+    {
+      "rva": "0x6e80",
+      "size": 161
+    },
+    {
+      "rva": "0x6f24",
+      "size": 379
+    },
+    {
+      "rva": "0x70a0",
+      "size": 601
+    },
+    {
+      "rva": "0x72fc",
+      "size": 383
+    },
+    {
+      "rva": "0x747c",
+      "size": 581
+    },
+    {
+      "rva": "0x76c4",
+      "size": 338
+    },
+    {
+      "rva": "0x7818",
+      "size": 62
+    },
+    {
+      "rva": "0x7858",
+      "size": 234
+    },
+    {
+      "rva": "0x7944",
+      "size": 341
+    },
+    {
+      "rva": "0x7a9c",
+      "size": 329
+    },
+    {
+      "rva": "0x7be8",
+      "size": 70
+    },
+    {
+      "rva": "0x7c30",
+      "size": 279
+    },
+    {
+      "rva": "0x7d48",
+      "size": 1091
+    },
+    {
+      "rva": "0x818c",
+      "size": 209
+    },
+    {
+      "rva": "0x8260",
+      "size": 129
+    },
+    {
+      "rva": "0x82e4",
+      "size": 501
+    },
+    {
+      "rva": "0x84dc",
+      "size": 67
+    },
+    {
+      "rva": "0x8520",
+      "size": 88
+    },
+    {
+      "rva": "0x8578",
+      "size": 67
+    },
+    {
+      "rva": "0x85bc",
+      "size": 1079
+    },
+    {
+      "rva": "0x89f4",
+      "size": 212
+    },
+    {
+      "rva": "0x8ac8",
+      "size": 642
+    },
+    {
+      "rva": "0x8d4c",
+      "size": 304
+    },
+    {
+      "rva": "0x8e7c",
+      "size": 101
+    },
+    {
+      "rva": "0x8ee4",
+      "size": 234
+    },
+    {
+      "rva": "0x8fd0",
+      "size": 219
+    },
+    {
+      "rva": "0x90ac",
+      "size": 180
+    },
+    {
+      "rva": "0x9160",
+      "size": 163
+    },
+    {
+      "rva": "0x9204",
+      "size": 258
+    },
+    {
+      "rva": "0x9308",
+      "size": 275
+    },
+    {
+      "rva": "0x941c",
+      "size": 313
+    },
+    {
+      "rva": "0x9558",
+      "size": 311
+    },
+    {
+      "rva": "0x9690",
+      "size": 401
+    },
+    {
+      "rva": "0x9824",
+      "size": 442
+    },
+    {
+      "rva": "0x99e0",
+      "size": 1111
+    },
+    {
+      "rva": "0x9e38",
+      "size": 363
+    },
+    {
+      "rva": "0xa05c",
+      "size": 85
+    },
+    {
+      "rva": "0xa0b4",
+      "size": 884
+    },
+    {
+      "rva": "0xa428",
+      "size": 929
+    },
+    {
+      "rva": "0xa7cc",
+      "size": 143
+    },
+    {
+      "rva": "0xa85c",
+      "size": 142
+    },
+    {
+      "rva": "0xa8ec",
+      "size": 268
+    },
+    {
+      "rva": "0xa9f8",
+      "size": 127
+    },
+    {
+      "rva": "0xaa78",
+      "size": 127
+    },
+    {
+      "rva": "0xaaf8",
+      "size": 203
+    },
+    {
+      "rva": "0xabc4",
+      "size": 280
+    },
+    {
+      "rva": "0xacdc",
+      "size": 237
+    },
+    {
+      "rva": "0xadcc",
+      "size": 118
+    },
+    {
+      "rva": "0xae44",
+      "size": 48
+    },
+    {
+      "rva": "0xae74",
+      "size": 246
+    },
+    {
+      "rva": "0xaf6c",
+      "size": 312
+    },
+    {
+      "rva": "0xb144",
+      "size": 73
+    },
+    {
+      "rva": "0xb190",
+      "size": 57
+    },
+    {
+      "rva": "0xb1cc",
+      "size": 144
+    },
+    {
+      "rva": "0xb25c",
+      "size": 59
+    },
+    {
+      "rva": "0xb298",
+      "size": 115
+    },
+    {
+      "rva": "0xb30c",
+      "size": 73
+    },
+    {
+      "rva": "0xb358",
+      "size": 174
+    },
+    {
+      "rva": "0xb408",
+      "size": 267
+    },
+    {
+      "rva": "0xb514",
+      "size": 122
+    },
+    {
+      "rva": "0xb590",
+      "size": 355
+    },
+    {
+      "rva": "0xb6f4",
+      "size": 311
+    },
+    {
+      "rva": "0xb82c",
+      "size": 40
+    },
+    {
+      "rva": "0xb974",
+      "size": 191
+    },
+    {
+      "rva": "0xba34",
+      "size": 135
+    },
+    {
+      "rva": "0xbabc",
+      "size": 151
+    },
+    {
+      "rva": "0xbbac",
+      "size": 223
+    },
+    {
+      "rva": "0xbc8c",
+      "size": 80
+    },
+    {
+      "rva": "0xbcdc",
+      "size": 57
+    },
+    {
+      "rva": "0xbd18",
+      "size": 427
+    },
+    {
+      "rva": "0xbecc",
+      "size": 212
+    },
+    {
+      "rva": "0xbfa0",
+      "size": 120
+    },
+    {
+      "rva": "0xc018",
+      "size": 91
+    },
+    {
+      "rva": "0xc074",
+      "size": 58
+    },
+    {
+      "rva": "0xc0b8",
+      "size": 44
+    },
+    {
+      "rva": "0xc0f8",
+      "size": 144
+    },
+    {
+      "rva": "0xc188",
+      "size": 46
+    },
+    {
+      "rva": "0xc1b8",
+      "size": 134
+    },
+    {
+      "rva": "0xc378",
+      "size": 134
+    },
+    {
+      "rva": "0xc408",
+      "size": 30
+    },
+    {
+      "rva": "0xc428",
+      "size": 96
+    },
+    {
+      "rva": "0xc490",
+      "size": 181
+    },
+    {
+      "rva": "0xc560",
+      "size": 56
+    },
+    {
+      "rva": "0xc5a0",
+      "size": 27
+    },
+    {
+      "rva": "0xc5d0",
+      "size": 125
+    },
+    {
+      "rva": "0xc660",
+      "size": 33
+    },
+    {
+      "rva": "0xc6a0",
+      "size": 30
+    },
+    {
+      "rva": "0xc6d0",
+      "size": 5
+    },
+    {
+      "rva": "0xc6f0",
+      "size": 6
+    },
+    {
+      "rva": "0xc700",
+      "size": 682
+    },
+    {
+      "rva": "0xc9c0",
+      "size": 263
+    },
+    {
+      "rva": "0xcb00",
+      "size": 67
+    },
+    {
+      "rva": "0xcb80",
+      "size": 38
+    },
+    {
+      "rva": "0xcd44",
+      "size": 13
+    },
+    {
+      "rva": "0x11000",
+      "size": 555
+    },
+    {
+      "rva": "0x11230",
+      "size": 44
+    }
+  ],
+  "strings": {
+    "device_names": [
+      "\\DosDevices\\ArgusMonitorCTLD",
+      "\\Device\\Harddisk%lu\\Partition0",
+      "\\Device\\ScsiPort%lu",
+      "\\Device\\ArgusMonitorCTL"
+    ],
+    "registry_paths": [],
+    "event_names": [],
+    "ascii_count": 865,
+    "unicode_count": 7
+  },
+  "dispatch": {
+    "irp_mj_create_rva": "0x1000",
+    "irp_mj_device_control_rva": "0x1030",
+    "irp_mj_close_rva": "0x112c0"
+  },
+  "access_control": {
+    "handler_found": true,
+    "no_access_control": true,
+    "privilege_checks": [],
+    "process_checks": [],
+    "notes": "IRP_MJ_CREATE is trivial (returns immediately) - NO access control"
+  },
+  "ioctl_interface": {
+    "handler_found": true,
+    "handler_rva": "0x1030",
+    "handler_size": 10144,
+    "codes_found": [
+      {
+        "address": "0x1400010aa",
+        "code": "0x9c40300c",
+        "name": "UNKNOWN_IOCTL_9C40300C",
+        "instruction": "mov ecx, 0x9c40300c"
+      },
+      {
+        "address": "0x1400010bd",
+        "code": "0x9c4025f4",
+        "name": "UNKNOWN_IOCTL_9C4025F4",
+        "instruction": "mov ecx, 0x9c4025f4"
+      },
+      {
+        "address": "0x1400010d0",
+        "code": "0x9c40238c",
+        "name": "UNKNOWN_IOCTL_9C40238C",
+        "instruction": "mov ecx, 0x9c40238c"
+      },
+      {
+        "address": "0x1400010e3",
+        "code": "0x9c40207c",
+        "name": "UNKNOWN_IOCTL_9C40207C",
+        "instruction": "cmp eax, 0x9c40207c"
+      },
+      {
+        "address": "0x1400010ee",
+        "code": "0x9c4020b4",
+        "name": "UNKNOWN_IOCTL_9C4020B4",
+        "instruction": "cmp eax, 0x9c4020b4"
+      },
+      {
+        "address": "0x1400010f9",
+        "code": "0x9c4020d8",
+        "name": "IOCTL_PHYSMEM_RD_DW",
+        "instruction": "cmp eax, 0x9c4020d8"
+      },
+      {
+        "address": "0x140001104",
+        "code": "0x9c4020ec",
+        "name": "UNKNOWN_IOCTL_9C4020EC",
+        "instruction": "cmp eax, 0x9c4020ec"
+      },
+      {
+        "address": "0x14000110f",
+        "code": "0x9c4020f4",
+        "name": "IOCTL_MSR_READ_1",
+        "instruction": "cmp eax, 0x9c4020f4"
+      },
+      {
+        "address": "0x14000111a",
+        "code": "0x9c402264",
+        "name": "UNKNOWN_IOCTL_9C402264",
+        "instruction": "cmp eax, 0x9c402264"
+      },
+      {
+        "address": "0x140001125",
+        "code": "0x9c402334",
+        "name": "UNKNOWN_IOCTL_9C402334",
+        "instruction": "cmp eax, 0x9c402334"
+      },
+      {
+        "address": "0x1400016a1",
+        "code": "0x9c40240c",
+        "name": "UNKNOWN_IOCTL_9C40240C",
+        "instruction": "cmp eax, 0x9c40240c"
+      },
+      {
+        "address": "0x1400016ac",
+        "code": "0x9c402490",
+        "name": "IOCTL_PORT_OUT_DWORD",
+        "instruction": "cmp eax, 0x9c402490"
+      },
+      {
+        "address": "0x1400016b7",
+        "code": "0x9c4024b8",
+        "name": "UNKNOWN_IOCTL_9C4024B8",
+        "instruction": "cmp eax, 0x9c4024b8"
+      },
+      {
+        "address": "0x1400016c2",
+        "code": "0x9c4024e8",
+        "name": "IOCTL_MSR_WRITE_1",
+        "instruction": "cmp eax, 0x9c4024e8"
+      },
+      {
+        "address": "0x1400016cd",
+        "code": "0x9c402510",
+        "name": "IOCTL_PHYSMEM_WR_BYTE",
+        "instruction": "cmp eax, 0x9c402510"
+      },
+      {
+        "address": "0x1400016d8",
+        "code": "0x9c4025e4",
+        "name": "UNKNOWN_IOCTL_9C4025E4",
+        "instruction": "cmp eax, 0x9c4025e4"
+      },
+      {
+        "address": "0x140001840",
+        "code": "0x9c403e10",
+        "name": "UNKNOWN_IOCTL_9C403E10",
+        "instruction": "mov r12d, 0x9c403e10"
+      },
+      {
+        "address": "0x140001ad9",
+        "code": "0x9c402b30",
+        "name": "UNKNOWN_IOCTL_9C402B30",
+        "instruction": "mov ecx, 0x9c402b30"
+      },
+      {
+        "address": "0x140001aec",
+        "code": "0x9c4026f0",
+        "name": "UNKNOWN_IOCTL_9C4026F0",
+        "instruction": "cmp eax, 0x9c4026f0"
+      },
+      {
+        "address": "0x140001af7",
+        "code": "0x9c402724",
+        "name": "IOCTL_PCI_CONFIG",
+        "instruction": "cmp eax, 0x9c402724"
+      },
+      {
+        "address": "0x140001b02",
+        "code": "0x9c40277c",
+        "name": "IOCTL_PORT_OUT_BYTE",
+        "instruction": "cmp eax, 0x9c40277c"
+      },
+      {
+        "address": "0x140001b0d",
+        "code": "0x9c4027b8",
+        "name": "UNKNOWN_IOCTL_9C4027B8",
+        "instruction": "cmp eax, 0x9c4027b8"
+      },
+      {
+        "address": "0x140001b18",
+        "code": "0x9c40290c",
+        "name": "UNKNOWN_IOCTL_9C40290C",
+        "instruction": "cmp eax, 0x9c40290c"
+      },
+      {
+        "address": "0x140001b23",
+        "code": "0x9c402934",
+        "name": "IOCTL_PHYSMEM_UNMAP",
+        "instruction": "cmp eax, 0x9c402934"
+      },
+      {
+        "address": "0x140001b2e",
+        "code": "0x9c402994",
+        "name": "IOCTL_PHYSMEM_SINGLE",
+        "instruction": "cmp eax, 0x9c402994"
+      },
+      {
+        "address": "0x140001e7e",
+        "code": "0x9c402b60",
+        "name": "UNKNOWN_IOCTL_9C402B60",
+        "instruction": "cmp eax, 0x9c402b60"
+      },
+      {
+        "address": "0x140001e89",
+        "code": "0x9c402b74",
+        "name": "IOCTL_HANDSHAKE",
+        "instruction": "cmp eax, 0x9c402b74"
+      },
+      {
+        "address": "0x140001e94",
+        "code": "0x9c402c74",
+        "name": "UNKNOWN_IOCTL_9C402C74",
+        "instruction": "cmp eax, 0x9c402c74"
+      },
+      {
+        "address": "0x140001e9f",
+        "code": "0x9c402d20",
+        "name": "UNKNOWN_IOCTL_9C402D20",
+        "instruction": "cmp eax, 0x9c402d20"
+      },
+      {
+        "address": "0x140001eaa",
+        "code": "0x9c402e00",
+        "name": "IOCTL_PORT_IN_DWORD",
+        "instruction": "cmp eax, 0x9c402e00"
+      },
+      {
+        "address": "0x140001eb5",
+        "code": "0x9c402e94",
+        "name": "IOCTL_PHYSMEM_RD_BYTE",
+        "instruction": "cmp eax, 0x9c402e94"
+      },
+      {
+        "address": "0x140002592",
+        "code": "0x9c403a54",
+        "name": "IOCTL_PHYSMEM_MAP",
+        "instruction": "mov ecx, 0x9c403a54"
+      },
+      {
+        "address": "0x1400025a5",
+        "code": "0x9c403424",
+        "name": "UNKNOWN_IOCTL_9C403424",
+        "instruction": "mov ecx, 0x9c403424"
+      },
+      {
+        "address": "0x1400025b8",
+        "code": "0x9c403100",
+        "name": "UNKNOWN_IOCTL_9C403100",
+        "instruction": "cmp eax, 0x9c403100"
+      },
+      {
+        "address": "0x1400025c3",
+        "code": "0x9c403124",
+        "name": "UNKNOWN_IOCTL_9C403124",
+        "instruction": "cmp eax, 0x9c403124"
+      },
+      {
+        "address": "0x1400025ce",
+        "code": "0x9c403134",
+        "name": "UNKNOWN_IOCTL_9C403134",
+        "instruction": "cmp eax, 0x9c403134"
+      },
+      {
+        "address": "0x1400025d9",
+        "code": "0x9c403144",
+        "name": "UNKNOWN_IOCTL_9C403144",
+        "instruction": "cmp eax, 0x9c403144"
+      },
+      {
+        "address": "0x1400025e4",
+        "code": "0x9c403218",
+        "name": "IOCTL_PHYSMEM_RMR",
+        "instruction": "cmp eax, 0x9c403218"
+      },
+      {
+        "address": "0x1400025ef",
+        "code": "0x9c4032cc",
+        "name": "UNKNOWN_IOCTL_9C4032CC",
+        "instruction": "cmp eax, 0x9c4032cc"
+      },
+      {
+        "address": "0x1400025fa",
+        "code": "0x9c40340c",
+        "name": "UNKNOWN_IOCTL_9C40340C",
+        "instruction": "cmp eax, 0x9c40340c"
+      },
+      {
+        "address": "0x140002b00",
+        "code": "0x9c4034b8",
+        "name": "UNKNOWN_IOCTL_9C4034B8",
+        "instruction": "cmp eax, 0x9c4034b8"
+      },
+      {
+        "address": "0x140002b0b",
+        "code": "0x9c4035bc",
+        "name": "UNKNOWN_IOCTL_9C4035BC",
+        "instruction": "cmp eax, 0x9c4035bc"
+      },
+      {
+        "address": "0x140002b16",
+        "code": "0x9c4036fc",
+        "name": "UNKNOWN_IOCTL_9C4036FC",
+        "instruction": "cmp eax, 0x9c4036fc"
+      },
+      {
+        "address": "0x140002b1d",
+        "code": "0x9c403724",
+        "name": "UNKNOWN_IOCTL_9C403724",
+        "instruction": "cmp eax, 0x9c403724"
+      },
+      {
+        "address": "0x140002b28",
+        "code": "0x9c403894",
+        "name": "UNKNOWN_IOCTL_9C403894",
+        "instruction": "cmp eax, 0x9c403894"
+      },
+      {
+        "address": "0x140002b33",
+        "code": "0x9c40391c",
+        "name": "UNKNOWN_IOCTL_9C40391C",
+        "instruction": "cmp eax, 0x9c40391c"
+      },
+      {
+        "address": "0x140002c20",
+        "code": "0x9c4024b8",
+        "name": "UNKNOWN_IOCTL_9C4024B8",
+        "instruction": "cmp eax, 0x9c4024b8"
+      },
+      {
+        "address": "0x140002d6b",
+        "code": "0x9c4036fc",
+        "name": "UNKNOWN_IOCTL_9C4036FC",
+        "instruction": "cmp eax, 0x9c4036fc"
+      },
+      {
+        "address": "0x140002f46",
+        "code": "0x9c403d74",
+        "name": "UNKNOWN_IOCTL_9C403D74",
+        "instruction": "cmp eax, 0x9c403d74"
+      },
+      {
+        "address": "0x140002f57",
+        "code": "0x9c403a88",
+        "name": "IOCTL_PORT_IN_BYTE",
+        "instruction": "cmp eax, 0x9c403a88"
+      },
+      {
+        "address": "0x140002f62",
+        "code": "0x9c403ab0",
+        "name": "UNKNOWN_IOCTL_9C403AB0",
+        "instruction": "cmp eax, 0x9c403ab0"
+      },
+      {
+        "address": "0x140002f6d",
+        "code": "0x9c403ad0",
+        "name": "UNKNOWN_IOCTL_9C403AD0",
+        "instruction": "cmp eax, 0x9c403ad0"
+      },
+      {
+        "address": "0x140002f78",
+        "code": "0x9c403c88",
+        "name": "UNKNOWN_IOCTL_9C403C88",
+        "instruction": "cmp eax, 0x9c403c88"
+      },
+      {
+        "address": "0x140002f83",
+        "code": "0x9c403d14",
+        "name": "UNKNOWN_IOCTL_9C403D14",
+        "instruction": "cmp eax, 0x9c403d14"
+      },
+      {
+        "address": "0x140002f8a",
+        "code": "0x9c403d3c",
+        "name": "IOCTL_PHYSMEM_WR_DW",
+        "instruction": "cmp eax, 0x9c403d3c"
+      },
+      {
+        "address": "0x140003247",
+        "code": "0x9c4020f4",
+        "name": "IOCTL_MSR_READ_1",
+        "instruction": "cmp eax, 0x9c4020f4"
+      },
+      {
+        "address": "0x140003261",
+        "code": "0x9c403d74",
+        "name": "UNKNOWN_IOCTL_9C403D74",
+        "instruction": "cmp eax, 0x9c403d74"
+      },
+      {
+        "address": "0x1400032fb",
+        "code": "0x9c4020f4",
+        "name": "IOCTL_MSR_READ_1",
+        "instruction": "cmp eax, 0x9c4020f4"
+      },
+      {
+        "address": "0x14000330b",
+        "code": "0x9c403d74",
+        "name": "UNKNOWN_IOCTL_9C403D74",
+        "instruction": "cmp eax, 0x9c403d74"
+      },
+      {
+        "address": "0x1400033bf",
+        "code": "0x9c403dac",
+        "name": "UNKNOWN_IOCTL_9C403DAC",
+        "instruction": "cmp eax, 0x9c403dac"
+      },
+      {
+        "address": "0x1400033ca",
+        "code": "0x9c403de0",
+        "name": "UNKNOWN_IOCTL_9C403DE0",
+        "instruction": "cmp eax, 0x9c403de0"
+      },
+      {
+        "address": "0x1400033d5",
+        "code": "0x9c403e10",
+        "name": "UNKNOWN_IOCTL_9C403E10",
+        "instruction": "mov r12d, 0x9c403e10"
+      },
+      {
+        "address": "0x1400033e4",
+        "code": "0x9c403fe0",
+        "name": "UNKNOWN_IOCTL_9C403FE0",
+        "instruction": "cmp eax, 0x9c403fe0"
+      },
+      {
+        "address": "0x1400033ef",
+        "code": "0x9c40f292",
+        "name": "UNKNOWN_IOCTL_9C40F292",
+        "instruction": "cmp eax, 0x9c40f292"
+      },
+      {
+        "address": "0x1400033fa",
+        "code": "0x9c40f852",
+        "name": "UNKNOWN_IOCTL_9C40F852",
+        "instruction": "cmp eax, 0x9c40f852"
+      }
+    ],
+    "import_calls": [
+      {
+        "address": "0x140001483",
+        "target_dll": "ntoskrnl.exe",
+        "target_function": "RtlInitUnicodeString"
+      },
+      {
+        "address": "0x1400024f9",
+        "target_dll": "ntoskrnl.exe",
+        "target_function": "RtlInitUnicodeString"
+      },
+      {
+        "address": "0x14000282d",
+        "target_dll": "ntoskrnl.exe",
+        "target_function": "RtlInitUnicodeString"
+      },
+      {
+        "address": "0x140003773",
+        "target_dll": "ntoskrnl.exe",
+        "target_function": "KeSetEvent"
+      },
+      {
+        "address": "0x14000378c",
+        "target_dll": "ntoskrnl.exe",
+        "target_function": "KeSetEvent"
+      },
+      {
+        "address": "0x14000379b",
+        "target_dll": "ntoskrnl.exe",
+        "target_function": "IofCompleteRequest"
+      }
+    ]
+  },
+  "known_ioctls": {
+    "0x9c402b74": "IOCTL_HANDSHAKE",
+    "0x9c402e00": "IOCTL_PORT_IN_DWORD",
+    "0x9c403a88": "IOCTL_PORT_IN_BYTE",
+    "0x9c402490": "IOCTL_PORT_OUT_DWORD",
+    "0x9c40277c": "IOCTL_PORT_OUT_BYTE",
+    "0x9c403a54": "IOCTL_PHYSMEM_MAP",
+    "0x9c402934": "IOCTL_PHYSMEM_UNMAP",
+    "0x9c4020d8": "IOCTL_PHYSMEM_RD_DW",
+    "0x9c403d3c": "IOCTL_PHYSMEM_WR_DW",
+    "0x9c402e94": "IOCTL_PHYSMEM_RD_BYTE",
+    "0x9c402510": "IOCTL_PHYSMEM_WR_BYTE",
+    "0x9c402994": "IOCTL_PHYSMEM_SINGLE",
+    "0x9c403218": "IOCTL_PHYSMEM_RMR",
+    "0x9c4020f4": "IOCTL_MSR_READ_1",
+    "0x9c4024e8": "IOCTL_MSR_WRITE_1",
+    "0x9c402724": "IOCTL_PCI_CONFIG"
+  },
+  "physical_memory": {
+    "mechanism": "MmMapIoSpace (map physical to kernel VA)",
+    "range_restrictions": "NONE",
+    "caching_mode": "MmNonCached (configurable via single-shot)",
+    "semantics": "MAP (not copy) \u2014 writes go directly to physical memory",
+    "slot_based": true,
+    "single_shot_available": true
+  },
+  "obfuscation": {
+    "vmprotect_markers": false,
+    "themida_markers": false,
+    "high_entropy_sections": [],
+    "suspicious_section_names": [],
+    "packed": false,
+    "notes": [
+      "Normal entropy profile (4.17) \u2014 no packing detected",
+      "No obfuscation or packing detected \u2014 clean binary"
+    ]
+  },
+  "detection": {
+    "device_name": "\\Device\\Harddisk%lu\\Partition0",
+    "symbolic_link": "\\DosDevices\\ArgusMonitorCTLD",
+    "user_mode_path": "\\\\.\\ArgusMonitorCTLD",
+    "service_name": "ArgusMonitorCTL",
+    "file_name": "ArgusMonitor.sys",
+    "sha256": "df9b2892498c68805fdc0fabb369f8bcf011e784898cb32fdc5d85f6123f1126",
+    "signing": "Argotronic UG (EV certificate, active)",
+    "loldrivers_listed": false,
+    "hvci_blocklist": false,
+    "known_cve": null
+  },
+  "rust_ffi_notes": {
+    "device_path": "\\\\.\\ArgusMonitorCTLD",
+    "handshake_required": true,
+    "handshake_ioctl": "0x9c402b74",
+    "handshake_input_size": "0x200",
+    "checksum_protocol": "sum(buffer[:-2]) & 0xFFFF, stored big-endian at last 2 bytes",
+    "physmem_map_ioctl": "0x9c403a54",
+    "physmem_read_dw_ioctl": "0x9c4020d8",
+    "physmem_write_dw_ioctl": "0x9c403d3c",
+    "physmem_single_read_ioctl": "0x9c402994"
+  }
+}

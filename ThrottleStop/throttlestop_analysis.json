@@ -1,0 +1,178 @@
+{
+  "driver": {
+    "name": "ThrottleStop.sys",
+    "version": "3.0.0.0",
+    "vendor": "TechPowerUp LLC",
+    "product": "Low-Level Driver",
+    "sha256": "16f83f056177c4ec24c7e99d01ca9d9d6713bd0497eeedb777a3ffefa99c97f0",
+    "file_size": 50216,
+    "compile_time": "2020-10-06T22:34:27Z",
+    "compile_timestamp": "0x5F7CD4D3",
+    "architecture": "x86-64",
+    "image_base": "0x140000000",
+    "entry_point_rva": "0x1730",
+    "pdb": "Driver.pdb"
+  },
+  "signing": {
+    "signed": true,
+    "dual_signed": true,
+    "signer": "TechPowerUp LLC",
+    "location": "Spokane, Washington, US",
+    "ein": "604 057 982",
+    "certificate_authority": "DigiCert EV Code Signing CA",
+    "valid_from": "2019-07-22",
+    "valid_to": "2022-06-15",
+    "timestamp": "2020-10-06",
+    "countersigner": "DigiCert Timestamp Responder",
+    "ms_crosssign": true,
+    "ms_ca": "Microsoft Windows Third Party Component CA 2014"
+  },
+  "device": {
+    "name_format": "\\\\Device\\\\%ls",
+    "symlink_format": "\\\\??\\\\%ls",
+    "runtime_name": "\\\\Device\\\\ThrottleStop",
+    "user_path": "\\\\\\\\.\\\\ThrottleStop",
+    "device_type": "0x22 (FILE_DEVICE_UNKNOWN)",
+    "device_extension_size": "0x2818 (10264 bytes)",
+    "characteristics": "0x100 (FILE_DEVICE_SECURE_OPEN)",
+    "exclusive": false,
+    "sddl": "D:P(A;;GA;;;SY)(A;;GA;;;BA)",
+    "sddl_meaning": "SYSTEM=Full, Administrators=Full, Others=Denied",
+    "creation_api": "IoCreateDeviceSecure (dynamically resolved)"
+  },
+  "access_control": {
+    "irp_mj_create_check": "NONE",
+    "irp_mj_create_behavior": "Increments open count, returns STATUS_SUCCESS unconditionally",
+    "per_ioctl_auth": false,
+    "caller_validation": "None beyond SDDL (admin required)",
+    "integrity_level_check": false,
+    "cwe": "CWE-782",
+    "cve": "CVE-2025-7771"
+  },
+  "ioctls": [
+    {
+      "code": "0x80006430",
+      "name": "IO_PORT_READ",
+      "function": "Read I/O port (IN instruction)",
+      "range_check": false,
+      "handler_rva": "0x1F4E"
+    },
+    {
+      "code": "0x80006434",
+      "name": "IO_PORT_WRITE",
+      "function": "Write I/O port (OUT instruction)",
+      "range_check": false,
+      "handler_rva": "0x1FC0"
+    },
+    {
+      "code": "0x80006448",
+      "name": "MSR_READ",
+      "function": "Read MSR (RDMSR)",
+      "range_check": false,
+      "handler_rva": "0x1CB0"
+    },
+    {
+      "code": "0x8000644C",
+      "name": "MSR_WRITE",
+      "function": "Write MSR (WRMSR)",
+      "range_check": "Partial",
+      "blocked_msrs": [
+        "0xC0000080-82",
+        "0x174-176"
+      ],
+      "handler_rva": "0x1C10"
+    },
+    {
+      "code": "0x8000645C",
+      "name": "PHYS_MAP_TO_USER",
+      "function": "Map physical memory to user-mode (persistent)",
+      "range_check": false,
+      "max_mappings": 256,
+      "handler_rva": "0x1D30"
+    },
+    {
+      "code": "0x80006460",
+      "name": "PHYS_UNMAP",
+      "function": "Unmap previously mapped physical memory",
+      "handler_rva": "0x2064"
+    },
+    {
+      "code": "0x80006494",
+      "name": "GET_MAPPING_COUNT",
+      "function": "Return active mapping count",
+      "handler_rva": "0x2127"
+    },
+    {
+      "code": "0x80006498",
+      "name": "PHYS_READ",
+      "function": "Read 1/2/4/8 bytes from physical address",
+      "range_check": false,
+      "handler_rva": "0x2184"
+    },
+    {
+      "code": "0x8000649C",
+      "name": "PHYS_WRITE",
+      "function": "Write 1/2/4/8 bytes to physical address",
+      "range_check": false,
+      "handler_rva": "0x2271"
+    },
+    {
+      "code": "0x800064A0",
+      "name": "PCI_CONFIG_READ",
+      "function": "Read PCI config space",
+      "handler_rva": "0x2365"
+    },
+    {
+      "code": "0x800064A4",
+      "name": "PCI_CONFIG_WRITE",
+      "function": "Write PCI config space",
+      "handler_rva": "0x2405"
+    }
+  ],
+  "capabilities": {
+    "arbitrary_phys_read": true,
+    "arbitrary_phys_write": true,
+    "phys_to_user_map": true,
+    "msr_read": true,
+    "msr_write": true,
+    "io_port_read": true,
+    "io_port_write": true,
+    "pci_config_read": true,
+    "pci_config_write": true,
+    "range_check_on_phys": false,
+    "max_simultaneous_mappings": 256,
+    "pid_isolation_on_unmap": true
+  },
+  "exploitation": {
+    "ppl_bypass": {
+      "method": "Write 0x00 to EPROCESS.Protection (offset 0x87A on Win11 25H2)",
+      "ioctl": "0x8000649C",
+      "prerequisite": "VA-to-PA translation (Superfetch or page table walk)"
+    },
+    "token_manipulation": {
+      "method": "Copy SYSTEM token to target EPROCESS.Token",
+      "ioctl": "0x8000649C",
+      "token_offset": "0x4B8"
+    },
+    "process_hiding_dkom": {
+      "method": "Unlink EPROCESS.ActiveProcessLinks",
+      "ioctl": "0x8000649C",
+      "links_offset": "0x448"
+    },
+    "eprocess_offsets_win11_25h2": {
+      "UniqueProcessId": "0x440",
+      "ActiveProcessLinks": "0x448",
+      "DirectoryTableBase": "0x028",
+      "Token": "0x4B8",
+      "Protection": "0x87A",
+      "ImageFileName": "0x5A8",
+      "ExitStatus": "0x550"
+    }
+  },
+  "detection": {
+    "device_name": "\\\\\\\\.\\\\ThrottleStop",
+    "service_name": "ThrottleStop",
+    "loldrivers": true,
+    "registry_key": "HKLM\\\\SYSTEM\\\\CurrentControlSet\\\\Services\\\\ThrottleStop"
+  }
+}

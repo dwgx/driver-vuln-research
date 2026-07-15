@@ -1,0 +1,290 @@
+{
+  "driver": {
+    "name": "LnvMSRIO.sys",
+    "vendor": "Lenovo",
+    "description": "Lenovo filter driver",
+    "version": "3.1.0.35",
+    "copyright": "Copyright (C) 2024, Lenovo. All Rights Reserved",
+    "cve": "CVE-2025-8061",
+    "architecture": "x86-64",
+    "file_size": 50216,
+    "md5": "e2b952939b8e9d76cff7d130b797a74d",
+    "sha256": "245b6ab442a7d53dc30ece28e1c6de727c019669385877cbe929b81aa1a2ad2f",
+    "timestamp": "0x6707686A",
+    "timestamp_date": "2024-10-10",
+    "pdb_path": "D:\\Work\\01.Dispatcher\\GitLab\\process_management\\x64\\Release\\LnvMSRIO.pdb",
+    "entry_point_rva": "0x00002C40",
+    "image_base": "0x0000000140000000",
+    "function_count": 48
+  },
+  "device": {
+    "device_name": "\\Device\\WinMsrDev",
+    "symbolic_link": "\\DosDevices\\WinMsrDev",
+    "usermode_path": "\\\\.\\WinMsrDev",
+    "service_name": "LnvMSRIO",
+    "minifilter_port": "\\LnvMiniFilterDriverPort"
+  },
+  "access_control": {
+    "irp_mj_create": "NO_CHECK",
+    "description": "IRP_MJ_CREATE increments a reference counter and returns STATUS_SUCCESS unconditionally. No SID, ACL, or process validation.",
+    "open_limit": -1,
+    "comment": "Counter compared to -1 means unlimited opens"
+  },
+  "capabilities": {
+    "physical_memory_read": true,
+    "physical_memory_write": true,
+    "msr_read": true,
+    "msr_write": true,
+    "io_port_read": true,
+    "io_port_write": true,
+    "pci_config_read": true,
+    "pci_config_write": true,
+    "performance_counter_read": true,
+    "cpu_halt": true,
+    "process_notify_callback": true,
+    "power_callback": true,
+    "minifilter": true
+  },
+  "restrictions": {
+    "physical_address_whitelist": null,
+    "physical_address_blacklist": null,
+    "msr_index_whitelist": null,
+    "io_port_whitelist": null,
+    "pci_bdf_whitelist": null,
+    "max_read_size": null,
+    "process_check": false,
+    "comment": "ZERO restrictions. All primitives are unrestricted."
+  },
+  "mechanism": {
+    "physical_memory": "MmMapIoSpace + MmUnmapIoSpace",
+    "msr": "native RDMSR/WRMSR instructions",
+    "io_ports": "native IN/OUT instructions",
+    "pci_config": "HalGetBusDataByOffset / HalSetBusDataByOffset"
+  },
+  "ioctls": [
+    {
+      "code": "0x9C402000",
+      "code_dec": 2621546496,
+      "name": "GET_VERSION",
+      "handler_rva": "inline",
+      "description": "Returns driver version (0x1000000)",
+      "input_size": 0,
+      "output_size": 4,
+      "method": "METHOD_BUFFERED"
+    },
+    {
+      "code": "0x9C402004",
+      "code_dec": 2621546500,
+      "name": "GET_REFCOUNT",
+      "handler_rva": "inline",
+      "description": "Returns current reference counter",
+      "input_size": 0,
+      "output_size": 4,
+      "method": "METHOD_BUFFERED"
+    },
+    {
+      "code": "0x9C402084",
+      "code_dec": 2621546628,
+      "name": "MSR_READ",
+      "handler_rva": "0x140002140",
+      "description": "Read Model-Specific Register via RDMSR",
+      "input_size": 4,
+      "output_size": 8,
+      "method": "METHOD_BUFFERED",
+      "input_struct": {
+        "msr_index": {"offset": 0, "size": 4, "type": "UINT32"}
+      },
+      "output_struct": {
+        "value": {"offset": 0, "size": 8, "type": "UINT64"}
+      }
+    },
+    {
+      "code": "0x9C402088",
+      "code_dec": 2621546632,
+      "name": "MSR_WRITE",
+      "handler_rva": "0x140002680",
+      "description": "Write Model-Specific Register via WRMSR",
+      "input_size": 12,
+      "output_size": 4,
+      "method": "METHOD_BUFFERED",
+      "input_struct": {
+        "msr_index": {"offset": 0, "size": 4, "type": "UINT32"},
+        "value": {"offset": 4, "size": 8, "type": "UINT64", "note": "unaligned"}
+      }
+    },
+    {
+      "code": "0x9C40208C",
+      "code_dec": 2621546636,
+      "name": "RDPMC",
+      "handler_rva": "0x140002270",
+      "description": "Read Performance Monitoring Counter via RDPMC",
+      "input_size": 4,
+      "output_size": 8,
+      "method": "METHOD_BUFFERED",
+      "input_struct": {
+        "counter_index": {"offset": 0, "size": 4, "type": "UINT32"}
+      }
+    },
+    {
+      "code": "0x9C402090",
+      "code_dec": 2621546640,
+      "name": "CPU_HALT",
+      "handler_rva": "inline",
+      "description": "Execute HLT instruction",
+      "input_size": 0,
+      "output_size": 0,
+      "method": "METHOD_BUFFERED"
+    },
+    {
+      "code": "0x9C4060CC",
+      "code_dec": 2621563084,
+      "name": "IO_PORT_READ_BYTE",
+      "handler_rva": "0x140001F10",
+      "description": "Read byte from I/O port (IN AL, DX)",
+      "input_size": 4,
+      "output_size": 1,
+      "method": "METHOD_NEITHER",
+      "input_struct": {
+        "port": {"offset": 0, "size": 4, "type": "UINT32"}
+      }
+    },
+    {
+      "code": "0x9C4060D0",
+      "code_dec": 2621563088,
+      "name": "IO_PORT_READ_WORD",
+      "handler_rva": "0x140001F10",
+      "description": "Read word from I/O port (IN AX, DX)",
+      "input_size": 4,
+      "output_size": 2,
+      "method": "METHOD_NEITHER"
+    },
+    {
+      "code": "0x9C4060D4",
+      "code_dec": 2621563092,
+      "name": "IO_PORT_READ_DWORD",
+      "handler_rva": "0x140001F10",
+      "description": "Read dword from I/O port (IN EAX, DX)",
+      "input_size": 4,
+      "output_size": 4,
+      "method": "METHOD_NEITHER"
+    },
+    {
+      "code": "0x9C406104",
+      "code_dec": 2621563140,
+      "name": "PHYS_MEM_READ",
+      "handler_rva": "0x140001FE0",
+      "description": "Read physical memory via MmMapIoSpace",
+      "input_size": 16,
+      "output_size": "variable (AccessSize * Count)",
+      "method": "METHOD_BUFFERED",
+      "input_struct": {
+        "physical_address": {"offset": 0, "size": 8, "type": "UINT64"},
+        "access_size": {"offset": 8, "size": 4, "type": "UINT32", "values": "1=byte, 2=word, 8=qword"},
+        "count": {"offset": 12, "size": 4, "type": "UINT32"}
+      }
+    },
+    {
+      "code": "0x9C406144",
+      "code_dec": 2621563204,
+      "name": "PCI_CONFIG_READ",
+      "handler_rva": "0x1400021D0",
+      "description": "Read PCI configuration space via HalGetBusDataByOffset",
+      "input_size": 8,
+      "output_size": "variable",
+      "method": "METHOD_BUFFERED",
+      "input_struct": {
+        "bdf": {"offset": 0, "size": 4, "type": "UINT32", "encoding": "bits[15:8]=bus, bits[7:3]=device, bits[2:0]=function"},
+        "offset": {"offset": 4, "size": 4, "type": "UINT32"}
+      }
+    },
+    {
+      "code": "0x9C40A0D8",
+      "code_dec": 2621579480,
+      "name": "IO_PORT_WRITE_BYTE",
+      "handler_rva": "0x140002440",
+      "description": "Write byte to I/O port (OUT DX, AL)",
+      "input_size": 8,
+      "output_size": 0,
+      "method": "METHOD_NEITHER",
+      "input_struct": {
+        "port": {"offset": 0, "size": 4, "type": "UINT32"},
+        "value": {"offset": 4, "size": 1, "type": "UINT8"}
+      }
+    },
+    {
+      "code": "0x9C40A0DC",
+      "code_dec": 2621579484,
+      "name": "IO_PORT_WRITE_WORD",
+      "handler_rva": "0x140002440",
+      "description": "Write word to I/O port (OUT DX, AX)",
+      "input_size": 8,
+      "output_size": 0,
+      "method": "METHOD_NEITHER"
+    },
+    {
+      "code": "0x9C40A0E0",
+      "code_dec": 2621579488,
+      "name": "IO_PORT_WRITE_DWORD",
+      "handler_rva": "0x140002440",
+      "description": "Write dword to I/O port (OUT DX, EAX)",
+      "input_size": 8,
+      "output_size": 0,
+      "method": "METHOD_NEITHER"
+    },
+    {
+      "code": "0x9C40A108",
+      "code_dec": 2621579528,
+      "name": "PHYS_MEM_WRITE",
+      "handler_rva": "0x140002500",
+      "description": "Write physical memory via MmMapIoSpace",
+      "input_size": "16 + data",
+      "output_size": 0,
+      "method": "METHOD_BUFFERED",
+      "input_struct": {
+        "physical_address": {"offset": 0, "size": 8, "type": "UINT64"},
+        "access_size": {"offset": 8, "size": 4, "type": "UINT32", "values": "1=byte, 2=word, 8=qword"},
+        "count": {"offset": 12, "size": 4, "type": "UINT32"},
+        "data": {"offset": 16, "size": "AccessSize * Count", "type": "UINT8[]"}
+      }
+    },
+    {
+      "code": "0x9C40A148",
+      "code_dec": 2621579592,
+      "name": "PCI_CONFIG_WRITE",
+      "handler_rva": "0x140002700",
+      "description": "Write PCI configuration space via HalSetBusDataByOffset",
+      "input_size": "8 + data",
+      "output_size": 0,
+      "method": "METHOD_BUFFERED",
+      "input_struct": {
+        "bdf": {"offset": 0, "size": 4, "type": "UINT32"},
+        "offset": {"offset": 4, "size": 4, "type": "UINT32"},
+        "data": {"offset": 8, "size": "variable", "type": "UINT8[]"}
+      }
+    }
+  ],
+  "detection": {
+    "device_path": "\\Device\\WinMsrDev",
+    "symlink": "\\DosDevices\\WinMsrDev",
+    "service_key": "HKLM\\System\\CurrentControlSet\\Services\\LnvMSRIO",
+    "file_name": "LnvMSRIO.sys",
+    "minifilter_port": "\\LnvMiniFilterDriverPort",
+    "sha256": "245b6ab442a7d53dc30ece28e1c6de727c019669385877cbe929b81aa1a2ad2f"
+  },
+  "saomola_integration": {
+    "priority": "HIGH",
+    "advantages": [
+      "No physical address range restrictions (unlike AsIO3)",
+      "MSR access enables CR3 reading for page table walks",
+      "Simple 16-byte input struct",
+      "Signed by major OEM (Lenovo)",
+      "Multiple primitives in single driver"
+    ],
+    "recommended_ioctls": {
+      "key_scan": "0x9C406104 (physical memory read for bulk scanning)",
+      "page_table_walk": "0x9C402084 (read CR3 from MSR if needed) + 0x9C406104",
+      "key_write_back": "0x9C40A108 (if needed)"
+    },
+    "driver_chain_position": "PREFERRED (before SIVX64, ASMMAP64)"
+  }
+}

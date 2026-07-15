@@ -1,0 +1,1067 @@
+{
+  "metadata": {
+    "file": "D:\\Project\\toolkit\\drivers\\Vulnerable-Monitors\\SIVX64.sys",
+    "size": 211144,
+    "image_base": "0x10000",
+    "entry_point_rva": "0x32cd4",
+    "machine": "0x8664",
+    "timestamp": 1768378610,
+    "subsystem": 1,
+    "sections": [
+      {
+        "name": ".text",
+        "rva": "0x1000",
+        "vsize": "0x3b91",
+        "raw_offset": "0x400",
+        "raw_size": "0x3c00",
+        "characteristics": "0x68000020",
+        "executable": true
+      },
+      {
+        "name": ".rdata",
+        "rva": "0x5000",
+        "vsize": "0x9130",
+        "raw_offset": "0x4000",
+        "raw_size": "0x9200",
+        "characteristics": "0x48000040",
+        "executable": false
+      },
+      {
+        "name": ".data",
+        "rva": "0xf000",
+        "vsize": "0x15c",
+        "raw_offset": "0xd200",
+        "raw_size": "0x200",
+        "characteristics": "0xc8000040",
+        "executable": false
+      },
+      {
+        "name": ".pdata",
+        "rva": "0x10000",
+        "vsize": "0x870",
+        "raw_offset": "0xd400",
+        "raw_size": "0xa00",
+        "characteristics": "0x48000040",
+        "executable": false
+      },
+      {
+        "name": "PAGE",
+        "rva": "0x11000",
+        "vsize": "0x208f3",
+        "raw_offset": "0xde00",
+        "raw_size": "0x20a00",
+        "characteristics": "0x60000020",
+        "executable": true
+      },
+      {
+        "name": "INIT",
+        "rva": "0x32000",
+        "vsize": "0x17b4",
+        "raw_offset": "0x2e800",
+        "raw_size": "0x1800",
+        "characteristics": "0xe2000020",
+        "executable": true
+      },
+      {
+        "name": ".rsrc",
+        "rva": "0x34000",
+        "vsize": "0x3f8",
+        "raw_offset": "0x30000",
+        "raw_size": "0x400",
+        "characteristics": "0x42000040",
+        "executable": false
+      },
+      {
+        "name": ".reloc",
+        "rva": "0x35000",
+        "vsize": "0xa84",
+        "raw_offset": "0x30400",
+        "raw_size": "0xc00",
+        "characteristics": "0x42000040",
+        "executable": false
+      }
+    ]
+  },
+  "imports": [
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ExFreePoolWithTag",
+      "iat_rva": "0x5030"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeInitializeMutex",
+      "iat_rva": "0x5038"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "RtlAnsiStringToUnicodeString",
+      "iat_rva": "0x5040"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ZwYieldExecution",
+      "iat_rva": "0x5048"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoWMIQueryAllData",
+      "iat_rva": "0x5050"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoBuildSynchronousFsdRequest",
+      "iat_rva": "0x5058"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ZwQuerySymbolicLinkObject",
+      "iat_rva": "0x5060"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "strstr",
+      "iat_rva": "0x5068"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "RtlInitUnicodeString",
+      "iat_rva": "0x5070"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoDeleteDevice",
+      "iat_rva": "0x5078"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ProbeForWrite",
+      "iat_rva": "0x5080"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "strchr",
+      "iat_rva": "0x5088"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "MmGetSystemRoutineAddress",
+      "iat_rva": "0x5090"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeInitializeEvent",
+      "iat_rva": "0x5098"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "RtlQueryRegistryValues",
+      "iat_rva": "0x50a0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "RtlInitAnsiString",
+      "iat_rva": "0x50a8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoIs32bitProcess",
+      "iat_rva": "0x50b0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeInitializeDpc",
+      "iat_rva": "0x50b8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeIpiGenericCall",
+      "iat_rva": "0x50c0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "PsGetThreadId",
+      "iat_rva": "0x50c8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "MmUnmapIoSpace",
+      "iat_rva": "0x50d0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ZwOpenSymbolicLinkObject",
+      "iat_rva": "0x50d8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoWMIOpenBlock",
+      "iat_rva": "0x50e0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeInitializeTimer",
+      "iat_rva": "0x50e8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeSetTimerEx",
+      "iat_rva": "0x50f0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoCreateSynchronizationEvent",
+      "iat_rva": "0x50f8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeReleaseMutex",
+      "iat_rva": "0x5100"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoCancelIrp",
+      "iat_rva": "0x5108"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeDelayExecutionThread",
+      "iat_rva": "0x5110"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoGetDeviceObjectPointer",
+      "iat_rva": "0x5118"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoDeleteSymbolicLink",
+      "iat_rva": "0x5120"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ExAllocatePool",
+      "iat_rva": "0x5128"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeQueryTimeIncrement",
+      "iat_rva": "0x5130"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ZwClose",
+      "iat_rva": "0x5138"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IofCompleteRequest",
+      "iat_rva": "0x5140"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoGetDeviceAttachmentBaseRef",
+      "iat_rva": "0x5148"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ObReferenceObjectByHandle",
+      "iat_rva": "0x5150"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeWaitForSingleObject",
+      "iat_rva": "0x5158"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoGetAttachedDeviceReference",
+      "iat_rva": "0x5160"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "PsGetVersion",
+      "iat_rva": "0x5168"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoGetDiskDeviceObject",
+      "iat_rva": "0x5170"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "RtlCompareMemory",
+      "iat_rva": "0x5178"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ObfReferenceObject",
+      "iat_rva": "0x5180"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoCreateSymbolicLink",
+      "iat_rva": "0x5188"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ObfDereferenceObject",
+      "iat_rva": "0x5190"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoOpenDeviceRegistryKey",
+      "iat_rva": "0x5198"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ObReferenceObjectByName",
+      "iat_rva": "0x51a0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoCreateDevice",
+      "iat_rva": "0x51a8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoDeviceObjectType",
+      "iat_rva": "0x51b0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoEnumerateDeviceObjectList",
+      "iat_rva": "0x51b8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeCancelTimer",
+      "iat_rva": "0x51c0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeNumberProcessors",
+      "iat_rva": "0x51c8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "PsGetThreadProcessId",
+      "iat_rva": "0x51d0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoGetDeviceProperty",
+      "iat_rva": "0x51d8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "DbgPrintEx",
+      "iat_rva": "0x51e0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "DbgPrint",
+      "iat_rva": "0x51e8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IofCallDriver",
+      "iat_rva": "0x51f0"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ZwQueryKey",
+      "iat_rva": "0x51f8"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "KeBugCheckEx",
+      "iat_rva": "0x5200"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoBuildDeviceIoControlRequest",
+      "iat_rva": "0x5208"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "IoGetLowerDeviceObject",
+      "iat_rva": "0x5210"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "SeSinglePrivilegeCheck",
+      "iat_rva": "0x5218"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "ProbeForRead",
+      "iat_rva": "0x5220"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "DbgBreakPoint",
+      "iat_rva": "0x5228"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "_wcsicmp",
+      "iat_rva": "0x5230"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "RtlUnwindEx",
+      "iat_rva": "0x5238"
+    },
+    {
+      "dll": "ntoskrnl.exe",
+      "name": "RtlAnsiCharToUnicodeChar",
+      "iat_rva": "0x5240"
+    },
+    {
+      "dll": "HAL.dll",
+      "name": "HalTranslateBusAddress",
+      "iat_rva": "0x5000"
+    },
+    {
+      "dll": "HAL.dll",
+      "name": "HalGetBusDataByOffset",
+      "iat_rva": "0x5008"
+    },
+    {
+      "dll": "HAL.dll",
+      "name": "HalSetBusDataByOffset",
+      "iat_rva": "0x5010"
+    },
+    {
+      "dll": "HAL.dll",
+      "name": "KeStallExecutionProcessor",
+      "iat_rva": "0x5018"
+    },
+    {
+      "dll": "HAL.dll",
+      "name": "KeQueryPerformanceCounter",
+      "iat_rva": "0x5020"
+    }
+  ],
+  "dispatch_table": {},
+  "access_control": {
+    "mechanism": "SeSinglePrivilegeCheck(SeLoadDriverPrivilege)",
+    "privilege_luid": "(10, 0)",
+    "privilege_name": "SeLoadDriverPrivilege",
+    "string_checks": [
+      "\\GPIO-EXT",
+      "\\GPIO-INT"
+    ],
+    "status_denied": "0xC0000022 (STATUS_ACCESS_DENIED)",
+    "bypass": "Enable SeLoadDriverPrivilege via AdjustTokenPrivileges before CreateFileW"
+  },
+  "ioctl_codes": {
+    "0x08": {
+      "name": "RDMSR",
+      "input": "u32 msr_index",
+      "output": "u64 value"
+    },
+    "0x0C": {
+      "name": "WRMSR",
+      "input": "u32 msr_index + u64 value",
+      "note": "Whitelisted MSRs only"
+    },
+    "0x10": {
+      "name": "PhysMem_Scatter",
+      "input": "[u64 phys_addr][u32 size]",
+      "output": "raw bytes",
+      "limits": "4 to 0x40000 (256KB)"
+    },
+    "0x13": {
+      "name": "PhysMem_Bulk",
+      "input": "[u64 phys_addr][u32 size]",
+      "output": "raw bytes",
+      "limits": "0x400 to 0xFFFC00 (~16MB)"
+    },
+    "0x14": {
+      "name": "PhysMem_RW_Map",
+      "input": "flags: bit1=write, bit2=readback",
+      "note": "Physical memory map/unmap"
+    },
+    "0x44": {
+      "name": "Port_IO_Read",
+      "input": "port address",
+      "output": "port value"
+    },
+    "0x48": {
+      "name": "PCI_Config_Read",
+      "input": "[u8 bus][u8 dev][u8 fn][u8 offset]",
+      "output": "u32 config value"
+    }
+  },
+  "unicode_strings": [
+    {
+      "offset": "0x4290",
+      "rva": "0x5290",
+      "value": "RtlQueryModuleInformation"
+    },
+    {
+      "offset": "0x42d8",
+      "rva": "0x52d8",
+      "value": "(null)"
+    },
+    {
+      "offset": "0x432e",
+      "rva": "0x532e",
+      "value": "`砀硰灸pࠇ"
+    },
+    {
+      "offset": "0x5d3c",
+      "rva": "0x6d3c",
+      "value": "P呁⁉啍ⵘ?"
+    },
+    {
+      "offset": "0x7e6a",
+      "rva": "0x8e6a",
+      "value": "HLㄵ〰䘠䉓"
+    },
+    {
+      "offset": "0x7eb2",
+      "rva": "0x8eb2",
+      "value": "tx〵〰䘠䑂〠䄠"
+    },
+    {
+      "offset": "0x7efa",
+      "rva": "0x8efa",
+      "value": "v|〵〰䘠䑂〠䈠"
+    },
+    {
+      "offset": "0x7f42",
+      "rva": "0x8f42",
+      "value": "tx㐵〰䘠䑂〠䄠"
+    },
+    {
+      "offset": "0x7f8a",
+      "rva": "0x8f8a",
+      "value": "v|㐵〰䘠䑂〠䈠"
+    },
+    {
+      "offset": "0x7fd2",
+      "rva": "0x8fd2",
+      "value": "tx㌷〰䘠䑂〠䄠"
+    },
+    {
+      "offset": "0x801a",
+      "rva": "0x901a",
+      "value": "v|㌷〰䘠䑂〠䈠"
+    },
+    {
+      "offset": "0x8062",
+      "rva": "0x9062",
+      "value": "tx〵〰䘠䑂ㄠ䄠"
+    },
+    {
+      "offset": "0x80aa",
+      "rva": "0x90aa",
+      "value": "v|〵〰䘠䑂ㄠ䈠"
+    },
+    {
+      "offset": "0x80f2",
+      "rva": "0x90f2",
+      "value": "tx㐵〰䘠䑂ㄠ䄠"
+    },
+    {
+      "offset": "0x813a",
+      "rva": "0x913a",
+      "value": "v|㐵〰䘠䑂ㄠ䈠"
+    },
+    {
+      "offset": "0x8182",
+      "rva": "0x9182",
+      "value": "tx㌷〰䘠䑂ㄠ䄠"
+    },
+    {
+      "offset": "0x81ca",
+      "rva": "0x91ca",
+      "value": "v|㌷〰䘠䑂ㄠ䈠"
+    },
+    {
+      "offset": "0xa464",
+      "rva": "0xb464",
+      "value": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "offset": "0xa4ac",
+      "rva": "0xb4ac",
+      "value": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "offset": "0xa4f4",
+      "rva": "0xb4f4",
+      "value": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "offset": "0xa53c",
+      "rva": "0xb53c",
+      "value": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "offset": "0xa584",
+      "rva": "0xb584",
+      "value": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "offset": "0xa5cc",
+      "rva": "0xb5cc",
+      "value": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "offset": "0xa614",
+      "rva": "0xb614",
+      "value": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "offset": "0xa65c",
+      "rva": "0xb65c",
+      "value": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "offset": "0xa6a4",
+      "rva": "0xb6a4",
+      "value": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "offset": "0xa6ec",
+      "rva": "0xb6ec",
+      "value": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "offset": "0xa734",
+      "rva": "0xb734",
+      "value": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "offset": "0xa77c",
+      "rva": "0xb77c",
+      "value": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "offset": "0xa910",
+      "rva": "0xb910",
+      "value": "@䘀ER✀"
+    },
+    {
+      "offset": "0xa99a",
+      "rva": "0xb99a",
+      "value": "^倁Q\\匁T`唁Vj倂Qh匂Tl唂Vú"
+    },
+    {
+      "offset": "0xa9c8",
+      "rva": "0xb9c8",
+      "value": ";þ崀GĄ"
+    },
+    {
+      "offset": "0xa9da",
+      "rva": "0xb9da",
+      "value": "<Ĉ崀GĎ"
+    },
+    {
+      "offset": "0xa9ec",
+      "rva": "0xb9ec",
+      "value": "=Ē崀KƆ"
+    },
+    {
+      "offset": "0xaae0",
+      "rva": "0xbae0",
+      "value": "^倁Q\\匁T`唁Vb唄"
+    },
+    {
+      "offset": "0xaaf8",
+      "rva": "0xbaf8",
+      "value": "j倂Qh匂Tl唂Vn嘄"
+    },
+    {
+      "offset": "0xab1a",
+      "rva": "0xbb1a",
+      "value": ";þ崀GĄ"
+    },
+    {
+      "offset": "0xab2c",
+      "rva": "0xbb2c",
+      "value": "<Ĉ崀GĎ"
+    },
+    {
+      "offset": "0xab3e",
+      "rva": "0xbb3e",
+      "value": "=Ē崀KƆ"
+    },
+    {
+      "offset": "0xac00",
+      "rva": "0xbc00",
+      "value": "^倁Q\\匁T`唁Vb唄"
+    },
+    {
+      "offset": "0xac18",
+      "rva": "0xbc18",
+      "value": "j倂Qh匂Tl唂Vn嘄"
+    },
+    {
+      "offset": "0xac3a",
+      "rva": "0xbc3a",
+      "value": ";þ崀GĄ"
+    },
+    {
+      "offset": "0xac4c",
+      "rva": "0xbc4c",
+      "value": "<Ĉ崀GĎ"
+    },
+    {
+      "offset": "0xac5e",
+      "rva": "0xbc5e",
+      "value": "=Ē崀KĘ"
+    },
+    {
+      "offset": "0xad60",
+      "rva": "0xbd60",
+      "value": "8夀]>"
+    },
+    {
+      "offset": "0xafd0",
+      "rva": "0xbfd0",
+      "value": "8夀]>"
+    },
+    {
+      "offset": "0xb190",
+      "rva": "0xc190",
+      "value": "8夀]R✀"
+    },
+    {
+      "offset": "0xb1a2",
+      "rva": "0xc1a2",
+      "value": "^倁Qb唄"
+    },
+    {
+      "offset": "0xb1ae",
+      "rva": "0xc1ae",
+      "value": "j鈄Qn嘄"
+    },
+    {
+      "offset": "0xb31a",
+      "rva": "0xc31a",
+      "value": ";Ą㰀=Ď㸀?Ę䀀AĢ䈀CĬ䐀EƆ@"
+    },
+    {
+      "offset": "0xb4e0",
+      "rva": "0xc4e0",
+      "value": ";Ą㰀=Ď㸀?Ę䀀AĢ䈀CĬ䐀EĶ䘀GƆ@"
+    },
+    {
+      "offset": "0xb760",
+      "rva": "0xc760",
+      "value": "@尀P8"
+    },
+    {
+      "offset": "0xb890",
+      "rva": "0xc890",
+      "value": "@尀P8"
+    },
+    {
+      "offset": "0xb9c0",
+      "rva": "0xc9c0",
+      "value": "@尀P8"
+    },
+    {
+      "offset": "0xb9ca",
+      "rva": "0xc9ca",
+      "value": "QR⤀"
+    },
+    {
+      "offset": "0xbaf0",
+      "rva": "0xcaf0",
+      "value": "@尀P8"
+    },
+    {
+      "offset": "0xbc40",
+      "rva": "0xcc40",
+      "value": "@尀P8"
+    },
+    {
+      "offset": "0xbd90",
+      "rva": "0xcd90",
+      "value": "@尀P8"
+    },
+    {
+      "offset": "0xbfb2",
+      "rva": "0xcfb2",
+      "value": "^℀I\\㸀"
+    },
+    {
+      "offset": "0xbfc4",
+      "rva": "0xcfc4",
+      "value": "jἀIhḀ"
+    },
+    {
+      "offset": "0xc116",
+      "rva": "0xd116",
+      "value": "(Ą⬀*Ďⴀ,Ǡ"
+    },
+    {
+      "offset": "0xc222",
+      "rva": "0xd222",
+      "value": "2ú⤀(Ą⬀*Ďⴀ,Ę⼀.Ǭ"
+    },
+    {
+      "offset": "0xc2fc",
+      "rva": "0xd2fc",
+      "value": "(Ą⬀*Ďⴀ,Ę⼀.Ɔ"
+    },
+    {
+      "offset": "0xc5bd",
+      "rva": "0xd5bd",
+      "value": "0瀀6Ā"
+    },
+    {
+      "offset": "0xc5e5",
+      "rva": "0xd5e5",
+      "value": "0瀀6Ā"
+    },
+    {
+      "offset": "0xc60d",
+      "rva": "0xd60d",
+      "value": "0瀀6Ā"
+    },
+    {
+      "offset": "0xc6ad",
+      "rva": "0xd6ad",
+      "value": "0瀀6Ā"
+    },
+    {
+      "offset": "0xc6b9",
+      "rva": "0xd6b9",
+      "value": "\"刀&Ā"
+    },
+    {
+      "offset": "0xc951",
+      "rva": "0xd951",
+      "value": "Pऀؚᨀᛒᓐዀᅰၠ瀰6Ā"
+    },
+    {
+      "offset": "0xcde9",
+      "rva": "0xdde9",
+      "value": "p瀀6Ā"
+    },
+    {
+      "offset": "0xce01",
+      "rva": "0xde01",
+      "value": "!ऀਟἀᡤἀ᜴ἀᣲᛰᓠዐჀ灰6Ā"
+    },
+    {
+      "offset": "0xcf31",
+      "rva": "0xdf31",
+      "value": "Pᤀଭᬀ굤ᬀ갴ᬀꐁ᐀ደრ໐ೀp저3ᨀ"
+    },
+    {
+      "offset": "0xd115",
+      "rva": "0xe115",
+      "value": "PĀਙᤀॴᤀࡤᤀݔᤀشᤀᔲÐ"
+    }
+  ],
+  "ascii_strings": [
+    {
+      "offset": "0x42e8",
+      "value": "(null)"
+    },
+    {
+      "offset": "0x4311",
+      "value": "( 8PP"
+    },
+    {
+      "offset": "0x4319",
+      "value": "700WP"
+    },
+    {
+      "offset": "0x4329",
+      "value": "`h````"
+    },
+    {
+      "offset": "0x4331",
+      "value": "xpxxpp"
+    },
+    {
+      "offset": "0x4350",
+      "value": "Invalid parameter passed to C runtime function."
+    },
+    {
+      "offset": "0x43a6",
+      "value": "ARL-H SMBus"
+    },
+    {
+      "offset": "0x43ee",
+      "value": "MTL-P SMBus"
+    },
+    {
+      "offset": "0x4436",
+      "value": "TGL-LP SMBus"
+    },
+    {
+      "offset": "0x447e",
+      "value": "ICL-LP SMBus"
+    },
+    {
+      "offset": "0x44c6",
+      "value": "JPL-M SMBus"
+    },
+    {
+      "offset": "0x450e",
+      "value": "ADL-U SMBus"
+    },
+    {
+      "offset": "0x4556",
+      "value": "ADL-N SMBus"
+    },
+    {
+      "offset": "0x459e",
+      "value": "ICX-D SMBus"
+    },
+    {
+      "offset": "0x45e6",
+      "value": "Z890 SMBus"
+    },
+    {
+      "offset": "0x462e",
+      "value": "Z790 SMBus"
+    },
+    {
+      "offset": "0x4676",
+      "value": "Z690 SMBus"
+    },
+    {
+      "offset": "0x46be",
+      "value": "Z590 SMBus"
+    },
+    {
+      "offset": "0x4706",
+      "value": "X500 SMBus"
+    },
+    {
+      "offset": "0x474e",
+      "value": "Z490 SMBus"
+    },
+    {
+      "offset": "0x4796",
+      "value": "X400 SMBus"
+    },
+    {
+      "offset": "0x47de",
+      "value": "H400 SMBus"
+    },
+    {
+      "offset": "0x4826",
+      "value": "Z390 SMBus"
+    },
+    {
+      "offset": "0x486e",
+      "value": "Z270 SMBus"
+    },
+    {
+      "offset": "0x48b6",
+      "value": "C620 SMBus"
+    },
+    {
+      "offset": "0x48fe",
+      "value": "C620 SMBus"
+    },
+    {
+      "offset": "0x4946",
+      "value": "Z170 SMBus"
+    },
+    {
+      "offset": "0x498e",
+      "value": "M100 SMBus"
+    },
+    {
+      "offset": "0x49d6",
+      "value": "M300 SMBus"
+    },
+    {
+      "offset": "0x4a1e",
+      "value": "X6000 SMBus"
+    },
+    {
+      "offset": "0x4a66",
+      "value": "C3000 SMBus"
+    },
+    {
+      "offset": "0x4aae",
+      "value": "Atom SMBus"
+    },
+    {
+      "offset": "0x4af6",
+      "value": "Braswell SMBus"
+    },
+    {
+      "offset": "0x4b3e",
+      "value": "Avoton SMBus-A"
+    },
+    {
+      "offset": "0x4b86",
+      "value": "Avoton SMBus-B"
+    },
+    {
+      "offset": "0x4bce",
+      "value": "Avoton SMBus-C"
+    },
+    {
+      "offset": "0x4c16",
+      "value": "P9-LP SMBus"
+    },
+    {
+      "offset": "0x4c5e",
+      "value": "P9 SMBus"
+    },
+    {
+      "offset": "0x4ca6",
+      "value": "P8-LP SMBus"
+    },
+    {
+      "offset": "0x4cee",
+      "value": "P8 SMBus"
+    },
+    {
+      "offset": "0x4d36",
+      "value": "X99 SMBus-A"
+    },
+    {
+      "offset": "0x4d7e",
+      "value": "X99 MUX-?"
+    },
+    {
+      "offset": "0x4dc6",
+      "value": "P7 SMBus"
+    },
+    {
+      "offset": "0x4e0e",
+      "value": "X79 SMBus-A"
+    },
+    {
+      "offset": "0x4e56",
+      "value": "P6 SMBus"
+    },
+    {
+      "offset": "0x4e9e",
+      "value": "P5 SMBus"
+    },
+    {
+      "offset": "0x4ee6",
+      "value": "DH89 SMBus"
+    },
+    {
+      "offset": "0x4f2e",
+      "value": "DH89 SMBus"
+    },
+    {
+      "offset": "0x4f76",
+      "value": "ICH10 82801-JD"
+    },
+    {
+      "offset": "0x4fbe",
+      "value": "ICH10 82801-JR"
+    }
+  ]
+}

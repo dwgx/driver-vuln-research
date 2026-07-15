@@ -1,0 +1,13 @@
+[package]
+name = "extractor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Zero external deps - all FFI is manual
+
+[build-dependencies]
+
+[profile.release]
+opt-level = 2
+lto = true

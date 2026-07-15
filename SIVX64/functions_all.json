@@ -1,0 +1,3265 @@
+[
+  {
+    "begin_rva": "0x1008",
+    "end_rva": "0x11ed",
+    "size": 485,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x10], rdx",
+      "mov qword ptr [rax + 8], rcx"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x3170",
+      "0x3238",
+      "0x3264",
+      "0x3358"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x11f4",
+    "end_rva": "0x1363",
+    "size": 367,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x136c",
+    "end_rva": "0x13af",
+    "size": 67,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x20",
+      "mov rbx, rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeQueryPerformanceCounter"
+    ],
+    "internal_calls": [],
+    "role": "init_helper"
+  },
+  {
+    "begin_rva": "0x13b8",
+    "end_rva": "0x13f6",
+    "size": 62,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x20",
+      "mov rbx, rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeQueryPerformanceCounter"
+    ],
+    "internal_calls": [],
+    "role": "init_helper"
+  },
+  {
+    "begin_rva": "0x13fc",
+    "end_rva": "0x144c",
+    "size": 80,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x48",
+      "bt dword ptr [rcx], 0x1f",
+      "mov r10, rcx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1498",
+    "end_rva": "0x1577",
+    "size": 223,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "mov qword ptr [rsp + 0x20], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1580",
+    "end_rva": "0x165a",
+    "size": 218,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "mov qword ptr [rsp + 0x20], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1660",
+    "end_rva": "0x1747",
+    "size": 231,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x1498"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1750",
+    "end_rva": "0x1804",
+    "size": 180,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x1498",
+      "0x1580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x180c",
+    "end_rva": "0x18d5",
+    "size": 201,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x18dc",
+    "end_rva": "0x19c0",
+    "size": 228,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rdi",
+      "mov ecx, dword ptr [rsp + 0x30]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x19c8",
+    "end_rva": "0x1adb",
+    "size": 275,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!HalGetBusDataByOffset"
+    ],
+    "internal_calls": [
+      "0x18dc"
+    ],
+    "role": "Repeated init step (275 bytes, called 5x)"
+  },
+  {
+    "begin_rva": "0x1ae4",
+    "end_rva": "0x1b23",
+    "size": 63,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x38",
+      "mov eax, dword ptr [rsp + 0x68]",
+      "mov r10, qword ptr [rcx + 0x1108]"
+    ],
+    "imports_called": [
+      "HAL.dll!HalSetBusDataByOffset"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1b2c",
+    "end_rva": "0x1d8f",
+    "size": 611,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "mov qword ptr [rsp + 0x18], rsi",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1d98",
+    "end_rva": "0x215b",
+    "size": 963,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rsi",
+      "mov qword ptr [rsp + 0x18], r8"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2164",
+    "end_rva": "0x223d",
+    "size": 217,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x1bc50",
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2244",
+    "end_rva": "0x2723",
+    "size": 1247,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "push rbx",
+      "push rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x272c",
+    "end_rva": "0x2804",
+    "size": 216,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x280c",
+    "end_rva": "0x28ba",
+    "size": 174,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x10], rbx",
+      "mov qword ptr [rax + 0x18], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x28c0",
+    "end_rva": "0x2ac6",
+    "size": 518,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x20], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoIs32bitProcess",
+      "ntoskrnl.exe!ObReferenceObjectByHandle",
+      "ntoskrnl.exe!ObfDereferenceObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2dd8",
+    "end_rva": "0x2dff",
+    "size": 39,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x38",
+      "mov r9, qword ptr [rip + 0xc325]",
+      "mov r8, qword ptr [rip + 0xc316]"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeBugCheckEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3170",
+    "end_rva": "0x3232",
+    "size": 194,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3238",
+    "end_rva": "0x325c",
+    "size": 36,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x28",
+      "cmp rdx, 2",
+      "mov eax, r8d"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3264",
+    "end_rva": "0x32d9",
+    "size": 117,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x354c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3358",
+    "end_rva": "0x33c2",
+    "size": 106,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x28",
+      "xor eax, eax",
+      "bt dword ptr [rsp + 0x50], 8"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x33c8",
+    "end_rva": "0x345c",
+    "size": 148,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x3670",
+      "0x37e8"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3464",
+    "end_rva": "0x3543",
+    "size": 223,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rdi",
+      "sub rsp, 0x60"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x39cc"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x354c",
+    "end_rva": "0x3562",
+    "size": 22,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x38",
+      "mov qword ptr [rsp + 0x20], r9",
+      "xor r9d, r9d"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x3464"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3580",
+    "end_rva": "0x366a",
+    "size": 234,
+    "prologue": "leaf_function",
+    "prologue_insns": [
+      "mov rax, rcx",
+      "cmp r8, 8",
+      "jb 0x135dc"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3670",
+    "end_rva": "0x37e0",
+    "size": 368,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x18], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x4210",
+      "0x4240"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x37e8",
+    "end_rva": "0x384b",
+    "size": 99,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x20",
+      "mov r11d, dword ptr [r8]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3854",
+    "end_rva": "0x3871",
+    "size": 29,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x28",
+      "mov r8, qword ptr [r9 + 0x38]",
+      "mov rcx, rdx"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x37e8"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x389c",
+    "end_rva": "0x38e3",
+    "size": 71,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rdi",
+      "sub rsp, 0x20"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x4268"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x38ec",
+    "end_rva": "0x393e",
+    "size": 82,
+    "prologue": "unknown",
+    "prologue_insns": [
+      "test edx, edx",
+      "jle 0x1393d",
+      "mov qword ptr [rsp + 8], rbx"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x389c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x3944",
+    "end_rva": "0x39c6",
+    "size": 130,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x389c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x39cc",
+    "end_rva": "0x41ff",
+    "size": 2099,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x389c",
+      "0x38ec",
+      "0x3944",
+      "0x42b4"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x4210",
+    "end_rva": "0x4228",
+    "size": 24,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rcx",
+      "mov qword ptr [rsp + 0x18], rdx",
+      "mov dword ptr [rsp + 0x10], r8d"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x4230",
+    "end_rva": "0x4231",
+    "size": 1,
+    "prologue": "stub/thunk",
+    "prologue_insns": [
+      "ret "
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x4240",
+    "end_rva": "0x4241",
+    "size": 1,
+    "prologue": "stub/thunk",
+    "prologue_insns": [
+      "ret "
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x4268",
+    "end_rva": "0x42ab",
+    "size": 67,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x38",
+      "test rdx, rdx",
+      "jne 0x14289"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x42b4",
+    "end_rva": "0x4305",
+    "size": 81,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rdi",
+      "sub rsp, 0x20"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x11008",
+    "end_rva": "0x111c0",
+    "size": 440,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoDeleteDevice",
+      "ntoskrnl.exe!IoDeleteSymbolicLink",
+      "ntoskrnl.exe!KeCancelTimer",
+      "ntoskrnl.exe!KeReleaseMutex",
+      "ntoskrnl.exe!KeWaitForSingleObject",
+      "ntoskrnl.exe!ObfDereferenceObject",
+      "ntoskrnl.exe!ZwClose"
+    ],
+    "internal_calls": [
+      "0x19c2c",
+      "0x1e34c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x111c8",
+    "end_rva": "0x11888",
+    "size": 1728,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 0x10], rdx",
+      "push rbx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!ExAllocatePool",
+      "ntoskrnl.exe!ExFreePoolWithTag",
+      "ntoskrnl.exe!IoGetDeviceObjectPointer",
+      "ntoskrnl.exe!IofCompleteRequest",
+      "ntoskrnl.exe!ObfDereferenceObject",
+      "ntoskrnl.exe!ObfReferenceObject",
+      "ntoskrnl.exe!RtlInitUnicodeString",
+      "ntoskrnl.exe!SeSinglePrivilegeCheck",
+      "ntoskrnl.exe!_wcsicmp"
+    ],
+    "internal_calls": [
+      "0x1dd44",
+      "0x1de30",
+      "0x2bf18",
+      "0x3580"
+    ],
+    "role": "IRP_MJ_CREATE/CLOSE handler (privilege check, device lookup)"
+  },
+  {
+    "begin_rva": "0x11890",
+    "end_rva": "0x1197d",
+    "size": 237,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!ExFreePoolWithTag",
+      "ntoskrnl.exe!IofCompleteRequest",
+      "ntoskrnl.exe!ObfDereferenceObject"
+    ],
+    "internal_calls": [],
+    "role": "IRP completion helper (cleanup/close)"
+  },
+  {
+    "begin_rva": "0x11984",
+    "end_rva": "0x18ed7",
+    "size": 30035,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 0x18], rbx",
+      "mov qword ptr [r11 + 0x20], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!HalGetBusDataByOffset",
+      "HAL.dll!HalTranslateBusAddress",
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoGetDeviceObjectPointer",
+      "ntoskrnl.exe!IoGetDeviceProperty",
+      "ntoskrnl.exe!IoIs32bitProcess",
+      "ntoskrnl.exe!IoOpenDeviceRegistryKey",
+      "ntoskrnl.exe!IofCompleteRequest",
+      "ntoskrnl.exe!KeCancelTimer",
+      "ntoskrnl.exe!KeReleaseMutex",
+      "ntoskrnl.exe!KeSetTimerEx",
+      "ntoskrnl.exe!KeWaitForSingleObject",
+      "ntoskrnl.exe!ObfDereferenceObject",
+      "ntoskrnl.exe!ObfReferenceObject",
+      "ntoskrnl.exe!ProbeForRead",
+      "ntoskrnl.exe!ProbeForWrite",
+      "ntoskrnl.exe!RtlCompareMemory",
+      "ntoskrnl.exe!ZwClose",
+      "ntoskrnl.exe!ZwOpenSymbolicLinkObject",
+      "ntoskrnl.exe!ZwQueryKey",
+      "ntoskrnl.exe!ZwQuerySymbolicLinkObject"
+    ],
+    "internal_calls": [
+      "0x1008",
+      "0x180c",
+      "0x18fa0",
+      "0x198cc",
+      "0x19944",
+      "0x19a50",
+      "0x19c2c",
+      "0x19c8",
+      "0x1a984",
+      "0x1ae04",
+      "0x1ae4",
+      "0x1b180",
+      "0x1b2c",
+      "0x1b938",
+      "0x1bacc",
+      "0x1bb88",
+      "0x1bc50",
+      "0x1bd00",
+      "0x1c464",
+      "0x1c588",
+      "0x1ca0c",
+      "0x1cc08",
+      "0x1cd68",
+      "0x1d62c",
+      "0x1d964",
+      "0x1d98",
+      "0x1df94",
+      "0x1e34c",
+      "0x1ea60",
+      "0x1fc58",
+      "0x1fdec",
+      "0x2050c",
+      "0x206b0",
+      "0x2164",
+      "0x272c",
+      "0x27c60",
+      "0x28c0",
+      "0x2a0e0",
+      "0x2b37c",
+      "0x2ba9c",
+      "0x2bf18",
+      "0x2c114",
+      "0x2c6f4",
+      "0x3580"
+    ],
+    "role": "IRP_MJ_DEVICE_CONTROL handler (30KB, main IOCTL dispatch, HW access)"
+  },
+  {
+    "begin_rva": "0x18ee4",
+    "end_rva": "0x18f1a",
+    "size": 54,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbp",
+      "sub rsp, 0x90",
+      "mov rbp, rdx"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x13fc"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x18f24",
+    "end_rva": "0x18f5a",
+    "size": 54,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbp",
+      "sub rsp, 0x90",
+      "mov rbp, rdx"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x13fc"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x18f64",
+    "end_rva": "0x18f9a",
+    "size": 54,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbp",
+      "sub rsp, 0x90",
+      "mov rbp, rdx"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x13fc"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x18fa0",
+    "end_rva": "0x19152",
+    "size": 434,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!ExFreePoolWithTag",
+      "ntoskrnl.exe!IoBuildSynchronousFsdRequest",
+      "ntoskrnl.exe!IofCallDriver",
+      "ntoskrnl.exe!KeInitializeEvent",
+      "ntoskrnl.exe!KeWaitForSingleObject",
+      "ntoskrnl.exe!ObfDereferenceObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x19158",
+    "end_rva": "0x194bc",
+    "size": 868,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x140",
+      "lea rax, [rcx + 0x648]"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeInitializeMutex",
+      "ntoskrnl.exe!MmGetSystemRoutineAddress",
+      "ntoskrnl.exe!RtlInitUnicodeString"
+    ],
+    "internal_calls": [
+      "0x2c8a4"
+    ],
+    "role": "Init helper (868 bytes)"
+  },
+  {
+    "begin_rva": "0x194c4",
+    "end_rva": "0x198c3",
+    "size": 1023,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbx",
+      "push rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x198cc",
+      "0x19a50",
+      "0x19c2c"
+    ],
+    "role": "Init helper (1023 bytes)"
+  },
+  {
+    "begin_rva": "0x198cc",
+    "end_rva": "0x1993c",
+    "size": 112,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rsi",
+      "push rdi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x19944",
+    "end_rva": "0x19a4a",
+    "size": 262,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "mov qword ptr [rsp + 0x20], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19a50"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x19a50",
+    "end_rva": "0x19c25",
+    "size": 469,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeReleaseMutex",
+      "ntoskrnl.exe!KeWaitForSingleObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x19c2c",
+    "end_rva": "0x19d05",
+    "size": 217,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!MmUnmapIoSpace"
+    ],
+    "internal_calls": [],
+    "role": "MmUnmapIoSpace wrapper (physical memory cleanup)"
+  },
+  {
+    "begin_rva": "0x19d0c",
+    "end_rva": "0x1a469",
+    "size": 1885,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 0x10], rbx",
+      "mov qword ptr [r11 + 0x18], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoBuildSynchronousFsdRequest",
+      "ntoskrnl.exe!IoGetDeviceObjectPointer",
+      "ntoskrnl.exe!IofCallDriver",
+      "ntoskrnl.exe!KeInitializeEvent",
+      "ntoskrnl.exe!KeReleaseMutex",
+      "ntoskrnl.exe!KeWaitForSingleObject",
+      "ntoskrnl.exe!ObfDereferenceObject",
+      "ntoskrnl.exe!ObfReferenceObject",
+      "ntoskrnl.exe!RtlInitUnicodeString"
+    ],
+    "internal_calls": [
+      "0x1008",
+      "0x1df94"
+    ],
+    "role": "Init helper (1885 bytes)"
+  },
+  {
+    "begin_rva": "0x1a470",
+    "end_rva": "0x1a97e",
+    "size": 1294,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c",
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "Repeated init step (1294 bytes, called 5x)"
+  },
+  {
+    "begin_rva": "0x1a984",
+    "end_rva": "0x1acea",
+    "size": 870,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1acf0",
+    "end_rva": "0x1ad6a",
+    "size": 122,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1ad70",
+    "end_rva": "0x1adfb",
+    "size": 139,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1ae04",
+    "end_rva": "0x1b179",
+    "size": 885,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x1acf0",
+      "0x1ad70"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1b180",
+    "end_rva": "0x1b931",
+    "size": 1969,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x20], r9",
+      "mov dword ptr [rax + 0x18], r8d"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c",
+      "0x1ae04",
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1b938",
+    "end_rva": "0x1bac4",
+    "size": 396,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x1660",
+      "0x1750"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1bacc",
+    "end_rva": "0x1bb7f",
+    "size": 179,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!ZwYieldExecution"
+    ],
+    "internal_calls": [
+      "0x1bc50"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1bb88",
+    "end_rva": "0x1bc4a",
+    "size": 194,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!ZwYieldExecution"
+    ],
+    "internal_calls": [
+      "0x1bc50"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1bc50",
+    "end_rva": "0x1bc80",
+    "size": 48,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x28",
+      "mov eax, 0xfa",
+      "lea r8, [rsp + 0x40]"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1bc88",
+    "end_rva": "0x1bcf8",
+    "size": 112,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rdi",
+      "sub rsp, 0x20"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!KeDelayExecutionThread",
+      "ntoskrnl.exe!ZwYieldExecution"
+    ],
+    "internal_calls": [],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1bd00",
+    "end_rva": "0x1c45e",
+    "size": 1886,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "mov qword ptr [rsp + 0x20], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoGetDeviceObjectPointer",
+      "ntoskrnl.exe!KeInitializeMutex",
+      "ntoskrnl.exe!ObfDereferenceObject",
+      "ntoskrnl.exe!ObfReferenceObject",
+      "ntoskrnl.exe!RtlAnsiStringToUnicodeString",
+      "ntoskrnl.exe!RtlInitAnsiString",
+      "ntoskrnl.exe!RtlInitUnicodeString",
+      "ntoskrnl.exe!strchr"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1c464",
+    "end_rva": "0x1c581",
+    "size": 285,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x18], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1c588",
+    "end_rva": "0x1c7fd",
+    "size": 629,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], rbx",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c",
+      "0x19c8"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1c804",
+    "end_rva": "0x1ca03",
+    "size": 511,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x20], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1ca0c",
+    "end_rva": "0x1cb63",
+    "size": 343,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "push rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19c8",
+      "0x1c804"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1cb6c",
+    "end_rva": "0x1cbff",
+    "size": 147,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x20], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1cc08",
+    "end_rva": "0x1cd5f",
+    "size": 343,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "push rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19c8",
+      "0x1cb6c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1cd68",
+    "end_rva": "0x1cf30",
+    "size": 456,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c",
+      "0x19c8"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1cf38",
+    "end_rva": "0x1d161",
+    "size": 553,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x10], rbx",
+      "mov qword ptr [rax + 0x18], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1d168",
+    "end_rva": "0x1d51c",
+    "size": 948,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1d524",
+    "end_rva": "0x1d626",
+    "size": 258,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1d62c",
+    "end_rva": "0x1d95e",
+    "size": 818,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x18], rbx",
+      "mov qword ptr [rax + 8], rcx"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c",
+      "0x19c8",
+      "0x1cf38",
+      "0x1d168",
+      "0x1d524"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1d964",
+    "end_rva": "0x1dd19",
+    "size": 949,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 0x18], rbx",
+      "mov qword ptr [r11 + 8], rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c",
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x1dd24",
+    "end_rva": "0x1dd3e",
+    "size": 26,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "push rbp",
+      "sub rsp, 0x38"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1dd44",
+    "end_rva": "0x1de28",
+    "size": 228,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "push rdi",
+      "sub rsp, 0x40"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1de30",
+    "end_rva": "0x1dea8",
+    "size": 120,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeReleaseMutex",
+      "ntoskrnl.exe!KeWaitForSingleObject"
+    ],
+    "internal_calls": [
+      "0x1deb0"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1deb0",
+    "end_rva": "0x1df8c",
+    "size": 220,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!IoGetAttachedDeviceReference",
+      "ntoskrnl.exe!ObfReferenceObject",
+      "ntoskrnl.exe!RtlCompareMemory"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1df94",
+    "end_rva": "0x1e343",
+    "size": 943,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!ExAllocatePool",
+      "ntoskrnl.exe!ExFreePoolWithTag",
+      "ntoskrnl.exe!IoGetDeviceProperty",
+      "ntoskrnl.exe!ObfDereferenceObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1e34c",
+    "end_rva": "0x1e412",
+    "size": 198,
+    "prologue": "unknown",
+    "prologue_insns": [
+      "test rdx, rdx",
+      "je 0x2e411",
+      "mov qword ptr [rsp + 8], rbx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!ExFreePoolWithTag",
+      "ntoskrnl.exe!ObfDereferenceObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1e418",
+    "end_rva": "0x1ea58",
+    "size": 1600,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 0x10], rbx",
+      "mov qword ptr [r11 + 0x18], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoBuildSynchronousFsdRequest",
+      "ntoskrnl.exe!IoGetDeviceObjectPointer",
+      "ntoskrnl.exe!IofCallDriver",
+      "ntoskrnl.exe!KeInitializeEvent",
+      "ntoskrnl.exe!KeWaitForSingleObject",
+      "ntoskrnl.exe!ObfDereferenceObject",
+      "ntoskrnl.exe!ObfReferenceObject",
+      "ntoskrnl.exe!RtlInitUnicodeString"
+    ],
+    "internal_calls": [
+      "0x1008",
+      "0x20370"
+    ],
+    "role": "Init helper (1600 bytes)"
+  },
+  {
+    "begin_rva": "0x1ea60",
+    "end_rva": "0x1edef",
+    "size": 911,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoIs32bitProcess"
+    ],
+    "internal_calls": [
+      "0x2bf18"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1edf8",
+    "end_rva": "0x1f1e5",
+    "size": 1005,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x18], r8",
+      "mov qword ptr [rax + 0x10], rdx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1edf8"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1f1ec",
+    "end_rva": "0x1f57f",
+    "size": 915,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x20], r9",
+      "mov qword ptr [rax + 0x18], r8"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1f1ec"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1f588",
+    "end_rva": "0x1f90d",
+    "size": 901,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x20], r9",
+      "mov qword ptr [rax + 0x18], r8"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1f588"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1f914",
+    "end_rva": "0x1fc51",
+    "size": 829,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 0x20], r9",
+      "mov qword ptr [rax + 0x18], r8"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1f914"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1fc58",
+    "end_rva": "0x1fde4",
+    "size": 396,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rdi",
+      "sub rsp, 0x40"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x1fdec",
+    "end_rva": "0x201f6",
+    "size": 1034,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1edf8",
+      "0x1f1ec",
+      "0x1f588",
+      "0x1f914",
+      "0x1fc58"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x20370",
+    "end_rva": "0x20505",
+    "size": 405,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!ExAllocatePool",
+      "ntoskrnl.exe!ExFreePoolWithTag",
+      "ntoskrnl.exe!ObfDereferenceObject",
+      "ntoskrnl.exe!ObfReferenceObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2050c",
+    "end_rva": "0x206aa",
+    "size": 414,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "mov qword ptr [rsp + 0x20], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeReleaseMutex",
+      "ntoskrnl.exe!KeWaitForSingleObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x206b0",
+    "end_rva": "0x20858",
+    "size": 424,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeReleaseMutex",
+      "ntoskrnl.exe!KeWaitForSingleObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x20860",
+    "end_rva": "0x209fd",
+    "size": 413,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1ae4"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x20a04",
+    "end_rva": "0x20e08",
+    "size": 1028,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 0x10], rdx",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c",
+      "0x20860"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x20e10",
+    "end_rva": "0x20efe",
+    "size": 238,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!ZwYieldExecution"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x20f04",
+    "end_rva": "0x21a4d",
+    "size": 2889,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x1bc88",
+      "0x20e10"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x21a54",
+    "end_rva": "0x21e26",
+    "size": 978,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], rbx",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88",
+      "0x20e10"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x21e2c",
+    "end_rva": "0x2215a",
+    "size": 814,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x2216c",
+    "end_rva": "0x22421",
+    "size": 693,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], rbx",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x2243c",
+    "end_rva": "0x2250e",
+    "size": 210,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x22514",
+    "end_rva": "0x22633",
+    "size": 287,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x2263c",
+    "end_rva": "0x226ca",
+    "size": 142,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov cl, byte ptr [rdx + 0x12]",
+      "movzx r10d, word ptr [rdx + 0x14]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x226d0",
+    "end_rva": "0x2275e",
+    "size": 142,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov cl, byte ptr [rdx + 0x12]",
+      "movzx r10d, word ptr [rdx + 0x14]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x22890",
+    "end_rva": "0x2293f",
+    "size": 175,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x18], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x22998",
+    "end_rva": "0x22bef",
+    "size": 599,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rsi",
+      "push rdi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!strstr"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x22bf8",
+    "end_rva": "0x22c82",
+    "size": 138,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov cl, byte ptr [rdx + 0x12]",
+      "movzx r10d, word ptr [rdx + 0x14]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x22f48",
+    "end_rva": "0x22fdc",
+    "size": 148,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rdi",
+      "mov rbx, rdx"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x234d4",
+    "end_rva": "0x23559",
+    "size": 133,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x20e10",
+      "0x22514"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x23560",
+    "end_rva": "0x235e8",
+    "size": 136,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x20e10",
+      "0x22514"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x235f0",
+    "end_rva": "0x236a7",
+    "size": 183,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x20e10",
+      "0x22514"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x236b0",
+    "end_rva": "0x23891",
+    "size": 481,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x20e10",
+      "0x2243c"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x23898",
+    "end_rva": "0x23948",
+    "size": 176,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x18], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4",
+      "0x234d4"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x23cd8",
+    "end_rva": "0x23d0b",
+    "size": 51,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x38",
+      "bt dword ptr [rcx], 0xa",
+      "jae 0x33d04"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x23d14",
+    "end_rva": "0x23dc3",
+    "size": 175,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x50",
+      "mov bl, byte ptr [rcx + 0xb]"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x23dcc",
+    "end_rva": "0x24125",
+    "size": 857,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x22998",
+      "0x23d14"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2412c",
+    "end_rva": "0x241df",
+    "size": 179,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x241e8",
+    "end_rva": "0x2429b",
+    "size": 179,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x242a4",
+    "end_rva": "0x2445c",
+    "size": 440,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x236b0",
+      "0x23d14"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x24464",
+    "end_rva": "0x24517",
+    "size": 179,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x24520",
+    "end_rva": "0x245d3",
+    "size": 179,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 8], rbx",
+      "mov qword ptr [r11 + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x245dc",
+    "end_rva": "0x24762",
+    "size": 390,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov dword ptr [rax + 0x18], r8d",
+      "mov qword ptr [rax + 0x10], rdx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x24768",
+    "end_rva": "0x24996",
+    "size": 558,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov qword ptr [r11 + 0x10], rdx",
+      "mov qword ptr [r11 + 8], rcx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19a50",
+      "0x19c2c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x24a8c",
+    "end_rva": "0x24d2a",
+    "size": 670,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4",
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x24d30",
+    "end_rva": "0x25142",
+    "size": 1042,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4",
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x25148",
+    "end_rva": "0x2536e",
+    "size": 550,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x19944",
+      "0x19c2c",
+      "0x19c8"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x25374",
+    "end_rva": "0x25777",
+    "size": 1027,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x20], rbx",
+      "mov qword ptr [rsp + 0x18], r8",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x19944",
+      "0x19c2c",
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x25780",
+    "end_rva": "0x25a7b",
+    "size": 763,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x20], rbx",
+      "mov qword ptr [rsp + 0x18], r8",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x19944",
+      "0x19c2c",
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x25a84",
+    "end_rva": "0x25cfc",
+    "size": 632,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rdx",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19944",
+      "0x19c2c",
+      "0x1bc50"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x25d04",
+    "end_rva": "0x26086",
+    "size": 898,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov byte ptr [rsp + 0x20], r9b",
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19944",
+      "0x19c2c",
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x2608c",
+    "end_rva": "0x2641f",
+    "size": 915,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov byte ptr [rsp + 0x20], r9b",
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19944",
+      "0x19c2c",
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x26428",
+    "end_rva": "0x26541",
+    "size": 281,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x26548",
+    "end_rva": "0x2666d",
+    "size": 293,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov dword ptr [rsp + 0x20], r9d",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x26674",
+    "end_rva": "0x2671d",
+    "size": 169,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x26548"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x26724",
+    "end_rva": "0x26a01",
+    "size": 733,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4",
+      "0x1bc88",
+      "0x26428"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x26abc",
+    "end_rva": "0x26b64",
+    "size": 168,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rsi",
+      "push rdi"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor"
+    ],
+    "internal_calls": [
+      "0x19c8",
+      "0x1ae4"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x26b6c",
+    "end_rva": "0x26d9f",
+    "size": 563,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], rbx",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x26da8",
+    "end_rva": "0x26dd9",
+    "size": 49,
+    "prologue": "stack_alloc",
+    "prologue_insns": [
+      "sub rsp, 0x28",
+      "mov al, byte ptr [rdx + 0x11]",
+      "test al, al"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x20860"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x26de0",
+    "end_rva": "0x26fef",
+    "size": 527,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x18], rbx",
+      "mov qword ptr [rsp + 8], rcx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x26ff8",
+    "end_rva": "0x271fe",
+    "size": 518,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x20], rbx",
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x27204",
+    "end_rva": "0x27477",
+    "size": 627,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x20], rbx",
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x27480",
+    "end_rva": "0x27505",
+    "size": 133,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x30",
+      "cmp byte ptr [rdx + 0x11], 0"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x1ae4",
+      "0x20860"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2750c",
+    "end_rva": "0x2777f",
+    "size": 627,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x20], rbx",
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x2779c",
+    "end_rva": "0x27a34",
+    "size": 664,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x18], r8",
+      "push rbp"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc50",
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x27a3c",
+    "end_rva": "0x27a88",
+    "size": 76,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x20",
+      "movzx ebx, word ptr [rdx + 0x14]"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x20860"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x27a90",
+    "end_rva": "0x27c57",
+    "size": 455,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x20], rbx",
+      "mov qword ptr [rsp + 0x18], r8",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "HAL.dll!KeStallExecutionProcessor",
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x1bc88"
+    ],
+    "role": "hardware_timing"
+  },
+  {
+    "begin_rva": "0x27c60",
+    "end_rva": "0x280e7",
+    "size": 1159,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "push rbx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!RtlQueryRegistryValues"
+    ],
+    "internal_calls": [
+      "0x3580"
+    ],
+    "role": "Device setup helper (1159 bytes, called from DriverEntry)"
+  },
+  {
+    "begin_rva": "0x280f0",
+    "end_rva": "0x282df",
+    "size": 495,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x282e8",
+    "end_rva": "0x29d97",
+    "size": 6831,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov r11, rsp",
+      "mov word ptr [r11 + 0x18], r8w",
+      "mov qword ptr [r11 + 0x10], rdx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [
+      "0x280f0"
+    ],
+    "role": "Hardware init/config helper (called 5x from DriverEntry, 6831 bytes)"
+  },
+  {
+    "begin_rva": "0x29da0",
+    "end_rva": "0x29efb",
+    "size": 347,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x19c8"
+    ],
+    "role": "Post-init helper (347 bytes)"
+  },
+  {
+    "begin_rva": "0x29f04",
+    "end_rva": "0x2a0d8",
+    "size": 468,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [
+      "0x2b37c"
+    ],
+    "role": "Post-init helper (468 bytes)"
+  },
+  {
+    "begin_rva": "0x2a0e0",
+    "end_rva": "0x2a2b0",
+    "size": 464,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a2b8",
+    "end_rva": "0x2a352",
+    "size": 154,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "mov qword ptr [rsp + 0x20], rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!KeDelayExecutionThread"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a3b0",
+    "end_rva": "0x2a45c",
+    "size": 172,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x1bc50",
+      "0x2a2b8"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a484",
+    "end_rva": "0x2a51f",
+    "size": 155,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rdi",
+      "movzx r10d, word ptr [rdx + 0x3c]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a528",
+    "end_rva": "0x2a5ee",
+    "size": 198,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rsi",
+      "movzx ecx, word ptr [rdx + 0x3c]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a5f4",
+    "end_rva": "0x2a6c4",
+    "size": 208,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a6cc",
+    "end_rva": "0x2a7be",
+    "size": 242,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a7c4",
+    "end_rva": "0x2a896",
+    "size": 210,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rdi",
+      "movzx ecx, word ptr [rdx + 0x3c]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a89c",
+    "end_rva": "0x2a98f",
+    "size": 243,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov r9, qword ptr [rdx + 0x28]",
+      "movzx ebx, word ptr [rdx + 0x42]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2a998",
+    "end_rva": "0x2aa83",
+    "size": 235,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov r9, qword ptr [rdx + 0x28]",
+      "movzx ebx, word ptr [rdx + 0x42]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2aa8c",
+    "end_rva": "0x2ab99",
+    "size": 269,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rdi",
+      "mov r9, qword ptr [rdx + 0x28]"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2aba0",
+    "end_rva": "0x2add8",
+    "size": 568,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2ade0",
+    "end_rva": "0x2af8e",
+    "size": 430,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rbp",
+      "push rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x2a2b8"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2af94",
+    "end_rva": "0x2b046",
+    "size": 178,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x1bacc"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2b04c",
+    "end_rva": "0x2b0f4",
+    "size": 168,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rsi",
+      "push rdi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x1bacc"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2b0fc",
+    "end_rva": "0x2b144",
+    "size": 72,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rdi",
+      "sub rsp, 0x30"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x2af94",
+      "0x2b04c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2b14c",
+    "end_rva": "0x2b375",
+    "size": 553,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x2af94",
+      "0x2b04c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2b37c",
+    "end_rva": "0x2b464",
+    "size": 232,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "push rdi",
+      "sub rsp, 0x80"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2b46c",
+    "end_rva": "0x2ba96",
+    "size": 1578,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x10], rbp",
+      "mov qword ptr [rsp + 0x18], rsi"
+    ],
+    "imports_called": [],
+    "internal_calls": [
+      "0x2b37c"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2ba9c",
+    "end_rva": "0x2bf10",
+    "size": 1140,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2bf18",
+    "end_rva": "0x2c10c",
+    "size": 500,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "mov qword ptr [rax + 0x10], rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoBuildDeviceIoControlRequest",
+      "ntoskrnl.exe!IoCancelIrp",
+      "ntoskrnl.exe!IofCallDriver",
+      "ntoskrnl.exe!KeInitializeEvent",
+      "ntoskrnl.exe!KeWaitForSingleObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2c114",
+    "end_rva": "0x2c6eb",
+    "size": 1495,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 0x10], rbx",
+      "mov dword ptr [rsp + 0x20], r9d",
+      "mov qword ptr [rsp + 8], rcx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoBuildSynchronousFsdRequest",
+      "ntoskrnl.exe!IofCallDriver",
+      "ntoskrnl.exe!KeInitializeEvent",
+      "ntoskrnl.exe!KeWaitForSingleObject"
+    ],
+    "internal_calls": [
+      "0x3580"
+    ],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2c6f4",
+    "end_rva": "0x2c89b",
+    "size": 423,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov qword ptr [rsp + 8], rbx",
+      "mov qword ptr [rsp + 0x18], rbp",
+      "push rsi"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoBuildDeviceIoControlRequest",
+      "ntoskrnl.exe!IoCancelIrp",
+      "ntoskrnl.exe!IofCallDriver",
+      "ntoskrnl.exe!KeInitializeEvent",
+      "ntoskrnl.exe!KeWaitForSingleObject"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x2c8a4",
+    "end_rva": "0x2c8fc",
+    "size": 88,
+    "prologue": "frame_setup",
+    "prologue_insns": [
+      "push rbx",
+      "sub rsp, 0x20",
+      "xor ebx, ebx"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!MmGetSystemRoutineAddress",
+      "ntoskrnl.exe!PsGetVersion"
+    ],
+    "internal_calls": [],
+    "role": ""
+  },
+  {
+    "begin_rva": "0x32008",
+    "end_rva": "0x32ccb",
+    "size": 3267,
+    "prologue": "frame_pointer",
+    "prologue_insns": [
+      "mov rax, rsp",
+      "mov qword ptr [rax + 8], rbx",
+      "push rbp"
+    ],
+    "imports_called": [
+      "ntoskrnl.exe!DbgPrintEx",
+      "ntoskrnl.exe!IoCreateDevice",
+      "ntoskrnl.exe!IoCreateSymbolicLink",
+      "ntoskrnl.exe!IoCreateSynchronizationEvent",
+      "ntoskrnl.exe!IoDeleteDevice",
+      "ntoskrnl.exe!KeInitializeDpc",
+      "ntoskrnl.exe!KeInitializeTimer",
+      "ntoskrnl.exe!KeQueryTimeIncrement",
+      "ntoskrnl.exe!PsGetVersion",
+      "ntoskrnl.exe!RtlInitUnicodeString"
+    ],
+    "internal_calls": [
+      "0x136c",
+      "0x13b8",
+      "0x19158",
+      "0x194c4",
+      "0x19c8",
+      "0x19d0c",
+      "0x1a470",
+      "0x1e418",
+      "0x27c60",
+      "0x282e8",
+      "0x29da0",
+      "0x29f04"
+    ],
+    "role": "DriverEntry (real, after GS stub)"
+  }
+]

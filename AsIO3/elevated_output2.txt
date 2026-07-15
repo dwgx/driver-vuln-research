@@ -1,0 +1,61 @@
+Admin: 1
+PID: 37728
+
+ASUS processes found: 25
+  AsusCertService.exe                           PID 3760
+  AsusOptimization.exe                          PID 4584
+  AsusWiFiSmartConnect.exe                      PID 4936
+  ArmouryCrateControlInterface.exe              PID 5536
+  AsusPTPService.exe                            PID 5600
+  AsusAppService.exe                            PID 5624
+  ArmouryCrate.Service.exe                      PID 5640
+  AsusSoftwareManager.exe                       PID 5656
+  AsusSwitch.exe                                PID 5676
+  AsusSystemAnalysis.exe                        PID 5684
+  AsusSystemDiagnosis.exe                       PID 5700
+  LightingService.exe                           PID 5844
+  AsusOptimizationStartupTask.exe               PID 14456
+  AsusHotkey.exe                                PID 14644
+  ArmouryCrate.UserSessionHelper.exe            PID 14800
+  ArmouryCrate.exe                              PID 18868
+  AacAmbientLighting.exe                        PID 14140
+  ArmourySocketServer.exe                       PID 21316
+  asus_framework.exe                            PID 21600
+  asus_framework.exe                            PID 21892
+  asus_framework.exe                            PID 21924
+  AsusOSD.exe                                   PID 4684
+  AsusSoftwareManagerAgent.exe                  PID 10300
+  asus_framework.exe                            PID 35288
+  ArmourySwAgent.exe                            PID 27168
+
+--- Access Rights Test ---
+  AsusCertService.exe                 PID   3760: QUERY only
+  AsusOptimization.exe                PID   4584: QUERY only
+  AsusWiFiSmartConnect.exe            PID   4936: QUERY only
+  ArmouryCrateControlInterface.exe    PID   5536: QUERY only
+  AsusPTPService.exe                  PID   5600: QUERY only
+  AsusAppService.exe                  PID   5624: QUERY only
+  ArmouryCrate.Service.exe            PID   5640: QUERY only
+  AsusSoftwareManager.exe             PID   5656: QUERY only
+  AsusSwitch.exe                      PID   5676: QUERY only
+  AsusSystemAnalysis.exe              PID   5684: QUERY only
+  AsusSystemDiagnosis.exe             PID   5700: QUERY only
+  LightingService.exe                 PID   5844: QUERY only
+  AsusOptimizationStartupTask.exe     PID  14456: FULL ACCESS
+  AsusHotkey.exe                      PID  14644: QUERY only
+  ArmouryCrate.UserSessionHelper.exe  PID  14800: FULL ACCESS
+  ArmouryCrate.exe                    PID  18868: FULL ACCESS
+  AacAmbientLighting.exe              PID  14140: FULL ACCESS
+  ArmourySocketServer.exe             PID  21316: FULL ACCESS
+  asus_framework.exe                  PID  21600: FULL ACCESS
+  asus_framework.exe                  PID  21892: FULL ACCESS
+  asus_framework.exe                  PID  21924: FULL ACCESS
+  AsusOSD.exe                         PID   4684: FULL ACCESS
+  AsusSoftwareManagerAgent.exe        PID  10300: FULL ACCESS
+  asus_framework.exe                  PID  35288: FULL ACCESS
+  ArmourySwAgent.exe                  PID  27168: FULL ACCESS
+
+Injectable processes: 12
+
+--- Handle Enumeration for Injectable Processes ---
+Total system handles: 173906

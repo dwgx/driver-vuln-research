@@ -1,0 +1,1499 @@
+{
+  "driver_info": {
+    "file": "D:\\Project\\toolkit\\drivers\\Vulnerable-Monitors\\SIVX64.sys",
+    "image_base": "0x10000",
+    "entry_point_rva": "0x32CD4",
+    "total_functions": 213,
+    "sections": {
+      ".text": {
+        "va": "0x1000",
+        "size": "0x3B91"
+      },
+      ".rdata": {
+        "va": "0x5000",
+        "size": "0x9130"
+      },
+      ".data": {
+        "va": "0xF000",
+        "size": "0x15C"
+      },
+      ".pdata": {
+        "va": "0x10000",
+        "size": "0x870"
+      },
+      "PAGE": {
+        "va": "0x11000",
+        "size": "0x208F3"
+      },
+      "INIT": {
+        "va": "0x32000",
+        "size": "0x17B4"
+      },
+      ".rsrc": {
+        "va": "0x34000",
+        "size": "0x3F8"
+      },
+      ".reloc": {
+        "va": "0x35000",
+        "size": "0xA84"
+      }
+    }
+  },
+  "global_variables": {
+    "0x051E0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000336AA",
+      "ref_count": 238,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text",
+        "INIT",
+        "PAGE"
+      ]
+    },
+    "0x05018": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000000000033700",
+      "ref_count": 125,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text",
+        "PAGE"
+      ]
+    },
+    "0x05190": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000335C4",
+      "ref_count": 30,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text",
+        "PAGE"
+      ]
+    },
+    "0x05070": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000332C6",
+      "ref_count": 26,
+      "size_bytes": 8,
+      "accessed_from": [
+        "INIT",
+        "PAGE"
+      ]
+    },
+    "0x05110": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "V4\u0003",
+      "ref_count": 22,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05158": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\"5\u0003",
+      "ref_count": 17,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x051D8": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000000000033694",
+      "ref_count": 12,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0F100": {
+      "section": ".data",
+      "classification": "buffer_or_struct",
+      "value": "init=0x2B992DDFA232",
+      "ref_count": 12,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text",
+        "INIT",
+        "PAGE"
+      ]
+    },
+    "0x05090": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\n3\u0003",
+      "ref_count": 10,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05100": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "64\u0003",
+      "ref_count": 10,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05030": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\u00102\u0003",
+      "ref_count": 8,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050B0": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "h3\u0003",
+      "ref_count": 8,
+      "size_bytes": 4,
+      "accessed_from": [
+        ".text",
+        "PAGE"
+      ]
+    },
+    "0x05180": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000000000033596",
+      "ref_count": 8,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05098": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "&3\u0003",
+      "ref_count": 6,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05118": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "p4\u0003",
+      "ref_count": 6,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x051F0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000336C4",
+      "ref_count": 6,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05008": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "47\u0003",
+      "ref_count": 5,
+      "size_bytes": 4,
+      "accessed_from": [
+        ".text",
+        "PAGE"
+      ]
+    },
+    "0x05038": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "$2\u0003",
+      "ref_count": 5,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05048": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "X2\u0003",
+      "ref_count": 4,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05058": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000000000033280",
+      "ref_count": 4,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05088": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000000000033300",
+      "ref_count": 4,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05128": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x000000000003349C",
+      "ref_count": 4,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05138": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000334C6",
+      "ref_count": 4,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05020": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "f7\u0003",
+      "ref_count": 3,
+      "size_bytes": 4,
+      "accessed_from": [
+        ".text",
+        "INIT"
+      ]
+    },
+    "0x05140": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000334D0",
+      "ref_count": 3,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05060": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000332A0",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05068": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000332BC",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05078": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000332DE",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "INIT",
+        "PAGE"
+      ]
+    },
+    "0x050D8": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000333C4",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05108": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "H4\u0003",
+      "ref_count": 2,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05120": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000331F8",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05168": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "Z5\u0003",
+      "ref_count": 2,
+      "size_bytes": 4,
+      "accessed_from": [
+        "INIT",
+        "PAGE"
+      ]
+    },
+    "0x05178": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000000000033582",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05188": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000335AC",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "INIT"
+      ]
+    },
+    "0x051C0": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "V6\u0003",
+      "ref_count": 2,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05208": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000331D8",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05230": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000000000033188",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x052F0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000010006000006",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x0B8D0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x000000000000000A",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0B900": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0000100000000000",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0B970": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0042005657000040",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0BAB0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0042005657000040",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0BBD0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x0042005657000040",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0BF00": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x005E000100010052",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0C760": {
+      "section": ".rdata",
+      "classification": "wide_string",
+      "value": "@尀P8",
+      "ref_count": 2,
+      "size_bytes": 10,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0C9C0": {
+      "section": ".rdata",
+      "classification": "wide_string",
+      "value": "@尀P8",
+      "ref_count": 2,
+      "size_bytes": 10,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0CAF0": {
+      "section": ".rdata",
+      "classification": "wide_string",
+      "value": "@尀P8",
+      "ref_count": 2,
+      "size_bytes": 10,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x0F108": {
+      "section": ".data",
+      "classification": "read_write_var",
+      "value": "init=0xFFFFD466D2205DCD",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text",
+        "INIT"
+      ]
+    },
+    "0x0F110": {
+      "section": ".data",
+      "classification": "read_only_var",
+      "value": "init=0x152E8",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x0F128": {
+      "section": ".data",
+      "classification": "read_only_var",
+      "value": "init=0x2E00000001",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x0F148": {
+      "section": ".data",
+      "classification": "write_only_var",
+      "value": "",
+      "ref_count": 2,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05000": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "L7\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05010": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\u001c7\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x05040": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "82\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05050": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "l2\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05080": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000332F0",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050A0": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": ":3\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050A8": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "T3\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050B8": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "|3\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "INIT"
+      ]
+    },
+    "0x050C0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x000000000003338E",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050C8": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000333A2",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050D0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000333B2",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050E0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000333E0",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050E8": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000333F2",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "INIT"
+      ]
+    },
+    "0x050F0": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\u00064\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x050F8": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\u00164\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "INIT"
+      ]
+    },
+    "0x05130": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000334AE",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "INIT"
+      ]
+    },
+    "0x05148": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000334E6",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05150": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\u00065\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x05160": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": ":5\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05170": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "j5\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x05198": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000335DC",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x051A0": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000335F6",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x051A8": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\u00106\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "INIT"
+      ]
+    },
+    "0x051B0": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "\"6\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x051B8": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "86\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x051C8": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "f6\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x051D0": {
+      "section": ".rdata",
+      "classification": "ascii_string",
+      "value": "|6\u0003",
+      "ref_count": 1,
+      "size_bytes": 4,
+      "accessed_from": [
+        "PAGE"
+      ]
+    },
+    "0x051E8": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000336B8",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        ".text"
+      ]
+    },
+    "0x051F8": {
+      "section": ".rdata",
+      "classification": "rdata_constant",
+      "value": "0x00000000000336D4",
+      "ref_count": 1,
+      "size_bytes": 8,
+      "accessed_from": [
+        "PAGE"
+      ]
+    }
+  },
+  "strings": {
+    "0x05000": {
+      "type": "ascii_string",
+      "value": "L7\u0003",
+      "size": 4
+    },
+    "0x05008": {
+      "type": "ascii_string",
+      "value": "47\u0003",
+      "size": 4
+    },
+    "0x05010": {
+      "type": "ascii_string",
+      "value": "\u001c7\u0003",
+      "size": 4
+    },
+    "0x05020": {
+      "type": "ascii_string",
+      "value": "f7\u0003",
+      "size": 4
+    },
+    "0x05030": {
+      "type": "ascii_string",
+      "value": "\u00102\u0003",
+      "size": 4
+    },
+    "0x05038": {
+      "type": "ascii_string",
+      "value": "$2\u0003",
+      "size": 4
+    },
+    "0x05040": {
+      "type": "ascii_string",
+      "value": "82\u0003",
+      "size": 4
+    },
+    "0x05048": {
+      "type": "ascii_string",
+      "value": "X2\u0003",
+      "size": 4
+    },
+    "0x05050": {
+      "type": "ascii_string",
+      "value": "l2\u0003",
+      "size": 4
+    },
+    "0x05090": {
+      "type": "ascii_string",
+      "value": "\n3\u0003",
+      "size": 4
+    },
+    "0x05098": {
+      "type": "ascii_string",
+      "value": "&3\u0003",
+      "size": 4
+    },
+    "0x050A0": {
+      "type": "ascii_string",
+      "value": ":3\u0003",
+      "size": 4
+    },
+    "0x050A8": {
+      "type": "ascii_string",
+      "value": "T3\u0003",
+      "size": 4
+    },
+    "0x050B0": {
+      "type": "ascii_string",
+      "value": "h3\u0003",
+      "size": 4
+    },
+    "0x050B8": {
+      "type": "ascii_string",
+      "value": "|3\u0003",
+      "size": 4
+    },
+    "0x050F0": {
+      "type": "ascii_string",
+      "value": "\u00064\u0003",
+      "size": 4
+    },
+    "0x050F8": {
+      "type": "ascii_string",
+      "value": "\u00164\u0003",
+      "size": 4
+    },
+    "0x05100": {
+      "type": "ascii_string",
+      "value": "64\u0003",
+      "size": 4
+    },
+    "0x05108": {
+      "type": "ascii_string",
+      "value": "H4\u0003",
+      "size": 4
+    },
+    "0x05110": {
+      "type": "ascii_string",
+      "value": "V4\u0003",
+      "size": 4
+    },
+    "0x05118": {
+      "type": "ascii_string",
+      "value": "p4\u0003",
+      "size": 4
+    },
+    "0x05150": {
+      "type": "ascii_string",
+      "value": "\u00065\u0003",
+      "size": 4
+    },
+    "0x05158": {
+      "type": "ascii_string",
+      "value": "\"5\u0003",
+      "size": 4
+    },
+    "0x05160": {
+      "type": "ascii_string",
+      "value": ":5\u0003",
+      "size": 4
+    },
+    "0x05168": {
+      "type": "ascii_string",
+      "value": "Z5\u0003",
+      "size": 4
+    },
+    "0x05170": {
+      "type": "ascii_string",
+      "value": "j5\u0003",
+      "size": 4
+    },
+    "0x051A8": {
+      "type": "ascii_string",
+      "value": "\u00106\u0003",
+      "size": 4
+    },
+    "0x051B0": {
+      "type": "ascii_string",
+      "value": "\"6\u0003",
+      "size": 4
+    },
+    "0x051B8": {
+      "type": "ascii_string",
+      "value": "86\u0003",
+      "size": 4
+    },
+    "0x051C0": {
+      "type": "ascii_string",
+      "value": "V6\u0003",
+      "size": 4
+    },
+    "0x051C8": {
+      "type": "ascii_string",
+      "value": "f6\u0003",
+      "size": 4
+    },
+    "0x051D0": {
+      "type": "ascii_string",
+      "value": "|6\u0003",
+      "size": 4
+    },
+    "0x052C8": {
+      "type": "wide_string",
+      "value": "24",
+      "size": 6
+    },
+    "0x05350": {
+      "type": "ascii_string",
+      "value": "Invalid parameter passed to C runtime function.\n",
+      "size": 49
+    },
+    "0x05391": {
+      "type": "wide_string",
+      "value": "蚟⊀₮ŀ",
+      "size": 10
+    },
+    "0x0B910": {
+      "type": "wide_string",
+      "value": "@䘀ER✀",
+      "size": 12
+    },
+    "0x0BD60": {
+      "type": "wide_string",
+      "value": "8夀]>",
+      "size": 10
+    },
+    "0x0BFD0": {
+      "type": "wide_string",
+      "value": "8夀]>",
+      "size": 10
+    },
+    "0x0C120": {
+      "type": "wide_string",
+      "value": "Rက",
+      "size": 6
+    },
+    "0x0C190": {
+      "type": "wide_string",
+      "value": "8夀]R✀",
+      "size": 12
+    },
+    "0x0C2E0": {
+      "type": "wide_string",
+      "value": "Rက",
+      "size": 6
+    },
+    "0x0C3A0": {
+      "type": "wide_string",
+      "value": "R逄",
+      "size": 6
+    },
+    "0x0C4A0": {
+      "type": "wide_string",
+      "value": "Rက",
+      "size": 6
+    },
+    "0x0C580": {
+      "type": "wide_string",
+      "value": "R逄",
+      "size": 6
+    },
+    "0x0C760": {
+      "type": "wide_string",
+      "value": "@尀P8",
+      "size": 10
+    },
+    "0x0C890": {
+      "type": "wide_string",
+      "value": "@尀P8",
+      "size": 10
+    },
+    "0x0C9C0": {
+      "type": "wide_string",
+      "value": "@尀P8",
+      "size": 10
+    },
+    "0x0CAF0": {
+      "type": "wide_string",
+      "value": "@尀P8",
+      "size": 10
+    },
+    "0x0CC40": {
+      "type": "wide_string",
+      "value": "@尀P8",
+      "size": 10
+    },
+    "0x0CD90": {
+      "type": "wide_string",
+      "value": "@尀P8",
+      "size": 10
+    },
+    "0x0CED0": {
+      "type": "wide_string",
+      "value": "Rἀ",
+      "size": 6
+    },
+    "0x0D060": {
+      "type": "wide_string",
+      "value": "R␀",
+      "size": 6
+    },
+    "0x0D100": {
+      "type": "wide_string",
+      "value": "R─",
+      "size": 6
+    },
+    "0x0D160": {
+      "type": "wide_string",
+      "value": "R─",
+      "size": 6
+    },
+    "0x0D200": {
+      "type": "wide_string",
+      "value": "R─",
+      "size": 6
+    },
+    "0x0D2E0": {
+      "type": "wide_string",
+      "value": "R─",
+      "size": 6
+    }
+  },
+  "ioctl_codes": {
+    "func_0x04": {
+      "function_number": "0x04",
+      "ioctl_code_buffered": "0x00220010",
+      "ioctl_code_neither": "0x00220013",
+      "handler_rva": "0x22753",
+      "description": "PCI config space read (byte)",
+      "method": "METHOD_NEITHER"
+    },
+    "func_0x07": {
+      "function_number": "0x07",
+      "ioctl_code_buffered": "0x0022001C",
+      "ioctl_code_neither": "0x0022001F",
+      "handler_rva": "0x22723",
+      "description": "PCI config space read (word)",
+      "method": "METHOD_NEITHER"
+    },
+    "func_0x08": {
+      "function_number": "0x08",
+      "ioctl_code_buffered": "0x00220020",
+      "ioctl_code_neither": "0x00220023",
+      "handler_rva": "0x225F2",
+      "description": "Physical memory read (byte) / Port I/O read",
+      "method": "METHOD_NEITHER",
+      "input_buffer_min_size": "0x48 bytes",
+      "input_structure": {
+        "+0x00": "LARGE_INTEGER PhysicalAddress (8 bytes)",
+        "+0x08": "ULONG Size (validated: 0x100..0x400000)",
+        "+0x0E": "BYTE Flags (bit 15 = read mode)",
+        "+0x14": "WORD EntryCount",
+        "+0x30": "Array of entries (24 bytes each)"
+      }
+    },
+    "func_0x0C": {
+      "function_number": "0x0C",
+      "ioctl_code_buffered": "0x00220030",
+      "ioctl_code_neither": "0x00220033",
+      "handler_rva": "0x224A8",
+      "description": "Physical memory read (word/dword)",
+      "method": "METHOD_NEITHER"
+    },
+    "func_0x10": {
+      "function_number": "0x10",
+      "ioctl_code_buffered": "0x00220040",
+      "ioctl_code_neither": "0x00220043",
+      "handler_rva": "0x22164",
+      "description": "Physical memory read (dword/qword) via MmMapIoSpace",
+      "method": "METHOD_NEITHER"
+    },
+    "func_0x13": {
+      "function_number": "0x13",
+      "ioctl_code_buffered": "0x0022004C",
+      "ioctl_code_neither": "0x0022004F",
+      "handler_rva": "0x21EC4",
+      "description": "Physical memory write (byte/word)",
+      "method": "METHOD_NEITHER"
+    },
+    "func_0x14": {
+      "function_number": "0x14",
+      "ioctl_code_buffered": "0x00220050",
+      "ioctl_code_neither": "0x00220053",
+      "handler_rva": "0x11B91",
+      "description": "Physical memory write with mapped I/O table entries",
+      "method": "METHOD_NEITHER",
+      "input_buffer_min_size": "0x48 bytes",
+      "input_structure": {
+        "+0x00": "LARGE_INTEGER BaseAddress (8 bytes)",
+        "+0x08": "ULONG TotalSize (validated: 0x100..0x400000)",
+        "+0x0E": "BYTE/WORD Flags",
+        "+0x14": "WORD EntryCount",
+        "+0x30": "Entry array start"
+      },
+      "entry_structure": {
+        "+0x00": "ULONG Offset within mapped region",
+        "+0x04": "ULONG/data to write"
+      },
+      "validation": "EntryCount*24+6 <= InputBufferLength"
+    },
+    "func_0x18": {
+      "function_number": "0x18",
+      "ioctl_code_buffered": "0x00220060",
+      "ioctl_code_neither": "0x00220063",
+      "handler_rva": "0x2280A",
+      "description": "Extended I/O operation (bus data read/write)",
+      "method": "METHOD_NEITHER"
+    },
+    "func_0x34": {
+      "function_number": "0x34",
+      "ioctl_code_buffered": "0x002200D0",
+      "handler_rva": "0x22BFA",
+      "description": "Device enumeration / WMI query"
+    },
+    "func_0x74": {
+      "function_number": "0x74",
+      "ioctl_code_buffered": "0x002201D0",
+      "handler_rva": "0x23AF6",
+      "description": "Extended device query"
+    },
+    "func_0x100": {
+      "function_number": "0x100",
+      "ioctl_code_buffered": "0x00220400",
+      "handler_rva": "0x256D1",
+      "description": "Large operation (possibly firmware/SMBIOS)"
+    }
+  },
+  "ioctl_dispatch": {
+    "function_rva": "0x11984",
+    "function_size": 30035,
+    "irp_field_extraction": {
+      "DeviceExtension": "rcx+0x40 -> r12",
+      "IRP": "rdx -> r15",
+      "CurrentStackLocation": "[rdx+0xB8]",
+      "IoControlCode_raw": "[StackLoc+0x18]",
+      "FunctionNumber": "(IoControlCode >> 2) & 0xFFF -> r9d then edx",
+      "InputBufferLength": "[StackLoc+0x10] -> ebx",
+      "OutputBufferLength": "[StackLoc+0x08] -> r13d",
+      "Type3InputBuffer": "[StackLoc+0x30] -> r9/r10",
+      "SystemBuffer": "[IRP+0x18] -> r14"
+    },
+    "dispatch_mechanism": "Binary search via cascading cmp: 0x100 > 0x74 > 0x34 > 0x18, then linear sub chain",
+    "privilege_check_rva": "0x11ACA",
+    "default_status": "STATUS_INVALID_DEVICE_REQUEST (0xC0000004)"
+  },
+  "device_extension": {
+    "access_pattern": "DeviceObject+0x40",
+    "estimated_total_size": "0x2DF8+ bytes",
+    "key_fields": {
+      "+0x000": {
+        "size": 4,
+        "desc": "State flags (bit-tested)",
+        "access": "RW"
+      },
+      "+0x008": {
+        "size": 4,
+        "desc": "Capability flags (init=0x40, bit 0x16 tested)",
+        "access": "RW"
+      },
+      "+0x010": {
+        "size": 4,
+        "desc": "Signature field (compared to 0x5F534750 = _SGP)",
+        "access": "RW"
+      },
+      "+0x040": {
+        "size": 4,
+        "desc": "Computed capability mask",
+        "access": "W"
+      },
+      "+0x04C": {
+        "size": 4,
+        "desc": "Timer tick copy",
+        "access": "W"
+      },
+      "+0x050": {
+        "size": 4,
+        "desc": "Timer tick copy",
+        "access": "W"
+      },
+      "+0x06C": {
+        "size": 4,
+        "desc": "Atomic ref counter (lock add)",
+        "access": "RW"
+      },
+      "+0x070": {
+        "size": 12,
+        "desc": "PsGetVersion output struct",
+        "access": "R"
+      },
+      "+0x080": {
+        "size": 56,
+        "desc": "KTIMER (KeInitializeTimer)",
+        "access": "RW"
+      },
+      "+0x0C0": {
+        "size": 48,
+        "desc": "KDPC (KeInitializeDpc)",
+        "access": "RW"
+      },
+      "+0x110": {
+        "size": 8,
+        "desc": "Performance counter function ptr",
+        "access": "RW"
+      },
+      "+0x11A8": {
+        "size": 4,
+        "desc": "Enabled flag (=1)",
+        "access": "W"
+      },
+      "+0x11AC": {
+        "size": 4,
+        "desc": "Page size (=0x1000)",
+        "access": "W"
+      },
+      "+0x11B0": {
+        "size": 4,
+        "desc": "Timer increment (from KeQueryTimeIncrement, min 10000)",
+        "access": "RW"
+      },
+      "+0x1C0": {
+        "size": 4,
+        "desc": "Config param 1 (=9)",
+        "access": "W"
+      },
+      "+0x1C4": {
+        "size": 4,
+        "desc": "Config param 2 (=10)",
+        "access": "W"
+      },
+      "+0x1D8": {
+        "size": 4,
+        "desc": "Bitmask (=0xFFFFFFFF)",
+        "access": "W"
+      },
+      "+0x2DE0": {
+        "size": 4,
+        "desc": "WMI state 1",
+        "access": "W"
+      },
+      "+0x2DEC": {
+        "size": 4,
+        "desc": "WMI max value (=0xFF)",
+        "access": "W"
+      },
+      "+0x2DF0": {
+        "size": 8,
+        "desc": "WMI data pointer",
+        "access": "W"
+      }
+    }
+  },
+  "driver_entry": {
+    "entry_point_rva": "0x32CD4",
+    "note": "GS cookie init stub, jumps to real entry at 0x32008",
+    "real_entry_rva": "0x32008",
+    "real_entry_size": 3267,
+    "api_calls": [
+      {
+        "rva": "0x32032",
+        "func": "RtlInitUnicodeString",
+        "purpose": "Init device name string"
+      },
+      {
+        "rva": "0x3206A",
+        "func": "IoCreateDevice",
+        "purpose": "Create device, type=0x22, ext_size=large"
+      },
+      {
+        "rva": "0x32153",
+        "func": "KeQueryTimeIncrement",
+        "purpose": "Get timer resolution"
+      },
+      {
+        "rva": "0x32180",
+        "func": "PsGetVersion",
+        "purpose": "Get OS version"
+      },
+      {
+        "rva": "0x32208",
+        "func": "KeInitializeTimer",
+        "purpose": "Init periodic timer at DevExt+0x80"
+      },
+      {
+        "rva": "0x3221F",
+        "func": "KeInitializeDpc",
+        "purpose": "Init DPC at DevExt+0xC0"
+      },
+      {
+        "rva": "0x324DD",
+        "func": "IoCreateSymbolicLink",
+        "purpose": "Create user-accessible symlink"
+      },
+      {
+        "rva": "0x32B9D",
+        "func": "IoCreateSynchronizationEvent",
+        "purpose": "Sync event for serialization"
+      }
+    ],
+    "major_function_table": {
+      "DriverObject+0x68": {
+        "name": "DriverUnload",
+        "handler_rva": "0x11008"
+      },
+      "DriverObject+0x70": {
+        "name": "IRP_MJ_CREATE",
+        "handler_rva": "0x111C8",
+        "irp_mj": 0
+      },
+      "DriverObject+0x80": {
+        "name": "IRP_MJ_CLOSE",
+        "handler_rva": "0x11890",
+        "irp_mj": 2
+      },
+      "DriverObject+0xE0": {
+        "name": "IRP_MJ_DEVICE_CONTROL",
+        "handler_rva": "0x11984",
+        "irp_mj": 14
+      }
+    }
+  },
+  "data_section_map": {
+    "+0x000": {
+      "rva": "0xF000",
+      "init_value": "0x0000010000000000",
+      "ref_count": 0
+    },
+    "+0x100": {
+      "rva": "0xF100",
+      "init_value": "0x00002B992DDFA232",
+      "ref_count": 12
+    },
+    "+0x108": {
+      "rva": "0xF108",
+      "init_value": "0xFFFFD466D2205DCD",
+      "ref_count": 2
+    },
+    "+0x110": {
+      "rva": "0xF110",
+      "init_value": "0x00000000000152E8",
+      "ref_count": 2
+    },
+    "+0x118": {
+      "rva": "0xF118",
+      "init_value": "0x00000000000152D8",
+      "ref_count": 1
+    },
+    "+0x120": {
+      "rva": "0xF120",
+      "init_value": "0x0000987300009875",
+      "ref_count": 0
+    },
+    "+0x128": {
+      "rva": "0xF128",
+      "init_value": "0x0000002E00000001",
+      "ref_count": 2
+    },
+    "+0x130": {
+      "rva": "0xF130",
+      "init_value": "0x0000000000000001",
+      "ref_count": 0
+    },
+    "+0x140": {
+      "rva": "0xF140",
+      "init_value": "0x0000000000000000",
+      "ref_count": 1
+    },
+    "+0x148": {
+      "rva": "0xF148",
+      "init_value": "0x0000000000000000",
+      "ref_count": 2
+    },
+    "+0x150": {
+      "rva": "0xF150",
+      "init_value": "0x0000000000000000",
+      "ref_count": 1
+    },
+    "+0x158": {
+      "rva": "0xF158",
+      "init_value": "0x0000000000000000",
+      "ref_count": 1
+    }
+  }
+}

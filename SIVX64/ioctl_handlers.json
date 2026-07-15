@@ -1,0 +1,282 @@
+{
+  "driver": {
+    "file": "SIVX64.sys",
+    "image_base": "0x10000",
+    "entry_point_rva": "0x32CD4",
+    "entry_point_va": "0x42CD4",
+    "real_driver_entry_va": "0x42008",
+    "file_size": 211144,
+    "device_name": "\\\\.\\SIVDRIVER",
+    "device_type": "0x22",
+    "no_auth": true,
+    "ioctl_format": "raw_integer_not_ctl_code"
+  },
+  "major_functions": {
+    "IRP_MJ_CREATE": {
+      "va": "0x211C8",
+      "file_offset": "0xDFC8",
+      "driver_object_offset": "+0x70"
+    },
+    "IRP_MJ_CLOSE": {
+      "va": "0x21890",
+      "file_offset": "0xE690",
+      "driver_object_offset": "+0x80"
+    },
+    "IRP_MJ_DEVICE_CONTROL": {
+      "va": "0x21984",
+      "file_offset": "0xE784",
+      "driver_object_offset": "+0xE0",
+      "stack_frame_size": "0x520",
+      "has_stack_cookie": true
+    }
+  },
+  "ioctl_dispatch": {
+    "method": "cascading_cmp_and_sub",
+    "ioctl_code_source": "IO_STACK_LOCATION+0x18 (IoControlCode field)",
+    "input_buf_len_source": "IO_STACK_LOCATION+0x10",
+    "output_buf_len_source": "IO_STACK_LOCATION+0x08",
+    "system_buffer_source": "IRP+0x18 (AssociatedIrp.SystemBuffer)",
+    "initial_status": "0xC0000004 (STATUS_INFO_LENGTH_MISMATCH)",
+    "ranges": [
+      {"cmp": "0x100", "above": "0x25722", "equal": "0x256D1"},
+      {"cmp": "0x74", "above": "0x23B7B", "equal": "0x23AF6"},
+      {"cmp": "0x34", "above": "0x22C32", "equal": "0x22BFA"},
+      {"cmp": "0x18", "above": "sub_chain", "equal": "0x2280A"}
+    ],
+    "sub_chain_dispatch": {
+      "base_register": "eax (copy of edx/IoControlCode)",
+      "entries": [
+        {"sub": 4, "ioctl": "0x04", "target_va": "0x22753", "purpose": "port_io"},
+        {"sub": 3, "ioctl": "0x07", "target_va": "0x22723", "purpose": "port_io_word"},
+        {"sub": 1, "ioctl": "0x08", "target_va": "0x225F2", "purpose": "rdmsr"},
+        {"sub": 4, "ioctl": "0x0C", "target_va": "0x224A8", "purpose": "wrmsr"},
+        {"sub": 4, "ioctl": "0x10", "target_va": "0x22164", "purpose": "physmem_scatter_read"},
+        {"sub": 3, "ioctl": "0x13", "target_va": "0x21EC4", "purpose": "physmem_bulk_read"},
+        {"cmp": 1, "ioctl": "0x14", "target_va": "0x21B91", "purpose": "physmem_map_rw"}
+      ]
+    }
+  },
+  "handlers": {
+    "0x08_rdmsr": {
+      "va": "0x225F2",
+      "file_offset": "0xF3F2",
+      "input_min_bytes": 4,
+      "output_min_bytes": 8,
+      "validation": {
+        "blacklist": ["0xC0010117", "0x00000000"],
+        "special_handling": {"0x8B": "executes_cpuid_first"}
+      },
+      "instruction": "rdmsr",
+      "error_handling": "no_seh_around_rdmsr",
+      "success_status": "0x00000000",
+      "error_statuses": {
+        "blacklisted": "0xC000001D"
+      },
+      "output_format": {
+        "0x00": "u64 msr_value (edx:eax combined)"
+      },
+      "io_status_information": 8
+    },
+    "0x0C_wrmsr": {
+      "va": "0x224A8",
+      "file_offset": "0xF2A8",
+      "input_min_bytes": 12,
+      "output_min_bytes": 12,
+      "validation": {
+        "whitelist": ["0x38D", "0x38F", "0x19C", "0x110A", "0x1147", "0xC0000086"],
+        "null_check": "msr_index != 0"
+      },
+      "instruction": "wrmsr",
+      "error_handling": "no_seh_around_wrmsr",
+      "input_format": {
+        "0x00": "u32 msr_index",
+        "0x04": "u32 value_low (eax)",
+        "0x08": "u32 value_high (edx)"
+      },
+      "success_status": "0x00000000",
+      "error_statuses": {
+        "not_whitelisted": "0xC0000022",
+        "null_index": "0xC000001D"
+      },
+      "io_status_information": 12
+    },
+    "0x10_physmem_scatter": {
+      "va": "0x22164",
+      "file_offset": "0xEF64",
+      "input_min_bytes": 8,
+      "output_min_bytes": 4,
+      "output_max_bytes": 262144,
+      "validation": {
+        "input_buf_len_check": "ebx >= 8",
+        "output_range": "(OutputBufLen - 4) <= 0x3FFFC",
+        "min_output": 4,
+        "max_output": 262144
+      },
+      "input_format_simple": {
+        "0x00": "u64 physical_address"
+      },
+      "input_format_scatter": {
+        "condition": "InputBufferLength == 0x30",
+        "0x00": "u64 physical_address",
+        "0x08": "u32 reserved",
+        "0x10": "u32 count (scatter entries)",
+        "0x14": "u32 stride",
+        "0x18": "u32 flags",
+        "0x1C": "u32 element_width (1-4)"
+      },
+      "mapping": {
+        "function_va": "0x29A50",
+        "cache_hint": "r9d = (output_size <= 512) ? 0 : 1",
+        "cache_type_on_miss": "MmNonCached (0) or PAGE_READWRITE|PAGE_NOCACHE (0x204)",
+        "uses_mapping_cache": true,
+        "page_aligns_address": true
+      },
+      "copy_method": "inline_dword_loop",
+      "unmap_function_va": "0x29C2C",
+      "success_status": "0x00000000",
+      "error_statuses": {
+        "map_failed": "0xC00000E6",
+        "invalid_scatter_entry": "0xC000000D"
+      },
+      "io_status_information": "output_buffer_length (bytes read)"
+    },
+    "0x13_physmem_bulk": {
+      "va": "0x21EC4",
+      "file_offset": "0xECC4",
+      "input_exact_bytes": 8,
+      "output_min_bytes": 1024,
+      "output_max_bytes": 16777216,
+      "validation": {
+        "input_buf_len_check": "ebx == 8 (exact)",
+        "output_range": "(OutputBufLen - 0x400) <= 0xFFFC00",
+        "min_output": 1024,
+        "max_output": 16777216
+      },
+      "input_format": {
+        "0x00": "u32 phys_addr_low",
+        "0x04": "u32 phys_addr_high"
+      },
+      "buffer_method": "MDL (Irp->MdlAddress / UserBuffer at Irp+0x70)",
+      "mapping": {
+        "function_va": "0x29A50",
+        "cache_hint": "r9d = 0 (always NonCached)",
+        "cache_type": "MmNonCached",
+        "uses_mapping_cache": false
+      },
+      "copy_method": "optimized_memcpy_at_0x12E10",
+      "probes": {
+        "input": "ProbeForRead(buf, 8, 4)",
+        "output": "ProbeForWrite(buf, size, 8)"
+      },
+      "unmap_function_va": "0x29C2C",
+      "success_status": "0x00000000",
+      "error_statuses": {
+        "map_failed": "0xC00000E6"
+      },
+      "io_status_information": "output_buffer_length"
+    },
+    "0x14_physmem_map_rw": {
+      "va": "0x21B91",
+      "file_offset": "0xE991",
+      "input_min_bytes": 72,
+      "validation": {
+        "input_equals_output": "InputBufLen == OutputBufLen",
+        "min_buffer": "0x48 (72 bytes)",
+        "required_size_formula": "(entry_count * 3 + 6) * 8 <= buffer_length",
+        "map_size_min": 256,
+        "map_size_max": 4194304,
+        "per_entry_offset_check": "RegisterOffset < MapSize",
+        "alignment_check_conditional": "if flags bit 13: offset must be 4-aligned"
+      },
+      "header_format": {
+        "0x00": "u64 physical_address",
+        "0x08": "u32 map_size",
+        "0x0C": "u16 reserved",
+        "0x0E": "u16 flags",
+        "0x10": "u32 reserved",
+        "0x14": "u16 entry_count",
+        "0x16-0x2F": "padding (26 bytes)"
+      },
+      "entry_format": {
+        "size": 24,
+        "start_offset": "0x30",
+        "fields": {
+          "0x00": "u32 register_offset",
+          "0x04": "u32 mask",
+          "0x08": "u32 value_to_write",
+          "0x0C": "u32 read_result (output, filled by driver)",
+          "0x10": "u32 final_value (output, filled by driver)",
+          "0x14": "u32 reserved"
+        }
+      },
+      "flags_bits": {
+        "0": "cache_type (0=NonCached, 1=Cached)",
+        "1": "write_enable (writes computed value to phys mem)",
+        "2": "read_back (reads register again after write, stores to final_value)",
+        "13": "alignment_enforce (offset must be 4-byte aligned)",
+        "14": "extended_validation",
+        "15": "qword_mode (8-byte operations instead of 4-byte)"
+      },
+      "operation_per_entry": {
+        "read": "read_result = *(u32*)(mapped + offset)",
+        "compute": "final = (read_result & mask) | value",
+        "write": "if flags.bit1: *(u32*)(mapped + offset) = final",
+        "readback": "if flags.bit2: final_value = *(u32*)(mapped + offset)"
+      },
+      "mapping": {
+        "function_va": "0x29A50",
+        "cache_hint": "r9d = flags & 1"
+      },
+      "success_status": "0x00000000",
+      "error_statuses": {
+        "map_failed": "0xC00000E6",
+        "invalid_parameter": "0xC000000D"
+      },
+      "io_status_information": "total_buffer_size_processed"
+    }
+  },
+  "internal_functions": {
+    "map_phys": {
+      "va": "0x29A50",
+      "file_offset": "0x16850",
+      "params": "rcx=DevExt, rdx=PhysAddr, r8d=Size, r9d=CacheHint",
+      "returns": "rax = kernel_va or NULL",
+      "mapping_cache_offset": "+0x648 in DeviceExtension",
+      "cache_entry_size": 40,
+      "mmmapiospace_ptr": "+0x138 in DeviceExtension",
+      "mmmapiospaceex_ptr": "+0x140 in DeviceExtension",
+      "fast_mutex_offset": "+0x5A0 in DeviceExtension",
+      "cache_end_ptr": "+0x1B0 in DeviceExtension"
+    },
+    "unmap_phys": {
+      "va": "0x29C2C",
+      "file_offset": "0x16A2C",
+      "params": "rcx=DevExt, rdx=KernelVA, r8d=Size",
+      "behavior": "decrements cache refcount or calls MmUnmapIoSpace"
+    },
+    "memcpy_internal": {
+      "va": "0x12E10",
+      "used_by": "IOCTL 0x13 for bulk copy"
+    }
+  },
+  "epilogue": {
+    "va": "0x28E31",
+    "file_offset": "0x15C31",
+    "behavior": [
+      "Checks DeviceExtension canary value",
+      "Writes 0xBADCAFFEDEADBEEF as tombstone on completion",
+      "Atomic increment of operation counter at DevExt+0x60",
+      "Stores NTSTATUS to Irp->IoStatus.Status",
+      "Calls IofCompleteRequest",
+      "Returns NTSTATUS in eax"
+    ]
+  },
+  "security": {
+    "authentication": "none",
+    "access_control": "none (only device open requires admin)",
+    "seh_protection": "none around MSR/physmem operations",
+    "address_validation": "MmMapIoSpace handles invalid phys addrs (returns NULL)",
+    "size_limits_enforced": true,
+    "debug_logging": "conditional on DeviceExtension[0] bit 4 and bit 5"
+  }
+}

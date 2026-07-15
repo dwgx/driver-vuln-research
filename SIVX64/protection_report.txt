@@ -1,0 +1,119 @@
+=== SIVX64.sys Protection/Virtualization Analysis ===
+File size: 211144 bytes (206.2 KB)
+Machine: x64
+Number of sections: 8
+Timestamp: 1768378610 (0x696750F2)
+
+============================================================
+1. VMProtect / Themida / Packer Detection
+============================================================
+  Section: .text      | Size:    15360 | VSize:    15249 | Entropy: 6.4200 | Perms: R-X
+  Section: .rdata     | Size:    37376 | VSize:    37168 | Entropy: 4.0555 | Perms: R--
+  Section: .data      | Size:      512 | VSize:      348 | Entropy: 0.5345 | Perms: RW-
+  Section: .pdata     | Size:     2560 | VSize:     2160 | Entropy: 4.5297 | Perms: R--
+  Section: PAGE       | Size:   133632 | VSize:   133363 | Entropy: 6.4467 | Perms: R-X
+  Section: INIT       | Size:     6144 | VSize:     6068 | Entropy: 6.1250 | Perms: RWX
+  Section: .rsrc      | Size:     1024 | VSize:     1016 | Entropy: 3.3248 | Perms: R--
+  Section: .reloc     | Size:     3072 | VSize:     2692 | Entropy: 4.6731 | Perms: R--
+
+  [OK] No known packer section names detected
+  [OK] No VMProtect/Themida/UPX signatures in binary
+  [OK] No high-entropy sections (not packed/encrypted)
+  [!] W+X sections: ['INIT']
+
+============================================================
+2. Control Flow Obfuscation Analysis
+============================================================
+  Total instructions: 32673
+  Direct jumps/branches: 4232
+  Indirect jumps (jmp reg/mem): 5
+  Direct calls: 609
+  Indirect calls: 686
+  NOP instructions: 50
+  RET instructions: 252
+  Avg basic block size: 7.3 instructions
+  Basic blocks: 4489
+  Indirect jump ratio: 0.0012 (0.12%)
+
+  [OK] Low indirect jump ratio - typical compiled code
+  [OK] Normal basic block size for compiled code
+
+============================================================
+3. Anti-Debug / Anti-Reverse-Engineering
+============================================================
+  Anti-debug imports: 1
+    ntoskrnl.exe -> DbgBreakPoint
+  Anti-debug strings: 2
+    DbgBreakPoint
+    KdDebuggerNotPresent
+  INT 3 traps: 1891
+  INT 2D traps: 0
+  RDTSC timing: 0
+  [~] Minimal anti-debug (standard kernel refs)
+
+============================================================
+4. Code Signing / Authenticode
+============================================================
+  Authenticode signature: PRESENT
+    Offset: 0x31000, Size: 10440 bytes
+    Length: 10440, Revision: 0x0200, Type: PKCS#7
+    Certificate strings:
+      Washington
+      Redmond
+      Microsoft Corporation
+      Microsoft Windows Third Party Component CA 2014
+      Microsoft Windows Hardware Compatibility Publisher
+      Microsoft Ireland Operations Limited
+      232147+505778
+      Microsoft Root Certificate Authority 2010
+      http://www.microsoft.com/pkiops/Docs/Repository.htm
+      nShield TSS ESN:651A-05E0-D947
+      Microsoft Time-Stamp Service
+      Microsoft Time-Stamp PCA 2010
+    Timestamp: not found
+
+============================================================
+5. Relocation Analysis
+============================================================
+  Relocations: YES
+  Total entries: 1086
+  Blocks: 8
+    ABSOLUTE (padding): 3
+    DIR64 (64-bit): 1083
+
+============================================================
+6. Import Table
+============================================================
+  ntoskrnl.exe: 67 imports
+    ExFreePoolWithTag
+    KeInitializeMutex
+    RtlAnsiStringToUnicodeString
+    ZwYieldExecution
+    IoWMIQueryAllData
+    IoBuildSynchronousFsdRequest
+    ZwQuerySymbolicLinkObject
+    strstr
+    RtlInitUnicodeString
+    IoDeleteDevice
+    ProbeForWrite
+    strchr
+    MmGetSystemRoutineAddress
+    KeInitializeEvent
+    RtlQueryRegistryValues
+    ... +52 more
+  HAL.dll: 5 imports
+    HalTranslateBusAddress
+    HalGetBusDataByOffset
+    HalSetBusDataByOffset
+    KeStallExecutionProcessor
+    KeQueryPerformanceCounter
+
+============================================================
+7. CONCLUSION
+============================================================
+  Protection Score: 2/20
+  Evidence: ['W+X sections']
+  VERDICT: MINIMALLY PROTECTED - Minor indicators, likely standard compiled code.
+
+  Average section entropy: 4.5137 (Normal: 5.0-6.5 | Packed: 7.0-8.0)
+  Code density: 158 insn/KB (Normal: 50-200 | VM: <30)

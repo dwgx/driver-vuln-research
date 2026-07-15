@@ -1,0 +1,24 @@
+# Build artifacts
+extractor/target/
+*.rlib
+*.exe
+*.pdb
+*.d
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temporary
+*.tmp
+tvicport_extracted/
+.git_disabled/
+HEAD
+config
+description
+hooks/
+info/
+logs/
+objects/
+packed-refs
+refs/

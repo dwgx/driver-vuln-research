@@ -1,0 +1,351 @@
+SIVX64.sys ！ Function Clusters & Dispatch Analysis
+======================================================================
+
+DRIVER OVERVIEW
+----------------------------------------------------------------------
+  File:                SIVX64.sys (SIV hardware monitor kernel driver)
+  Image base:          0x10000
+  Total functions:     180
+  Call graph edges:    257
+  Connected clusters:  28
+  Largest cluster:     145 functions
+  Isolated functions:  25
+  Import thunks:       72
+
+ENTRY POINTS & DISPATCH
+----------------------------------------------------------------------
+  PE Entry (GS stub):  0x32cd4 -> jmp 0x32008
+  Real DriverEntry:    0x32008 (size=3267, INIT section)
+  Dispatch method:     Indirect vtable ([rdi+0x118], [rdi+0x120])
+                       NOT standard MajorFunction direct assignment
+
+KEY DISPATCH HANDLERS (identified by IofCompleteRequest usage)
+----------------------------------------------------------------------
+  0x19c8     size=   275  Repeated init step (275 bytes, called 5x)
+  0x111c8    size=  1728  IRP_MJ_CREATE/CLOSE handler (privilege check, device lookup)
+  0x11890    size=   237  IRP completion helper (cleanup/close)
+  0x11984    size= 30035  IRP_MJ_DEVICE_CONTROL handler (30KB, main IOCTL dispatch, HW access)
+  0x19158    size=   868  Init helper (868 bytes)
+  0x194c4    size=  1023  Init helper (1023 bytes)
+  0x19c2c    size=   217  MmUnmapIoSpace wrapper (physical memory cleanup)
+  0x19d0c    size=  1885  Init helper (1885 bytes)
+  0x1a470    size=  1294  Repeated init step (1294 bytes, called 5x)
+  0x1e418    size=  1600  Init helper (1600 bytes)
+  0x27c60    size=  1159  Device setup helper (1159 bytes, called from DriverEntry)
+  0x282e8    size=  6831  Hardware init/config helper (called 5x from DriverEntry, 6831 bytes)
+  0x29da0    size=   347  Post-init helper (347 bytes)
+  0x29f04    size=   468  Post-init helper (468 bytes)
+  0x32008    size=  3267  DriverEntry (real, after GS stub)
+
+PHYSICAL MEMORY ACCESS CHAIN
+----------------------------------------------------------------------
+  The vulnerability exploitation path:
+  1. User sends IOCTL to device
+  2. IRP_MJ_DEVICE_CONTROL at 0x11984 dispatches by IOCTL code
+  3. Handler calls MmMapIoSpace to map physical memory
+  4. Returns mapped pointer to usermode via output buffer
+  5. MmUnmapIoSpace via 0x19c2c for cleanup
+
+  0x11984 size=30035: ['HAL.dll!HalGetBusDataByOffset', 'HAL.dll!HalTranslateBusAddress']
+  0x19c2c size=  217: []
+
+======================================================================
+CONNECTED COMPONENTS
+======================================================================
+
+--- Cluster 0: 145 function(s) ！ MAIN DRIVER LOGIC (IRP dispatch + HW access) ---
+  0x1008     size=  485 frame_pointer  
+  0x136c     size=   67 frame_setup     [init_helper]  api=[KeQueryPerformanceCounter]
+  0x13b8     size=   62 frame_setup     [init_helper]  api=[KeQueryPerformanceCounter]
+  0x1498     size=  223 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x1580     size=  218 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x1660     size=  231 frame_pointer  
+  0x1750     size=  180 frame_pointer  
+  0x180c     size=  201 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x18dc     size=  228 frame_pointer  
+  0x19c8     size=  275 frame_pointer   [Repeated init step (275 bytes, called 5x)]  api=[HalGetBusDataByOffset]
+  0x1ae4     size=   63 stack_alloc      api=[HalSetBusDataByOffset]
+  0x1b2c     size=  611 frame_pointer    api=[DbgPrintEx]
+  0x1d98     size=  963 frame_pointer    api=[DbgPrintEx]
+  0x2164     size=  217 frame_pointer  
+  0x272c     size=  216 frame_pointer  
+  0x28c0     size=  518 frame_pointer    api=[DbgPrintEx, IoIs32bitProcess, ObReferenceObjectByHandle, ObfDereferenceObject]
+  0x3170     size=  194 frame_pointer  
+  0x3238     size=   36 stack_alloc    
+  0x3264     size=  117 frame_pointer  
+  0x3358     size=  106 stack_alloc    
+  0x3464     size=  223 frame_pointer  
+  0x354c     size=   22 stack_alloc    
+  0x3580     size=  234 leaf_function  
+  0x389c     size=   71 frame_pointer  
+  0x38ec     size=   82 unknown        
+  0x3944     size=  130 frame_pointer  
+  0x39cc     size= 2099 frame_pointer  
+  0x4268     size=   67 stack_alloc    
+  0x42b4     size=   81 frame_pointer  
+  0x11008    size=  440 frame_pointer    api=[DbgPrintEx, IoDeleteDevice, IoDeleteSymbolicLink, KeCancelTimer]
+  0x111c8    size= 1728 frame_pointer   [IRP_MJ_CREATE/CLOSE handler (privilege check, device lookup)]  api=[DbgPrintEx, ExAllocatePool, ExFreePoolWithTag, IoGetDeviceObjectPointer]
+  0x11984    size=30035 frame_pointer   [IRP_MJ_DEVICE_CONTROL handler (30KB, main IOCTL dispatch, HW access)]  api=[HalGetBusDataByOffset, HalTranslateBusAddress, KeStallExecutionProcessor, DbgPrintEx]
+  0x18fa0    size=  434 frame_pointer    api=[DbgPrintEx, ExFreePoolWithTag, IoBuildSynchronousFsdRequest, IofCallDriver]
+  0x19158    size=  868 frame_setup     [Init helper (868 bytes)]  api=[KeInitializeMutex, MmGetSystemRoutineAddress, RtlInitUnicodeString]
+  0x194c4    size= 1023 frame_pointer   [Init helper (1023 bytes)]  api=[DbgPrintEx]
+  0x198cc    size=  112 frame_pointer  
+  0x19944    size=  262 frame_pointer    api=[DbgPrintEx]
+  0x19a50    size=  469 frame_pointer    api=[KeReleaseMutex, KeWaitForSingleObject]
+  0x19c2c    size=  217 frame_pointer   [MmUnmapIoSpace wrapper (physical memory cleanup)]  api=[MmUnmapIoSpace]
+  0x19d0c    size= 1885 frame_pointer   [Init helper (1885 bytes)]  api=[DbgPrintEx, IoBuildSynchronousFsdRequest, IoGetDeviceObjectPointer, IofCallDriver]
+  0x1a470    size= 1294 frame_pointer   [Repeated init step (1294 bytes, called 5x)]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x1a984    size=  870 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x1acf0    size=  122 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x1ad70    size=  139 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x1ae04    size=  885 frame_pointer    api=[DbgPrintEx, KeDelayExecutionThread]
+  0x1b180    size= 1969 frame_pointer    api=[DbgPrintEx, KeDelayExecutionThread]
+  0x1b938    size=  396 frame_setup      api=[DbgPrintEx, KeDelayExecutionThread]
+  0x1bacc    size=  179 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, ZwYieldExecution]
+  0x1bb88    size=  194 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, ZwYieldExecution]
+  0x1bc50    size=   48 stack_alloc      api=[KeDelayExecutionThread]
+  0x1bc88    size=  112 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, KeDelayExecutionThread, ZwYieldExecution]
+  0x1bd00    size= 1886 frame_pointer    api=[DbgPrintEx, IoGetDeviceObjectPointer, KeInitializeMutex, ObfDereferenceObject]
+  0x1c464    size=  285 frame_pointer  
+  0x1c588    size=  629 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x1c804    size=  511 frame_pointer  
+  0x1ca0c    size=  343 frame_pointer  
+  0x1cb6c    size=  147 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x1cc08    size=  343 frame_pointer  
+  0x1cd68    size=  456 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x1cf38    size=  553 frame_pointer    api=[DbgPrintEx, KeDelayExecutionThread]
+  0x1d168    size=  948 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx, KeDelayExecutionThread]
+  0x1d524    size=  258 frame_pointer    api=[DbgPrintEx]
+  0x1d62c    size=  818 frame_pointer  
+  0x1d964    size=  949 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x1dd44    size=  228 frame_pointer    api=[DbgPrintEx]
+  0x1de30    size=  120 frame_pointer    api=[KeReleaseMutex, KeWaitForSingleObject]
+  0x1deb0    size=  220 frame_pointer    api=[IoGetAttachedDeviceReference, ObfReferenceObject, RtlCompareMemory]
+  0x1df94    size=  943 frame_pointer    api=[DbgPrintEx, ExAllocatePool, ExFreePoolWithTag, IoGetDeviceProperty]
+  0x1e34c    size=  198 unknown          api=[DbgPrintEx, ExFreePoolWithTag, ObfDereferenceObject]
+  0x1e418    size= 1600 frame_pointer   [Init helper (1600 bytes)]  api=[DbgPrintEx, IoBuildSynchronousFsdRequest, IoGetDeviceObjectPointer, IofCallDriver]
+  0x1ea60    size=  911 frame_pointer    api=[DbgPrintEx, IoIs32bitProcess]
+  0x1edf8    size= 1005 frame_pointer    api=[DbgPrintEx]
+  0x1f1ec    size=  915 frame_pointer    api=[DbgPrintEx]
+  0x1f588    size=  901 frame_pointer    api=[DbgPrintEx]
+  0x1f914    size=  829 frame_pointer    api=[DbgPrintEx]
+  0x1fc58    size=  396 frame_pointer    api=[DbgPrintEx]
+  0x1fdec    size= 1034 frame_pointer    api=[DbgPrintEx]
+  0x20370    size=  405 frame_pointer    api=[DbgPrintEx, ExAllocatePool, ExFreePoolWithTag, ObfDereferenceObject]
+  0x2050c    size=  414 frame_pointer    api=[KeReleaseMutex, KeWaitForSingleObject]
+  0x206b0    size=  424 frame_pointer    api=[KeReleaseMutex, KeWaitForSingleObject]
+  0x20860    size=  413 frame_pointer    api=[DbgPrintEx]
+  0x20a04    size= 1028 frame_pointer    api=[DbgPrintEx]
+  0x20e10    size=  238 frame_pointer    api=[DbgPrintEx, ZwYieldExecution]
+  0x20f04    size= 2889 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx, KeDelayExecutionThread]
+  0x21a54    size=  978 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x21e2c    size=  814 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x2216c    size=  693 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x2243c    size=  210 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x22514    size=  287 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x22890    size=  175 frame_pointer  
+  0x22998    size=  599 frame_pointer    api=[strstr]
+  0x234d4    size=  133 frame_pointer  
+  0x23560    size=  136 frame_pointer  
+  0x235f0    size=  183 frame_pointer  
+  0x236b0    size=  481 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x23898    size=  176 frame_pointer  
+  0x23d14    size=  175 frame_setup      api=[DbgPrintEx]
+  0x23dcc    size=  857 frame_pointer  
+  0x242a4    size=  440 frame_pointer  
+  0x245dc    size=  390 frame_pointer    api=[DbgPrintEx]
+  0x24768    size=  558 frame_pointer    api=[DbgPrintEx]
+  0x24a8c    size=  670 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx, KeDelayExecutionThread]
+  0x24d30    size= 1042 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx, KeDelayExecutionThread]
+  0x25148    size=  550 frame_pointer    api=[DbgPrintEx, KeDelayExecutionThread]
+  0x25374    size= 1027 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx, KeDelayExecutionThread]
+  0x25780    size=  763 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx, KeDelayExecutionThread]
+  0x25a84    size=  632 frame_pointer    api=[DbgPrintEx]
+  0x25d04    size=  898 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x2608c    size=  915 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x26428    size=  281 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x26548    size=  293 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x26674    size=  169 frame_pointer    api=[DbgPrintEx]
+  0x26724    size=  733 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x26abc    size=  168 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor]
+  0x26b6c    size=  563 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x26da8    size=   49 stack_alloc    
+  0x26de0    size=  527 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x26ff8    size=  518 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x27204    size=  627 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x27480    size=  133 frame_setup    
+  0x2750c    size=  627 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x2779c    size=  664 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x27a3c    size=   76 frame_setup      api=[KeDelayExecutionThread]
+  0x27a90    size=  455 frame_pointer   [hardware_timing]  api=[KeStallExecutionProcessor, DbgPrintEx]
+  0x27c60    size= 1159 frame_pointer   [Device setup helper (1159 bytes, called from DriverEntry)]  api=[RtlQueryRegistryValues]
+  0x280f0    size=  495 frame_pointer    api=[DbgPrintEx]
+  0x282e8    size= 6831 frame_pointer   [Hardware init/config helper (called 5x from DriverEntry, 6831 bytes)]  api=[DbgPrintEx, KeDelayExecutionThread]
+  0x29da0    size=  347 frame_pointer   [Post-init helper (347 bytes)]  api=[DbgPrintEx]
+  0x29f04    size=  468 frame_pointer   [Post-init helper (468 bytes)]  api=[DbgPrintEx]
+  0x2a0e0    size=  464 frame_pointer  
+  0x2a2b8    size=  154 frame_pointer    api=[KeDelayExecutionThread]
+  0x2a3b0    size=  172 frame_pointer  
+  0x2ade0    size=  430 frame_pointer  
+  0x2af94    size=  178 frame_pointer  
+  0x2b04c    size=  168 frame_pointer  
+  0x2b0fc    size=   72 frame_pointer  
+  0x2b14c    size=  553 frame_pointer  
+  0x2b37c    size=  232 frame_pointer    api=[DbgPrintEx]
+  0x2b46c    size= 1578 frame_pointer  
+  0x2ba9c    size= 1140 frame_pointer  
+  0x2bf18    size=  500 frame_pointer    api=[DbgPrintEx, IoBuildDeviceIoControlRequest, IoCancelIrp, IofCallDriver]
+  0x2c114    size= 1495 frame_pointer    api=[DbgPrintEx, IoBuildSynchronousFsdRequest, IofCallDriver, KeInitializeEvent]
+  0x2c6f4    size=  423 frame_pointer    api=[DbgPrintEx, IoBuildDeviceIoControlRequest, IoCancelIrp, IofCallDriver]
+  0x2c8a4    size=   88 frame_setup      api=[MmGetSystemRoutineAddress, PsGetVersion]
+  0x32008    size= 3267 frame_pointer   [DriverEntry (real, after GS stub)]  api=[DbgPrintEx, IoCreateDevice, IoCreateSymbolicLink, IoCreateSynchronizationEvent]
+
+--- Cluster 1: 6 function(s) ！ unknown ---
+  0x33c8     size=  148 frame_pointer  
+  0x3670     size=  368 frame_pointer  
+  0x37e8     size=   99 frame_setup    
+  0x3854     size=   29 stack_alloc    
+  0x4210     size=   24 frame_pointer  
+  0x4240     size=    1 stub/thunk     
+
+--- Cluster 2: 4 function(s) ！ unknown ---
+  0x13fc     size=   80 stack_alloc      api=[DbgPrintEx]
+  0x18ee4    size=   54 frame_setup    
+  0x18f24    size=   54 frame_setup    
+  0x18f64    size=   54 frame_setup    
+
+--- Cluster 3: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x280c     size=  174 frame_pointer    api=[DbgPrintEx]
+
+--- Cluster 4: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x4230     size=    1 stub/thunk     
+
+--- Cluster 5: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2263c    size=  142 frame_pointer  
+
+--- Cluster 6: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2244     size= 1247 frame_pointer    api=[DbgPrintEx]
+
+--- Cluster 7: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x24464    size=  179 frame_pointer    api=[DbgPrintEx]
+
+--- Cluster 8: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2a484    size=  155 frame_pointer  
+
+--- Cluster 9: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2aa8c    size=  269 frame_pointer  
+
+--- Cluster 10: 1 function(s) ！ IRP HANDLING ---
+  0x11890    size=  237 frame_pointer   [IRP completion helper (cleanup/close)]  api=[DbgPrintEx, ExFreePoolWithTag, IofCompleteRequest, ObfDereferenceObject]
+
+--- Cluster 11: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2a89c    size=  243 frame_pointer  
+
+--- Cluster 12: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2a6cc    size=  242 frame_pointer  
+
+--- Cluster 13: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x226d0    size=  142 frame_pointer  
+
+--- Cluster 14: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x23cd8    size=   51 stack_alloc      api=[DbgPrintEx]
+
+--- Cluster 15: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x24520    size=  179 frame_pointer    api=[DbgPrintEx]
+
+--- Cluster 16: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x1dd24    size=   26 frame_setup    
+
+--- Cluster 17: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2a528    size=  198 frame_pointer  
+
+--- Cluster 18: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2412c    size=  179 frame_pointer    api=[DbgPrintEx]
+
+--- Cluster 19: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x22bf8    size=  138 frame_pointer  
+
+--- Cluster 20: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x22f48    size=  148 frame_pointer  
+
+--- Cluster 21: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2a998    size=  235 frame_pointer  
+
+--- Cluster 22: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2aba0    size=  568 frame_pointer  
+
+--- Cluster 23: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2a7c4    size=  210 frame_pointer  
+
+--- Cluster 24: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2dd8     size=   39 stack_alloc      api=[KeBugCheckEx]
+
+--- Cluster 25: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x241e8    size=  179 frame_pointer    api=[DbgPrintEx]
+
+--- Cluster 26: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x11f4     size=  367 frame_pointer    api=[DbgPrintEx]
+
+--- Cluster 27: 1 function(s) ！ ISOLATED (utility or CRT) ---
+  0x2a5f4    size=  208 frame_pointer  
+
+======================================================================
+KERNEL API USAGE (by call count)
+======================================================================
+
+  ntoskrnl.exe!DbgPrintEx                            x 78
+  HAL.dll!KeStallExecutionProcessor                  x 40
+  ntoskrnl.exe!KeDelayExecutionThread                x 16
+  ntoskrnl.exe!ObfDereferenceObject                  x 12
+  ntoskrnl.exe!KeWaitForSingleObject                 x 12
+  ntoskrnl.exe!KeReleaseMutex                        x  7
+  ntoskrnl.exe!ObfReferenceObject                    x  7
+  ntoskrnl.exe!ExFreePoolWithTag                     x  6
+  ntoskrnl.exe!RtlInitUnicodeString                  x  6
+  ntoskrnl.exe!IofCallDriver                         x  6
+  ntoskrnl.exe!KeInitializeEvent                     x  6
+  ntoskrnl.exe!IoGetDeviceObjectPointer              x  5
+  ntoskrnl.exe!IoBuildSynchronousFsdRequest          x  4
+  ntoskrnl.exe!ZwYieldExecution                      x  4
+  ntoskrnl.exe!IoIs32bitProcess                      x  3
+  ntoskrnl.exe!ExAllocatePool                        x  3
+  ntoskrnl.exe!IofCompleteRequest                    x  3
+  HAL.dll!KeQueryPerformanceCounter                  x  2
+  HAL.dll!HalGetBusDataByOffset                      x  2
+  ntoskrnl.exe!IoDeleteDevice                        x  2
+  ntoskrnl.exe!KeCancelTimer                         x  2
+  ntoskrnl.exe!ZwClose                               x  2
+  ntoskrnl.exe!IoGetDeviceProperty                   x  2
+  ntoskrnl.exe!RtlCompareMemory                      x  2
+  ntoskrnl.exe!KeInitializeMutex                     x  2
+  ntoskrnl.exe!MmGetSystemRoutineAddress             x  2
+  ntoskrnl.exe!IoBuildDeviceIoControlRequest         x  2
+  ntoskrnl.exe!IoCancelIrp                           x  2
+  ntoskrnl.exe!PsGetVersion                          x  2
+  HAL.dll!HalSetBusDataByOffset                      x  1
+  ntoskrnl.exe!ObReferenceObjectByHandle             x  1
+  ntoskrnl.exe!KeBugCheckEx                          x  1
+  ntoskrnl.exe!IoDeleteSymbolicLink                  x  1
+  ntoskrnl.exe!SeSinglePrivilegeCheck                x  1
+  ntoskrnl.exe!_wcsicmp                              x  1
+  HAL.dll!HalTranslateBusAddress                     x  1
+  ntoskrnl.exe!IoOpenDeviceRegistryKey               x  1
+  ntoskrnl.exe!KeSetTimerEx                          x  1
+  ntoskrnl.exe!ProbeForRead                          x  1
+  ntoskrnl.exe!ProbeForWrite                         x  1
+  ntoskrnl.exe!ZwOpenSymbolicLinkObject              x  1
+  ntoskrnl.exe!ZwQueryKey                            x  1
+  ntoskrnl.exe!ZwQuerySymbolicLinkObject             x  1
+  ntoskrnl.exe!MmUnmapIoSpace                        x  1
+  ntoskrnl.exe!RtlAnsiStringToUnicodeString          x  1
+  ntoskrnl.exe!RtlInitAnsiString                     x  1
+  ntoskrnl.exe!strchr                                x  1
+  ntoskrnl.exe!IoGetAttachedDeviceReference          x  1
+  ntoskrnl.exe!strstr                                x  1
+  ntoskrnl.exe!RtlQueryRegistryValues                x  1
+  ntoskrnl.exe!IoCreateDevice                        x  1
+  ntoskrnl.exe!IoCreateSymbolicLink                  x  1
+  ntoskrnl.exe!IoCreateSynchronizationEvent          x  1
+  ntoskrnl.exe!KeInitializeDpc                       x  1
+  ntoskrnl.exe!KeInitializeTimer                     x  1
+  ntoskrnl.exe!KeQueryTimeIncrement                  x  1

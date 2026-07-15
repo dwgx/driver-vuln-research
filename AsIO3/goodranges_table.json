@@ -1,0 +1,364 @@
+{
+  "driver": "Asusgio3.sys (AsIO3)",
+  "analysis_date": "2026-07-11",
+  "conclusion": "g_goodRanges BLOCKS all RAM - only MMIO regions whitelisted. NO bypass exists.",
+  "range_check_function": {
+    "va": "0x140001514",
+    "rva": "0x1514",
+    "description": "Three-phase validation: linked list -> static table -> dynamic firmware table",
+    "returns": "0 = ALLOW, 1 = DENY"
+  },
+  "static_table": {
+    "rva": "0x9130",
+    "description": "Hardcoded in .data section, 2 entries. Only used if dynamic count == 0 (BSS default).",
+    "entries": [
+      {
+        "base_hex": "0x000E0000",
+        "size_hex": "0x00020000",
+        "end_hex": "0x00100000",
+        "description": "Upper BIOS area (896KB-1MB): legacy ROM, video BIOS"
+      },
+      {
+        "base_hex": "0xF8000000",
+        "size_hex": "0x07FFFFFF",
+        "end_hex": "0xFFFFFFFF",
+        "description": "High MMIO region (3.875GB-4GB): PCI devices, APIC, firmware"
+      }
+    ]
+  },
+  "dynamic_table": {
+    "flag_rva": "0x95C0",
+    "flag_description": "In BSS (zero at load). If non-zero, used as entry count for firmware table instead of static table.",
+    "entries_ptr_rva": "0x95E8",
+    "struct_ptr_rva": "0x95D0",
+    "populated_by": "Function at 0x1400039B4 parses ACPI resource descriptors during driver init",
+    "format": "Array of 16-byte entries: {base_lo:4, base_hi:4, size_lo:4, size_hi:4}"
+  },
+  "linked_list": {
+    "head_rva": "0x9670",
+    "description": "Runtime-populated linked list. Initially empty (head points to sentinel).",
+    "entry_structure": {
+      "+0x00": "LIST_ENTRY.Flink",
+      "+0x08": "LIST_ENTRY.Blink",
+      "+0x10": "DeviceObject/identifier",
+      "+0x18": "physical_base_address (QWORD)",
+      "+0x20": "size (QWORD)"
+    },
+    "add_ioctl": "0xA040A488 - BUT only adds NEWLY ALLOCATED contiguous memory, not arbitrary addresses",
+    "remove_ioctl": "0xA040A48C"
+  },
+  "blocked_ram_ranges": [
+    "0x00000000 - 0x000DFFFF (lower 896KB RAM)",
+    "0x00100000 - 0xF7FFFFFF (main RAM, 1MB to 3.875GB)",
+    "All RAM above 4GB"
+  ],
+  "allowed_ranges": [
+    "0x000E0000 - 0x000FFFFF (BIOS/ROM area)",
+    "0xF8000000 - 0xFFFFFFFF (PCI MMIO, APIC)"
+  ],
+  "io_port_whitelist_entries": 43,
+  "io_port_whitelist": [
+    {
+      "base": 46,
+      "count": 2,
+      "end": 47
+    },
+    {
+      "base": 64,
+      "count": 31,
+      "end": 94
+    },
+    {
+      "base": 96,
+      "count": 15,
+      "end": 110
+    },
+    {
+      "base": 112,
+      "count": 15,
+      "end": 126
+    },
+    {
+      "base": 128,
+      "count": 1,
+      "end": 128
+    },
+    {
+      "base": 132,
+      "count": 11,
+      "end": 142
+    },
+    {
+      "base": 178,
+      "count": 1,
+      "end": 178
+    },
+    {
+      "base": 224,
+      "count": 1,
+      "end": 224
+    },
+    {
+      "base": 235,
+      "count": 1,
+      "end": 235
+    },
+    {
+      "base": 237,
+      "count": 1,
+      "end": 237
+    },
+    {
+      "base": 512,
+      "count": 32,
+      "end": 543
+    },
+    {
+      "base": 604,
+      "count": 2,
+      "end": 605
+    },
+    {
+      "base": 624,
+      "count": 1,
+      "end": 624
+    },
+    {
+      "base": 632,
+      "count": 7,
+      "end": 638
+    },
+    {
+      "base": 661,
+      "count": 2,
+      "end": 662
+    },
+    {
+      "base": 672,
+      "count": 15,
+      "end": 686
+    },
+    {
+      "base": 704,
+      "count": 1,
+      "end": 704
+    },
+    {
+      "base": 706,
+      "count": 4,
+      "end": 709
+    },
+    {
+      "base": 718,
+      "count": 1,
+      "end": 718
+    },
+    {
+      "base": 744,
+      "count": 7,
+      "end": 750
+    },
+    {
+      "base": 760,
+      "count": 7,
+      "end": 766
+    },
+    {
+      "base": 888,
+      "count": 7,
+      "end": 894
+    },
+    {
+      "base": 897,
+      "count": 3,
+      "end": 899
+    },
+    {
+      "base": 1000,
+      "count": 7,
+      "end": 1006
+    },
+    {
+      "base": 1016,
+      "count": 7,
+      "end": 1022
+    },
+    {
+      "base": 1030,
+      "count": 1,
+      "end": 1030
+    },
+    {
+      "base": 1280,
+      "count": 1,
+      "end": 1280
+    },
+    {
+      "base": 1282,
+      "count": 1,
+      "end": 1282
+    },
+    {
+      "base": 2048,
+      "count": 6,
+      "end": 2053
+    },
+    {
+      "base": 2096,
+      "count": 1,
+      "end": 2096
+    },
+    {
+      "base": 2560,
+      "count": 128,
+      "end": 2687
+    },
+    {
+      "base": 2720,
+      "count": 7,
+      "end": 2726
+    },
+    {
+      "base": 2816,
+      "count": 63,
+      "end": 2878
+    },
+    {
+      "base": 3286,
+      "count": 2,
+      "end": 3287
+    },
+    {
+      "base": 3320,
+      "count": 2,
+      "end": 3321
+    },
+    {
+      "base": 3324,
+      "count": 1,
+      "end": 3324
+    },
+    {
+      "base": 6144,
+      "count": 1,
+      "end": 6144
+    },
+    {
+      "base": 6146,
+      "count": 1,
+      "end": 6146
+    },
+    {
+      "base": 6192,
+      "count": 1,
+      "end": 6192
+    },
+    {
+      "base": 7168,
+      "count": 63,
+      "end": 7230
+    },
+    {
+      "base": 61344,
+      "count": 31,
+      "end": 61374
+    },
+    {
+      "base": 61440,
+      "count": 15,
+      "end": 61454
+    },
+    {
+      "base": 61504,
+      "count": 63,
+      "end": 61566
+    }
+  ],
+  "ioctl_map": {
+    "physical_memory_map": {
+      "code": "0xA040200C",
+      "method": "BUFFERED",
+      "range_checked": true
+    },
+    "physical_memory_unmap": {
+      "code": "0xA0402010",
+      "method": "BUFFERED",
+      "range_checked": false,
+      "note": "unmaps only"
+    },
+    "physical_memory_read": {
+      "code": "0xA0400F7C",
+      "method": "BUFFERED",
+      "range_checked": true
+    },
+    "physical_memory_write": {
+      "code": "0xA0400F80",
+      "method": "BUFFERED",
+      "range_checked": true
+    },
+    "physical_memory_rw2": {
+      "code": "0xA0400F84",
+      "method": "BUFFERED",
+      "range_checked": true
+    },
+    "section_map_rw": {
+      "code": "0xA040244C",
+      "method": "BUFFERED",
+      "range_checked": true
+    },
+    "alloc_contiguous_add_whitelist": {
+      "code": "0xA040A488",
+      "method": "BUFFERED",
+      "range_checked": false,
+      "note": "only newly allocated memory"
+    },
+    "remove_from_whitelist": {
+      "code": "0xA040A48C",
+      "method": "BUFFERED",
+      "range_checked": false
+    },
+    "msr_read": {
+      "code": "0xA0406458",
+      "method": "BUFFERED",
+      "range_checked": false,
+      "note": "RDMSR, no memory access"
+    },
+    "io_port_byte_rw": {
+      "code": "0xA0406400",
+      "method": "BUFFERED",
+      "range_checked": true,
+      "note": "I/O port whitelist"
+    },
+    "io_port_word_rw": {
+      "code": "0xA0406404",
+      "method": "BUFFERED",
+      "range_checked": true,
+      "note": "I/O port whitelist"
+    },
+    "io_port_dword_rw": {
+      "code": "0xA0406408",
+      "method": "BUFFERED",
+      "range_checked": true,
+      "note": "I/O port whitelist"
+    },
+    "pci_config_rw_byte": {
+      "code": "0xA040A440",
+      "method": "BUFFERED",
+      "range_checked": true,
+      "note": "I/O port whitelist"
+    },
+    "pci_config_rw_word": {
+      "code": "0xA040A444",
+      "method": "BUFFERED",
+      "range_checked": true,
+      "note": "I/O port whitelist"
+    },
+    "pci_config_rw_dword": {
+      "code": "0xA040A448",
+      "method": "BUFFERED",
+      "range_checked": true,
+      "note": "I/O port whitelist"
+    }
+  },
+  "bypass_verdict": "IMPOSSIBLE - No IOCTL path allows reading arbitrary physical RAM. The g_goodRanges check is enforced on ALL memory mapping operations accessible to userspace."
+}

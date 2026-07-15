@@ -1,0 +1,143 @@
+{
+  "admin": true,
+  "analysis_date": "2026-07-11",
+  "driver_path": "C:\\Windows\\System32\\drivers\\AsIO3.sys",
+  "driver_on_disk_copy": "C:\\Users\\researcher\\OneDrive\\Desktop\\report\\AsIO3\\Asusgio3.sys",
+
+  "architecture": {
+    "access_layers": [
+      "Layer 1: Device Security Descriptor (DACL) - checked by I/O Manager before IRP reaches driver",
+      "Layer 2: PID Enrollment via path+hash check (in IRP_MJ_CREATE, function RVA 0x3138)",
+      "Layer 3: PID Whitelist scan (function RVA 0x340C, 64 QWORD entries at .data+0x3C0)",
+      "Layer 4: IOCTL-level MSR/port/range validation (function RVA 0x14BC / 0x143C / 0x1514)"
+    ],
+    "enrollment_flow": {
+      "trigger": "Every CreateFileW on device triggers enrollment attempt in IRP_MJ_CREATE",
+      "step1_path_check": "Prefix match: process image path must start with 'C:\\Program Files (x86)\\ASUS\\AsusCertService'",
+      "step2_disk_check": "File must be on local disk (DeviceType <= 1 via FileFsDeviceInformation class 5)",
+      "step3_hash_check": "SHA-256 of exe file content compared against hardcoded 32-byte hash at .data+0x150",
+      "step4_whitelist_add": "If all pass: caller PID added to .data+0x3C0 QWORD array"
+    },
+    "notify_callback_rva_0x3CD0": "ONLY handles process EXIT (removes PID). Does NOT enroll on creation.",
+    "irp_mj_create_flow": "RVA 0x2777: call enrollment(0x3138); if TRUE -> add_pid(0x2D88); else -> check_existing(0x340C)"
+  },
+
+  "hash_analysis": {
+    "algorithm": "SHA-256 (confirmed by H0-H7 constants at RVA 0x71B0: 0x6a09e667, 0xbb67ae85, etc.)",
+    "stored_hash_in_driver": "CFE4CD5249D06B17139A7D30ECAEB2271F4A11C44E1E3B8BBBE555D7ED017A56",
+    "stored_at": ".data+0x150 (file offset 0x8350)",
+    "current_asuscertservice_sha256": "67E31590ABC2CC6443DA5679C33FE927E317C546FB0420D5B1500F7BAE50AFFF",
+    "old_v132_sha256": "CFE4CD5249D06B17139A7D30ECAEB2271F4A11C44E1E3B8BBBE555D7ED017A56",
+    "BREAKTHROUGH": "Driver hash matches OLD v1.3.2 binary at 1.3.2/AsusCertService.exe (497560 bytes)",
+    "old_binary_path": "C:\\Program Files (x86)\\ASUS\\AsusCertService\\1.3.2\\AsusCertService.exe",
+    "bypass_implication": "Running any process whose file content matches v1.3.2 hash from correct path prefix will pass enrollment"
+  },
+
+  "named_pipe_discovery": {
+    "pipe_path": "\\\\.\\pipe\\asuscert",
+    "accessible_from_user_mode": true,
+    "access": "GENERIC_READ|GENERIC_WRITE without elevation",
+    "protocol": "Unknown - needs reverse engineering of AsusCertService.exe",
+    "significance": "If protocol reversed, can proxy device operations without opening device directly"
+  },
+
+  "pid_whitelist": {
+    "location": ".data+0x3C0 (RVA 0x93C0) to .data+0x5C0 (RVA 0x95C0), 64 QWORD entries",
+    "check_function_rva": "0x340C",
+    "mechanism": "ZwQueryInformationProcess(ProcessBasicInformation, class 0) -> UniqueProcessId, then linear QWORD scan"
+  },
+
+  "msr_whitelist_not_pid": {
+    "location": ".data+0x00 (RVA 0x9000), 29 DWORD entries",
+    "purpose": "Allowed MSR register addresses for RDMSR/WRMSR IOCTLs (NOT PIDs!)",
+    "sample_entries": "0x35, 0xCE, 0x150, 0x194, 0x198, 0x1A2, 0x606, 0x610, 0xC0010015, 0xC0010061..."
+  },
+
+  "process_protection_findings": {
+    "asuscertservice_pid": 3760,
+    "openprocess_result": "DENIED with PROCESS_ALL_ACCESS even running as ADMINISTRATOR",
+    "openprocess_query_only": "allowed (PROCESS_QUERY_LIMITED_INFORMATION)",
+    "conclusion": "AsusCertService has a restricted process security descriptor preventing injection",
+    "all_session0_asus_services": "Similarly protected (AsusOptimization, AsusSystemAnalysis, LightingService, etc.)"
+  },
+
+  "injectable_asus_processes": {
+    "user_session_processes_with_full_access": [
+      {"name": "AsusOptimizationStartupTask.exe", "pid": 14456, "arch": "x64"},
+      {"name": "ArmouryCrate.UserSessionHelper.exe", "pid": 14800},
+      {"name": "ArmouryCrate.exe", "pid": 18868, "arch": "x64"},
+      {"name": "AacAmbientLighting.exe", "pid": 14140},
+      {"name": "ArmourySocketServer.exe", "pid": 21316},
+      {"name": "asus_framework.exe", "pid": 21600, "note": "some instances are 32-bit!"},
+      {"name": "AsusOSD.exe", "pid": 4684},
+      {"name": "AsusSoftwareManagerAgent.exe", "pid": 10300},
+      {"name": "ArmourySwAgent.exe", "pid": 27168}
+    ],
+    "injection_useful": false,
+    "reason": "These processes are NOT in the driver's PID whitelist and would get ACCESS_DENIED from the driver's own checks even if CreateFileW succeeds at the SD level (which it likely won't either)"
+  },
+
+  "device_handles_in_asus_procs": {
+    "found": false,
+    "scanned_processes": "All 25 ASUS processes",
+    "conclusion": "No persistent handle to \\Device\\Asusgio3 found. Handle likely opened/closed per-operation."
+  },
+
+  "why_path_spoof_fails": "Driver at enrollment (0x3138) reads the calling exe from disk, computes its SHA-256, and compares against the stored hash. A different binary has a different hash, so enrollment is denied regardless of matching path prefix.",
+
+  "bypass_methods_recommended": [
+    {
+      "rank": 1,
+      "method": "Investigate runtime hash update",
+      "description": "The on-disk driver hash doesn't match current AsusCertService.exe. The loaded driver in kernel memory may have the hash updated at runtime (perhaps AsusCertService writes its own hash into the driver on first connect via a special IOCTL). Reading the LOADED driver's .data section via another primitive would reveal the true hash.",
+      "feasibility": "HIGH - just needs kernel read (which we're trying to get)"
+    },
+    {
+      "rank": 2,
+      "method": "Security Descriptor SID bypass",
+      "description": "The device SD may allow NT SERVICE\\AsusCertService SID. If we can impersonate that SID (via service account token manipulation), the I/O manager allows the IRP through. Then the enrollment hash check at Layer 2 would determine if we also need hash match or if whitelisted SIDs skip it.",
+      "feasibility": "MEDIUM - needs investigation of exact SD ACEs"
+    },
+    {
+      "rank": 3,
+      "method": "AsusCertService IPC reverse engineering",
+      "description": "AsusCertService must expose an interface for other ASUS apps (ArmouryCrate, AURA, etc.) to request hardware access. Find named pipes, COM objects, or TCP ports it listens on. Use that interface to proxy our operations.",
+      "feasibility": "HIGH - ASUS apps communicate with it somehow"
+    },
+    {
+      "rank": 4,
+      "method": "Service restart with IFEO debugger",
+      "description": "Set Image File Execution Options debugger for AsusCertService.exe to our process. When service restarts, our process launches first (as service SID). But this changes the actual running exe so hash won't match.",
+      "feasibility": "LOW - hash check defeats this"
+    },
+    {
+      "rank": 5,
+      "method": "Patch hash via secondary driver",
+      "description": "Use SIVX64.sys or ASMMAP64.sys to write into loaded AsIO3.sys .data section: either patch the stored hash to match our exe, or directly write our PID into the whitelist array.",
+      "feasibility": "MEDIUM - requires loading another vulnerable driver first"
+    }
+  ],
+
+  "key_function_rvas": {
+    "DriverEntry": "0xD000",
+    "InitFunction": "0x16C4",
+    "SharedIRPDispatch": "0x1A00",
+    "IRP_MJ_CREATE_logic": "0x2777",
+    "EnrollmentFunction": "0x3138",
+    "PIDCheckForCreate": "0x340C",
+    "GetCallerPID": "0x197C",
+    "PathComparisonFunc": "0x3B00",
+    "LocalDiskCheck": "0x130C",
+    "FileReadAndHash": "0x4780",
+    "SHA256Init": "0x71B0",
+    "SHA256Update": "0x71F0",
+    "SHA256Final": "0x48EC",
+    "Memcmp32": "0x7450",
+    "ProcessNotifyCallback": "0x3CD0",
+    "IOCTLCodeRangeCheck": "0x143C",
+    "PhysMemRangeCheck": "0x1514",
+    "SecurityDescriptorSetup": "0xB410",
+    "DriverUnload": "0x2CB0",
+    "AddPIDAndGrant": "0x2D88"
+  }
+}

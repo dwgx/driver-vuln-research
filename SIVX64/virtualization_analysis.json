@@ -1,0 +1,162 @@
+{
+  "file": "D:\\Project\\toolkit\\drivers\\Vulnerable-Monitors\\SIVX64.sys",
+  "file_size": 211144,
+  "vmprotect_themida": {
+    "packed_section_names": [],
+    "packer_signatures_found": [],
+    "high_entropy_sections": [],
+    "wx_sections": [
+      "INIT"
+    ],
+    "verdict": "NONE_DETECTED"
+  },
+  "control_flow": {
+    "total_instructions": 32673,
+    "direct_jumps": 4232,
+    "indirect_jumps": 5,
+    "direct_calls": 609,
+    "indirect_calls": 686,
+    "nop_count": 50,
+    "ret_count": 252,
+    "avg_basic_block_size": 7.28,
+    "num_basic_blocks": 4489,
+    "indirect_jump_ratio": 0.0012,
+    "int3_traps": 1891,
+    "int2d_traps": 0,
+    "rdtsc_count": 0
+  },
+  "anti_debug": {
+    "anti_debug_imports": [
+      {
+        "dll": "ntoskrnl.exe",
+        "function": "DbgBreakPoint"
+      }
+    ],
+    "anti_debug_strings": [
+      "DbgBreakPoint",
+      "KdDebuggerNotPresent"
+    ],
+    "int3_traps": 1891,
+    "int2d_traps": 0,
+    "rdtsc_timing": 0,
+    "verdict": "MINIMAL"
+  },
+  "code_signing": {
+    "present": true,
+    "offset": "0x31000",
+    "size": 10440,
+    "revision": "0x0200",
+    "type": "PKCS#7",
+    "certificate_strings": [
+      "Washington",
+      "Redmond",
+      "Microsoft Corporation",
+      "Microsoft Windows Third Party Component CA 2014",
+      "Microsoft Windows Hardware Compatibility Publisher",
+      "Microsoft Ireland Operations Limited",
+      "232147+505778",
+      "Microsoft Root Certificate Authority 2010",
+      "http://www.microsoft.com/pkiops/Docs/Repository.htm",
+      "nShield TSS ESN:651A-05E0-D947",
+      "Microsoft Time-Stamp Service",
+      "Microsoft Time-Stamp PCA 2010"
+    ],
+    "has_timestamp": false
+  },
+  "relocation": {
+    "present": true,
+    "total_entries": 1086,
+    "blocks": 8,
+    "types": {
+      "10": 1083,
+      "0": 3
+    }
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "virtual_size": 15249,
+      "raw_size": 15360,
+      "entropy": 6.42,
+      "executable": true,
+      "writable": false,
+      "readable": true,
+      "characteristics": "0x68000020"
+    },
+    {
+      "name": ".rdata",
+      "virtual_size": 37168,
+      "raw_size": 37376,
+      "entropy": 4.0555,
+      "executable": false,
+      "writable": false,
+      "readable": true,
+      "characteristics": "0x48000040"
+    },
+    {
+      "name": ".data",
+      "virtual_size": 348,
+      "raw_size": 512,
+      "entropy": 0.5345,
+      "executable": false,
+      "writable": true,
+      "readable": true,
+      "characteristics": "0xC8000040"
+    },
+    {
+      "name": ".pdata",
+      "virtual_size": 2160,
+      "raw_size": 2560,
+      "entropy": 4.5297,
+      "executable": false,
+      "writable": false,
+      "readable": true,
+      "characteristics": "0x48000040"
+    },
+    {
+      "name": "PAGE",
+      "virtual_size": 133363,
+      "raw_size": 133632,
+      "entropy": 6.4467,
+      "executable": true,
+      "writable": false,
+      "readable": true,
+      "characteristics": "0x60000020"
+    },
+    {
+      "name": "INIT",
+      "virtual_size": 6068,
+      "raw_size": 6144,
+      "entropy": 6.125,
+      "executable": true,
+      "writable": true,
+      "readable": true,
+      "characteristics": "0xE2000020"
+    },
+    {
+      "name": ".rsrc",
+      "virtual_size": 1016,
+      "raw_size": 1024,
+      "entropy": 3.3248,
+      "executable": false,
+      "writable": false,
+      "readable": true,
+      "characteristics": "0x42000040"
+    },
+    {
+      "name": ".reloc",
+      "virtual_size": 2692,
+      "raw_size": 3072,
+      "entropy": 4.6731,
+      "executable": false,
+      "writable": false,
+      "readable": true,
+      "characteristics": "0x42000040"
+    }
+  ],
+  "conclusion": "MINIMALLY PROTECTED - Minor indicators, likely standard compiled code.",
+  "protection_score": 2,
+  "evidence": [
+    "W+X sections"
+  ]
+}

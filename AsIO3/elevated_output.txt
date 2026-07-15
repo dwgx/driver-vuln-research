@@ -1,0 +1,11 @@
+Admin: 1
+PID: 37816
+AsusCertService PID: 3760
+
+--- Direct Open Test ---
+Direct open failed: error 5
+
+--- OpenProcess Test (PID 3760) ---
+OpenProcess FAILED: error 5
+
+Done. Results saved.

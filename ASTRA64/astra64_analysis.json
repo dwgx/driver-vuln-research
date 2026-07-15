@@ -1,0 +1,594 @@
+{
+  "file": "D:\\Project\\toolkit\\drivers\\Vulnerable-Monitors\\ASTRA64.sys",
+  "metadata": {
+    "sha256": "4a8b6b462c4271af4a32cf8705fa64913bfcdaefb6cf02d1e722c611d428cb16",
+    "md5": "748b2514db1438fe16a2ddb56bfcf011",
+    "size": 21200,
+    "image_base": "0x10000",
+    "entry_point_rva": "0x1850",
+    "machine": "AMD64",
+    "sections": [
+      {
+        "name": ".text",
+        "virtual_address": "0x1000",
+        "virtual_size": 7974,
+        "raw_size": 8192,
+        "executable": true,
+        "entropy": 6.0591
+      },
+      {
+        "name": ".rdata",
+        "virtual_address": "0x3000",
+        "virtual_size": 908,
+        "raw_size": 1024,
+        "executable": false,
+        "entropy": 3.9353
+      },
+      {
+        "name": ".data",
+        "virtual_address": "0x4000",
+        "virtual_size": 136,
+        "raw_size": 0,
+        "executable": false,
+        "entropy": 0.0
+      },
+      {
+        "name": ".pdata",
+        "virtual_address": "0x5000",
+        "virtual_size": 432,
+        "raw_size": 512,
+        "executable": false,
+        "entropy": 3.4116
+      },
+      {
+        "name": "INIT",
+        "virtual_address": "0x6000",
+        "virtual_size": 1186,
+        "raw_size": 1536,
+        "executable": true,
+        "entropy": 3.9779
+      },
+      {
+        "name": ".rsrc",
+        "virtual_address": "0x7000",
+        "virtual_size": 1224,
+        "raw_size": 1536,
+        "executable": false,
+        "entropy": 2.8397
+      }
+    ]
+  },
+  "imports": {
+    "ntoskrnl.exe": [
+      "IoCreateDevice",
+      "RtlInitUnicodeString",
+      "_snwprintf",
+      "IoDeleteSymbolicLink",
+      "IofCompleteRequest",
+      "IofCallDriver",
+      "ExFreePoolWithTag",
+      "ZwClose",
+      "ExAllocatePoolWithTag",
+      "RtlZeroMemory",
+      "RtlCopyMemory",
+      "IoFreeMdl",
+      "MmUnmapLockedPages",
+      "MmUnmapIoSpace",
+      "IoDisconnectInterrupt",
+      "IoConnectInterrupt",
+      "KeSetEvent",
+      "MmFreeContiguousMemory",
+      "IoCreateNotificationEvent",
+      "KeInsertQueueDpc",
+      "IoStartNextPacket",
+      "ZwMapViewOfSection",
+      "ObReferenceObjectByHandle",
+      "ZwOpenSection",
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "MmBuildMdlForNonPagedPool",
+      "IoAllocateMdl",
+      "MmAllocateContiguousMemory",
+      "IoCreateSymbolicLink",
+      "IoDeleteDevice",
+      "ZwUnmapViewOfSection",
+      "KeInitializeDpc"
+    ],
+    "HAL.dll": [
+      "KeStallExecutionProcessor",
+      "HalGetInterruptVector",
+      "HalTranslateBusAddress"
+    ]
+  },
+  "functions": {
+    "total": 36,
+    "list": [
+      {
+        "rva_start": "0x1000",
+        "rva_end": "0x1155",
+        "size": 341,
+        "va_start": "0x11000",
+        "va_end": "0x11155"
+      },
+      {
+        "rva_start": "0x11e0",
+        "rva_end": "0x1232",
+        "size": 82,
+        "va_start": "0x111e0",
+        "va_end": "0x11232"
+      },
+      {
+        "rva_start": "0x1280",
+        "rva_end": "0x1802",
+        "size": 1410,
+        "va_start": "0x11280",
+        "va_end": "0x11802"
+      },
+      {
+        "rva_start": "0x1810",
+        "rva_end": "0x184f",
+        "size": 63,
+        "va_start": "0x11810",
+        "va_end": "0x1184f"
+      },
+      {
+        "rva_start": "0x1850",
+        "rva_end": "0x18cf",
+        "size": 127,
+        "va_start": "0x11850",
+        "va_end": "0x118cf"
+      },
+      {
+        "rva_start": "0x18d0",
+        "rva_end": "0x19be",
+        "size": 238,
+        "va_start": "0x118d0",
+        "va_end": "0x119be"
+      },
+      {
+        "rva_start": "0x19c0",
+        "rva_end": "0x1a29",
+        "size": 105,
+        "va_start": "0x119c0",
+        "va_end": "0x11a29"
+      },
+      {
+        "rva_start": "0x1a90",
+        "rva_end": "0x1ae0",
+        "size": 80,
+        "va_start": "0x11a90",
+        "va_end": "0x11ae0"
+      },
+      {
+        "rva_start": "0x1ae0",
+        "rva_end": "0x1b39",
+        "size": 89,
+        "va_start": "0x11ae0",
+        "va_end": "0x11b39"
+      },
+      {
+        "rva_start": "0x1b40",
+        "rva_end": "0x1b8e",
+        "size": 78,
+        "va_start": "0x11b40",
+        "va_end": "0x11b8e"
+      },
+      {
+        "rva_start": "0x1b90",
+        "rva_end": "0x1c8d",
+        "size": 253,
+        "va_start": "0x11b90",
+        "va_end": "0x11c8d"
+      },
+      {
+        "rva_start": "0x1c90",
+        "rva_end": "0x1cf8",
+        "size": 104,
+        "va_start": "0x11c90",
+        "va_end": "0x11cf8"
+      },
+      {
+        "rva_start": "0x1d10",
+        "rva_end": "0x1d70",
+        "size": 96,
+        "va_start": "0x11d10",
+        "va_end": "0x11d70"
+      },
+      {
+        "rva_start": "0x1d70",
+        "rva_end": "0x1e84",
+        "size": 276,
+        "va_start": "0x11d70",
+        "va_end": "0x11e84"
+      },
+      {
+        "rva_start": "0x1e90",
+        "rva_end": "0x1ed5",
+        "size": 69,
+        "va_start": "0x11e90",
+        "va_end": "0x11ed5"
+      },
+      {
+        "rva_start": "0x1f70",
+        "rva_end": "0x1fe8",
+        "size": 120,
+        "va_start": "0x11f70",
+        "va_end": "0x11fe8"
+      },
+      {
+        "rva_start": "0x1ff0",
+        "rva_end": "0x2045",
+        "size": 85,
+        "va_start": "0x11ff0",
+        "va_end": "0x12045"
+      },
+      {
+        "rva_start": "0x2050",
+        "rva_end": "0x2070",
+        "size": 32,
+        "va_start": "0x12050",
+        "va_end": "0x12070"
+      },
+      {
+        "rva_start": "0x2070",
+        "rva_end": "0x2098",
+        "size": 40,
+        "va_start": "0x12070",
+        "va_end": "0x12098"
+      },
+      {
+        "rva_start": "0x20a0",
+        "rva_end": "0x20cf",
+        "size": 47,
+        "va_start": "0x120a0",
+        "va_end": "0x120cf"
+      },
+      {
+        "rva_start": "0x20d0",
+        "rva_end": "0x2121",
+        "size": 81,
+        "va_start": "0x120d0",
+        "va_end": "0x12121"
+      },
+      {
+        "rva_start": "0x2130",
+        "rva_end": "0x2181",
+        "size": 81,
+        "va_start": "0x12130",
+        "va_end": "0x12181"
+      },
+      {
+        "rva_start": "0x2190",
+        "rva_end": "0x222b",
+        "size": 155,
+        "va_start": "0x12190",
+        "va_end": "0x1222b"
+      },
+      {
+        "rva_start": "0x2230",
+        "rva_end": "0x2264",
+        "size": 52,
+        "va_start": "0x12230",
+        "va_end": "0x12264"
+      },
+      {
+        "rva_start": "0x2270",
+        "rva_end": "0x2355",
+        "size": 229,
+        "va_start": "0x12270",
+        "va_end": "0x12355"
+      },
+      {
+        "rva_start": "0x2360",
+        "rva_end": "0x2437",
+        "size": 215,
+        "va_start": "0x12360",
+        "va_end": "0x12437"
+      },
+      {
+        "rva_start": "0x2480",
+        "rva_end": "0x2568",
+        "size": 232,
+        "va_start": "0x12480",
+        "va_end": "0x12568"
+      },
+      {
+        "rva_start": "0x2640",
+        "rva_end": "0x26c1",
+        "size": 129,
+        "va_start": "0x12640",
+        "va_end": "0x126c1"
+      },
+      {
+        "rva_start": "0x2750",
+        "rva_end": "0x2836",
+        "size": 230,
+        "va_start": "0x12750",
+        "va_end": "0x12836"
+      },
+      {
+        "rva_start": "0x2840",
+        "rva_end": "0x296e",
+        "size": 302,
+        "va_start": "0x12840",
+        "va_end": "0x1296e"
+      },
+      {
+        "rva_start": "0x2970",
+        "rva_end": "0x29bb",
+        "size": 75,
+        "va_start": "0x12970",
+        "va_end": "0x129bb"
+      },
+      {
+        "rva_start": "0x29c0",
+        "rva_end": "0x2a7e",
+        "size": 190,
+        "va_start": "0x129c0",
+        "va_end": "0x12a7e"
+      },
+      {
+        "rva_start": "0x2a80",
+        "rva_end": "0x2adf",
+        "size": 95,
+        "va_start": "0x12a80",
+        "va_end": "0x12adf"
+      },
+      {
+        "rva_start": "0x2ae0",
+        "rva_end": "0x2cfb",
+        "size": 539,
+        "va_start": "0x12ae0",
+        "va_end": "0x12cfb"
+      },
+      {
+        "rva_start": "0x2d30",
+        "rva_end": "0x2e16",
+        "size": 230,
+        "va_start": "0x12d30",
+        "va_end": "0x12e16"
+      },
+      {
+        "rva_start": "0x2e20",
+        "rva_end": "0x2f20",
+        "size": 256,
+        "va_start": "0x12e20",
+        "va_end": "0x12f20"
+      }
+    ]
+  },
+  "strings": [
+    {
+      "rva": "0x11b0",
+      "section": ".text",
+      "string": "\\Device\\Astra32Device%d"
+    },
+    {
+      "rva": "0x2d00",
+      "section": ".text",
+      "string": "\\Device\\PhysicalMemory"
+    },
+    {
+      "rva": "0x1170",
+      "section": ".text",
+      "string": "\\DosDevices\\Astra32Device%d"
+    },
+    {
+      "rva": "0x1240",
+      "section": ".text",
+      "string": "\\DosDevices\\Astra32Device%d"
+    },
+    {
+      "rva": "0x2570",
+      "section": ".text",
+      "string": "\\BaseNamedObjects\\HW64KbdEvent%d"
+    },
+    {
+      "rva": "0x25c0",
+      "section": ".text",
+      "string": "\\BaseNamedObjects\\HW64IrqEvent%d"
+    },
+    {
+      "rva": "0x2d00",
+      "section": ".text",
+      "string": "\\Device\\PhysicalMemory"
+    }
+  ],
+  "ioctl_interface": {
+    "2147491848": {
+      "name": "IOCTL_PHYS_MAP",
+      "handler_va": "0x11311",
+      "description": "ZwMapViewOfSection(\\Device\\PhysicalMemory)"
+    },
+    "2147491852": {
+      "name": "IOCTL_PHYS_UNMAP",
+      "handler_va": "0x11326",
+      "description": "ZwUnmapViewOfSection"
+    },
+    "2147491856": {
+      "name": "IOCTL_PHYS_MAP_EX",
+      "handler_va": "0x1133b",
+      "description": "ExAllocatePoolWithTag + RtlCopyMemory (alloc+copy)"
+    },
+    "2147491860": {
+      "name": "IOCTL_PHYS_UNMAP_EX",
+      "handler_va": "0x11350",
+      "description": "MmUnmapLockedPages + IoFreeMdl + ExFreePoolWithTag"
+    },
+    "2147491864": {
+      "name": "IOCTL_IRQ_DISCONNECT",
+      "handler_va": "0x11365",
+      "description": "IoDisconnectInterrupt + MmUnmapIoSpace + IoFreeMdl"
+    },
+    "2147491868": {
+      "name": "IOCTL_IRQ_DISCONNECT2",
+      "handler_va": "0x1137a",
+      "description": "IoDisconnectInterrupt + MmUnmapIoSpace + IoFreeMdl"
+    },
+    "2147491872": {
+      "name": "IOCTL_IRQ_CONNECT",
+      "handler_va": "0x1138f",
+      "description": "IoConnectInterrupt"
+    },
+    "2147491876": {
+      "name": "IOCTL_EVENT_SET",
+      "handler_va": "0x113a4",
+      "description": "KeSetEvent"
+    },
+    "2147491880": {
+      "name": "IOCTL_PORT_IN_1",
+      "handler_va": "0x113b9",
+      "description": "IN al, dx (READ_PORT_UCHAR)"
+    },
+    "2147491884": {
+      "name": "IOCTL_PORT_IN_2",
+      "handler_va": "0x113fd",
+      "description": "IN ax, dx (READ_PORT_USHORT)"
+    },
+    "2147491888": {
+      "name": "IOCTL_PORT_IN_4",
+      "handler_va": "0x11441",
+      "description": "IN eax, dx (READ_PORT_ULONG)"
+    },
+    "2147491892": {
+      "name": "IOCTL_PORT_OUT_1",
+      "handler_va": "0x113db",
+      "description": "OUT dx, al (WRITE_PORT_UCHAR)"
+    },
+    "2147491896": {
+      "name": "IOCTL_PORT_OUT_2",
+      "handler_va": "0x1141f",
+      "description": "OUT dx, ax (WRITE_PORT_USHORT)"
+    },
+    "2147491900": {
+      "name": "IOCTL_PORT_OUT_4",
+      "handler_va": "0x11463",
+      "description": "OUT dx, eax (WRITE_PORT_ULONG)"
+    },
+    "2147491904": {
+      "name": "IOCTL_PORT_IN_BUF_1",
+      "handler_va": "0x11485",
+      "description": "REP INSB (buffered port read, 1-byte)"
+    },
+    "2147491908": {
+      "name": "IOCTL_PORT_IN_BUF_2",
+      "handler_va": "0x114a7",
+      "description": "REP INSW (buffered port read, 2-byte)"
+    },
+    "2147491912": {
+      "name": "IOCTL_PORT_IN_BUF_4",
+      "handler_va": "0x114c9",
+      "description": "REP INSD (buffered port read, 4-byte)"
+    },
+    "2147491916": {
+      "name": "IOCTL_PORT_OUT_BUF_1",
+      "handler_va": "0x114eb",
+      "description": "REP OUTSB (buffered port write, 1-byte)"
+    },
+    "2147491920": {
+      "name": "IOCTL_PORT_OUT_BUF_2",
+      "handler_va": "0x1150d",
+      "description": "REP OUTSW (buffered port write, 2-byte)"
+    },
+    "2147491924": {
+      "name": "IOCTL_PORT_OUT_BUF_4",
+      "handler_va": "0x1152f",
+      "description": "REP OUTSD (buffered port write, 4-byte)"
+    },
+    "2147491940": {
+      "name": "IOCTL_PCI_READ",
+      "handler_va": "0x11551",
+      "description": "PCI config read (bus scan + read via 0xCF8/0xCFC)"
+    },
+    "2147491944": {
+      "name": "IOCTL_UNKNOWN_68",
+      "handler_va": "0x11566",
+      "description": "Unknown handler at 0x12050"
+    },
+    "2147491948": {
+      "name": "IOCTL_UNKNOWN_6C",
+      "handler_va": "0x1157b",
+      "description": "Unknown handler at 0x12070"
+    },
+    "2147491952": {
+      "name": "IOCTL_NOOP_70",
+      "handler_va": "0x115a5",
+      "description": "Returns STATUS_SUCCESS (noop)"
+    },
+    "2147491956": {
+      "name": "IOCTL_NOOP_74",
+      "handler_va": "0x11590",
+      "description": "Returns STATUS_SUCCESS (noop)"
+    },
+    "2147491964": {
+      "name": "IOCTL_EVENT_SET2",
+      "handler_va": "0x115ba",
+      "description": "KeSetEvent (alternate)"
+    },
+    "2147491972": {
+      "name": "IOCTL_MEM_COPY_84",
+      "handler_va": "0x115cf",
+      "description": "RtlCopyMemory x2"
+    },
+    "2147491976": {
+      "name": "IOCTL_MEM_COPY_88",
+      "handler_va": "0x115e4",
+      "description": "RtlCopyMemory x2"
+    },
+    "2147491980": {
+      "name": "IOCTL_MEM_FREE",
+      "handler_va": "0x115f9",
+      "description": "MmUnmapLockedPages + IoFreeMdl + MmFreeContiguousMemory"
+    },
+    "2147492000": {
+      "name": "IOCTL_PCI_SCAN",
+      "handler_va": "0x1160b",
+      "description": "PCI bus/dev/func enumeration + config read"
+    },
+    "2147492004": {
+      "name": "IOCTL_PCI_WRITE",
+      "handler_va": "0x1161d",
+      "description": "PCI config write via 0xCF8/0xCFC"
+    },
+    "2147492072": {
+      "name": "IOCTL_EVENT_CREATE",
+      "handler_va": "0x1162f",
+      "description": "IoCreateNotificationEvent (keyboard/IRQ)"
+    },
+    "2147492076": {
+      "name": "IOCTL_MSR_READ",
+      "handler_va": "0x11641",
+      "description": "RDMSR instruction (read Model-Specific Register)"
+    }
+  },
+  "access_control": {
+    "privilege_check": false,
+    "process_validation": false,
+    "event_gate": false,
+    "summary": "NO ACCESS CONTROL - any admin process can open device"
+  },
+  "physical_memory": {
+    "method": "ZwOpenSection(\\Device\\PhysicalMemory) + ZwMapViewOfSection",
+    "range_restrictions": "None",
+    "caching": "Default (cached via HalTranslateBusAddress)",
+    "usermode_mapping": true
+  },
+  "obfuscation": {
+    "direct_calls": 55,
+    "indirect_calls": 73,
+    "direct_jumps": 59,
+    "indirect_jumps": 0
+  },
+  "detection": {
+    "device_name": "\\Device\\Astra32Device%d (0-15)",
+    "symlink": "\\DosDevices\\Astra32Device%d (\\\\.\\ Astra32Device0)",
+    "service_name": "astra32",
+    "named_events": [
+      "\\BaseNamedObjects\\HW64KbdEvent%d",
+      "\\BaseNamedObjects\\HW64IrqEvent%d"
+    ],
+    "loldrivers": false,
+    "hvci_blocklist": false
+  }
+}

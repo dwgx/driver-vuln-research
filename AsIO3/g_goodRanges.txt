@@ -1,0 +1,40 @@
+# AsIO3 g_goodRanges - Physical Memory Range Validation
+# =====================================================
+
+# The access check function (RVA 0x1514) validates physical addresses in 3 stages:
+
+## Stage 1: Dynamic mapped regions linked list (.data+0x670)
+# A linked list of currently-mapped physical memory regions
+# Each node: {next_ptr, ..., phys_addr @+0x18, size @+0x20}
+# If the requested range overlaps ANY currently-mapped region -> ALLOWED
+
+## Stage 2: Static hardcoded ranges (.data+0x130)
+# 2 entries of 16 bytes each (2 x QWORD pairs = start, end)
+# These are loaded ONCE during initialization
+# File offset 0x8330 (.data + 0x130):
+#   Entry format: [start_phys_low:4][start_phys_high:4][size_low:4][size_high:4]
+
+## Stage 3: Dynamic ranges from MmGetPhysicalMemoryRangesEx2
+# The driver calls MmGetPhysicalMemoryRangesEx2 (dynamically resolved)
+# This returns ALL physical RAM ranges managed by the OS
+# Stored as pointer at .data+0x5D0 (count at [ptr+0x34])
+# These cover ALL installed RAM
+
+## System Physical Memory (from registry .Translated):
+# 0x1000 - 0x9f000 (0.6 MB)
+# 0x100000 - 0x581fd000 (1409 MB)  <- main RAM block
+# 0x63fff000 - 0x64000000 (4 KB)
+
+## Total System RAM: 31.38 GB
+
+## CRITICAL CONCLUSION:
+# The g_goodRanges is NOT a hard restriction on a small set of addresses.
+# It covers ALL physical RAM. The check only rejects:
+#   1. MMIO addresses (PCI BARs, APIC, etc.) not in RAM
+#   2. Addresses beyond physical RAM end
+# Since VRChat process pages reside in normal physical RAM,
+# the range check will PASS for any valid RAM address.
+#
+# The REAL barrier is the ACCESS_DENIED on device open -
+# the driver's security descriptor restricts which processes
+# can open the device handle in the first place.

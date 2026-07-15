@@ -1,0 +1,40 @@
+# AsIO3/Asusgio3 Device Names and Symlinks
+# Extracted from binary strings + runtime testing
+
+## DEVICE OBJECTS AND SYMLINKS
+[unicode] @0x6f40: \Device\Asusgio3          <- kernel device object name
+[unicode] @0x6f70: \DosDevices\Asusgio3      <- symlink for user-mode access
+[unicode] @0x7060: \Device\PhysicalMemory    <- used internally for ZwMapViewOfSection
+
+## USER-MODE ACCESS PATHS (tested at runtime)
+\\.\Asusgio3    -> ERROR 5 (ACCESS_DENIED) - device EXISTS but security blocks access
+\\.\Asus_Gio3   -> ERROR 2 (FILE_NOT_FOUND) - no such symlink
+\\.\AsIO3       -> ERROR 2 (FILE_NOT_FOUND) - no such symlink
+\\.\ASUS_IO3    -> ERROR 2 (FILE_NOT_FOUND) - no such symlink
+\\.\AsIO        -> ERROR 2 (FILE_NOT_FOUND) - no such symlink
+
+## CORRECT PATH: \\.\Asusgio3 (only valid device path)
+
+## ASUSCERTSERVICE PATH (whitelist enrollment trigger)
+[unicode] @0x7120: C:\Program Files (x86)\ASUS\AsusCertService
+
+## DYNAMICALLY RESOLVED API NAMES
+[unicode] @0x6e30: MmGetPhysicalMemoryRangesEx2
+[unicode] @0x7090: ZwQueryInformationProcess
+[unicode] @0x75b0: IoValidateDeviceIoControlAccess
+
+## REGISTRY PATHS
+[unicode] @0x6e70: \Registry\Machine\HARDWARE\RESOURCEMAP\System Resources\Physical Memory
+[unicode] @0x7710: \Registry\Machine\System\CurrentControlSet\Control\Class
+
+## ASUS IDENTITY STRINGS
+[ascii] @0x6f20: ASUSTeK COMPUTER INC.
+[unicode] @0xb36c: AsIO3 Driver
+[unicode] @0xb3d8: AsIO3
+[unicode] @0xb408: Copyright (C) 2022 Asustek Computer Inc.
+[ascii] @0x7a10: D:\Jenkins\workspace\AsIO_Driver\AsIO3\x64\Release\AsIO3_64.sys.pdb
+
+## DEBUG STRINGS
+[ascii] @0x6ff0: [AsIO3]: XXXXXXXX alloc mem size is 0x%lx bytes !
+[ascii] @0x7030: [AsIO3]: XXXXXXXX address is 0x%lx !
+[ascii] @0x70e0: [AsIO3]: Cannot resolve ZwQueryInformationProcess

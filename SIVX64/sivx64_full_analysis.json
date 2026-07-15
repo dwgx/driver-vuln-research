@@ -1,0 +1,1946 @@
+{
+  "file": "SIVX64.sys",
+  "sha256": "33903e8fa9f0a2acaa4784d645e309b0bd780693824b6c2c5fef257238c77478",
+  "md5": "81d040540015fe998a4cc4bf9a4e8598",
+  "size_bytes": 211144,
+  "pe_info": {
+    "image_base": "0x10000",
+    "entry_point": "0x32cd4",
+    "machine": "AMD64",
+    "subsystem": "NATIVE (kernel driver)",
+    "functions_count": 180
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "rva": "0x1000",
+      "vsize": 15249,
+      "executable": true
+    },
+    {
+      "name": ".rdata",
+      "rva": "0x5000",
+      "vsize": 37168,
+      "executable": false
+    },
+    {
+      "name": ".data",
+      "rva": "0xf000",
+      "vsize": 348,
+      "executable": false
+    },
+    {
+      "name": ".pdata",
+      "rva": "0x10000",
+      "vsize": 2160,
+      "executable": false
+    },
+    {
+      "name": "PAGE",
+      "rva": "0x11000",
+      "vsize": 133363,
+      "executable": true
+    },
+    {
+      "name": "INIT",
+      "rva": "0x32000",
+      "vsize": 6068,
+      "executable": true
+    },
+    {
+      "name": ".rsrc",
+      "rva": "0x34000",
+      "vsize": 1016,
+      "executable": false
+    },
+    {
+      "name": ".reloc",
+      "rva": "0x35000",
+      "vsize": 2692,
+      "executable": false
+    }
+  ],
+  "imports_summary": {
+    "ntoskrnl.exe": [
+      "ExFreePoolWithTag",
+      "KeInitializeMutex",
+      "RtlAnsiStringToUnicodeString",
+      "ZwYieldExecution",
+      "IoWMIQueryAllData",
+      "IoBuildSynchronousFsdRequest",
+      "ZwQuerySymbolicLinkObject",
+      "strstr",
+      "RtlInitUnicodeString",
+      "IoDeleteDevice",
+      "ProbeForWrite",
+      "strchr",
+      "MmGetSystemRoutineAddress",
+      "KeInitializeEvent",
+      "RtlQueryRegistryValues",
+      "RtlInitAnsiString",
+      "IoIs32bitProcess",
+      "KeInitializeDpc",
+      "KeIpiGenericCall",
+      "PsGetThreadId",
+      "MmUnmapIoSpace",
+      "ZwOpenSymbolicLinkObject",
+      "IoWMIOpenBlock",
+      "KeInitializeTimer",
+      "KeSetTimerEx",
+      "IoCreateSynchronizationEvent",
+      "KeReleaseMutex",
+      "IoCancelIrp",
+      "KeDelayExecutionThread",
+      "IoGetDeviceObjectPointer",
+      "IoDeleteSymbolicLink",
+      "ExAllocatePool",
+      "KeQueryTimeIncrement",
+      "ZwClose",
+      "IofCompleteRequest",
+      "IoGetDeviceAttachmentBaseRef",
+      "ObReferenceObjectByHandle",
+      "KeWaitForSingleObject",
+      "IoGetAttachedDeviceReference",
+      "PsGetVersion",
+      "IoGetDiskDeviceObject",
+      "RtlCompareMemory",
+      "ObfReferenceObject",
+      "IoCreateSymbolicLink",
+      "ObfDereferenceObject",
+      "IoOpenDeviceRegistryKey",
+      "ObReferenceObjectByName",
+      "IoCreateDevice",
+      "IoDeviceObjectType",
+      "IoEnumerateDeviceObjectList",
+      "KeCancelTimer",
+      "KeNumberProcessors",
+      "PsGetThreadProcessId",
+      "IoGetDeviceProperty",
+      "DbgPrintEx",
+      "DbgPrint",
+      "IofCallDriver",
+      "ZwQueryKey",
+      "KeBugCheckEx",
+      "IoBuildDeviceIoControlRequest",
+      "IoGetLowerDeviceObject",
+      "SeSinglePrivilegeCheck",
+      "ProbeForRead",
+      "DbgBreakPoint",
+      "_wcsicmp",
+      "RtlUnwindEx",
+      "RtlAnsiCharToUnicodeChar"
+    ],
+    "HAL.dll": [
+      "HalTranslateBusAddress",
+      "HalGetBusDataByOffset",
+      "HalSetBusDataByOffset",
+      "KeStallExecutionProcessor",
+      "KeQueryPerformanceCounter"
+    ]
+  },
+  "call_xrefs": {
+    "DbgPrintEx": [
+      "0x12d2",
+      "0x133b",
+      "0x143c",
+      "0x155a",
+      "0x163d",
+      "0x1d57",
+      "0x2126",
+      "0x2700",
+      "0x2869",
+      "0x2a99",
+      "0x1119c",
+      "0x11392",
+      "0x113d2",
+      "0x1169b",
+      "0x11775",
+      "0x1181f",
+      "0x11844",
+      "0x118ed",
+      "0x1194c",
+      "0x11aca",
+      "0x11e5c",
+      "0x11f93",
+      "0x1200f",
+      "0x1206f",
+      "0x1212d",
+      "0x12207",
+      "0x12261",
+      "0x12551",
+      "0x125dd",
+      "0x126af",
+      "0x1270e",
+      "0x133d4",
+      "0x13791",
+      "0x137f1",
+      "0x138e0",
+      "0x13944",
+      "0x13e41",
+      "0x13eed",
+      "0x13f97",
+      "0x14047",
+      "0x140f3",
+      "0x14135",
+      "0x14168",
+      "0x1419b",
+      "0x141ce",
+      "0x14201",
+      "0x14ac3",
+      "0x14bc3",
+      "0x14c3f",
+      "0x14e60",
+      "0x14f43",
+      "0x14fc6",
+      "0x15038",
+      "0x15092",
+      "0x151ea",
+      "0x152a3",
+      "0x1532b",
+      "0x157c9",
+      "0x1580f",
+      "0x15919",
+      "0x15a43",
+      "0x15f6e",
+      "0x15fcf",
+      "0x1693d",
+      "0x169ea",
+      "0x16a90",
+      "0x16b21",
+      "0x16baf",
+      "0x16c1a",
+      "0x16c6c",
+      "0x16f65",
+      "0x171ca",
+      "0x175d7",
+      "0x176d3",
+      "0x17825",
+      "0x178e1",
+      "0x1799d",
+      "0x179d6",
+      "0x17bdc",
+      "0x17c2a",
+      "0x17cd4",
+      "0x17d22",
+      "0x17df2",
+      "0x17e3b",
+      "0x18092",
+      "0x180e0",
+      "0x1818a",
+      "0x181d8",
+      "0x18211",
+      "0x18252",
+      "0x18329",
+      "0x183cf",
+      "0x18569",
+      "0x187af",
+      "0x188d7",
+      "0x1891d",
+      "0x189ec",
+      "0x18b2d",
+      "0x18b73",
+      "0x18d8c",
+      "0x18e2b",
+      "0x18e69",
+      "0x1901b",
+      "0x190a7",
+      "0x19109",
+      "0x19779",
+      "0x19a27",
+      "0x19ffd",
+      "0x1a15c",
+      "0x1a23c",
+      "0x1a30c",
+      "0x1a41c",
+      "0x1a4e0",
+      "0x1a818",
+      "0x1b159",
+      "0x1b2e1",
+      "0x1b3c8",
+      "0x1b4b9",
+      "0x1b56a",
+      "0x1b659",
+      "0x1b789",
+      "0x1b874",
+      "0x1b907",
+      "0x1ba6d",
+      "0x1c024",
+      "0x1c31c",
+      "0x1c39f",
+      "0x1d102",
+      "0x1d2b1",
+      "0x1d4a3",
+      "0x1d5ff",
+      "0x1dd8c",
+      "0x1de15",
+      "0x1e0cd",
+      "0x1e1cf",
+      "0x1e23e",
+      "0x1e2b7",
+      "0x1e3e3",
+      "0x1e6e8",
+      "0x1e858",
+      "0x1e96f",
+      "0x1ea0e",
+      "0x1eb4a",
+      "0x1ef6b",
+      "0x1f347",
+      "0x1f6d5",
+      "0x1fa37",
+      "0x1fcf1",
+      "0x1feab",
+      "0x1ff8d",
+      "0x2005b",
+      "0x20114",
+      "0x2042c",
+      "0x204ad",
+      "0x208ca",
+      "0x20964",
+      "0x209d4",
+      "0x20d0a",
+      "0x20d63",
+      "0x20ec0",
+      "0x210f0",
+      "0x211b9",
+      "0x212b0",
+      "0x213bf",
+      "0x21585",
+      "0x21819",
+      "0x21906",
+      "0x21d3b",
+      "0x22090",
+      "0x2238f",
+      "0x23cfe",
+      "0x23db5",
+      "0x24194",
+      "0x24250",
+      "0x244cc",
+      "0x24588",
+      "0x246ca",
+      "0x24733",
+      "0x24897",
+      "0x24959",
+      "0x24c6c",
+      "0x24d06",
+      "0x24fae",
+      "0x25056",
+      "0x25215",
+      "0x252b4",
+      "0x25354",
+      "0x254ae",
+      "0x2561d",
+      "0x25977",
+      "0x25c01",
+      "0x25c98",
+      "0x25ce2",
+      "0x25e51",
+      "0x25f92",
+      "0x261d3",
+      "0x26388",
+      "0x26700",
+      "0x268d9",
+      "0x2699e",
+      "0x26d2a",
+      "0x26f62",
+      "0x2717d",
+      "0x27401",
+      "0x27709",
+      "0x27844",
+      "0x27899",
+      "0x279be",
+      "0x27bd6",
+      "0x2819f",
+      "0x28380",
+      "0x283ea",
+      "0x286e9",
+      "0x2880d",
+      "0x28857",
+      "0x28d42",
+      "0x294b7",
+      "0x29596",
+      "0x29618",
+      "0x29758",
+      "0x297f6",
+      "0x29a19",
+      "0x29d7f",
+      "0x29eee",
+      "0x2a089",
+      "0x2b3e9",
+      "0x2c040",
+      "0x2c0ea",
+      "0x2c17b",
+      "0x2c39f",
+      "0x2c59b",
+      "0x2c6c8",
+      "0x2c754",
+      "0x2c7cf",
+      "0x2c878",
+      "0x32439",
+      "0x32454",
+      "0x32a26"
+    ],
+    "KeQueryPerformanceCounter": [
+      "0x1375",
+      "0x13c1"
+    ],
+    "KeStallExecutionProcessor": [
+      "0x14db",
+      "0x15be",
+      "0x1844",
+      "0x1873",
+      "0x18a0",
+      "0x123ca",
+      "0x12a0b",
+      "0x12aad",
+      "0x131e7",
+      "0x1a933",
+      "0x1a94b",
+      "0x1aad8",
+      "0x1ad2c",
+      "0x1adac",
+      "0x1addb",
+      "0x1bafc",
+      "0x1bbc2",
+      "0x1bcdf",
+      "0x1c72f",
+      "0x1c74b",
+      "0x1c769",
+      "0x1c787",
+      "0x1cbae",
+      "0x1cea8",
+      "0x1d1e4",
+      "0x1d1f9",
+      "0x1d20c",
+      "0x1d219",
+      "0x1d2cb",
+      "0x1d2d8",
+      "0x1d2e7",
+      "0x1dc3a",
+      "0x1dc55",
+      "0x1dc6f",
+      "0x1dc97",
+      "0x20f90",
+      "0x20fa0",
+      "0x20fbd",
+      "0x21032",
+      "0x2104b",
+      "0x21066",
+      "0x2112f",
+      "0x211ec",
+      "0x211fd",
+      "0x2124b",
+      "0x212d2",
+      "0x21315",
+      "0x21369",
+      "0x213ce",
+      "0x213e3",
+      "0x21445",
+      "0x21472",
+      "0x214f3",
+      "0x21634",
+      "0x21659",
+      "0x216b7",
+      "0x21725",
+      "0x21782",
+      "0x219e1",
+      "0x21a02",
+      "0x21adf",
+      "0x21aef",
+      "0x21b84",
+      "0x21c43",
+      "0x21cac",
+      "0x21dbc",
+      "0x21ddd",
+      "0x21e92",
+      "0x21f36",
+      "0x21fa1",
+      "0x22138",
+      "0x221ce",
+      "0x22273",
+      "0x222d5",
+      "0x223f6",
+      "0x22491",
+      "0x224b0",
+      "0x224e2",
+      "0x22551",
+      "0x2258e",
+      "0x225ae",
+      "0x225e9",
+      "0x22609",
+      "0x2382a",
+      "0x24b8d",
+      "0x24eac",
+      "0x25400",
+      "0x25456",
+      "0x25579",
+      "0x255cb",
+      "0x258cb",
+      "0x2591a",
+      "0x25d9c",
+      "0x25de7",
+      "0x25f11",
+      "0x26124",
+      "0x2616d",
+      "0x2631e",
+      "0x2645a",
+      "0x264df",
+      "0x26587",
+      "0x26613",
+      "0x2679f",
+      "0x26861",
+      "0x2693a",
+      "0x26b13",
+      "0x26c11",
+      "0x26c32",
+      "0x26cbc",
+      "0x26e2d",
+      "0x26ee3",
+      "0x2704a",
+      "0x27112",
+      "0x27259",
+      "0x2727a",
+      "0x272f9",
+      "0x27315",
+      "0x2737f",
+      "0x27561",
+      "0x27582",
+      "0x27601",
+      "0x2761d",
+      "0x27687",
+      "0x27935",
+      "0x27b57"
+    ],
+    "HalGetBusDataByOffset": [
+      "0x1a7d",
+      "0x1ab6",
+      "0x135ab",
+      "0x13a58",
+      "0x13ad7"
+    ],
+    "HalSetBusDataByOffset": [
+      "0x1b18"
+    ],
+    "IoIs32bitProcess": [
+      "0x28eb",
+      "0x1288d",
+      "0x17a0d",
+      "0x17e72",
+      "0x1eb6d",
+      "0x1ec41",
+      "0x1ec7e",
+      "0x1ed48"
+    ],
+    "ObReferenceObjectByHandle": [
+      "0x295a"
+    ],
+    "ObfDereferenceObject": [
+      "0x2a48",
+      "0x1111b",
+      "0x1113b",
+      "0x112bc",
+      "0x11469",
+      "0x117b0",
+      "0x117be",
+      "0x117cc",
+      "0x117f7",
+      "0x118fe",
+      "0x1190f",
+      "0x11920",
+      "0x14ae4",
+      "0x14bd1",
+      "0x14c4d",
+      "0x14e90",
+      "0x14edc",
+      "0x1911d",
+      "0x19e06",
+      "0x1a379",
+      "0x1a387",
+      "0x1a39a",
+      "0x1c2ea",
+      "0x1e2f3",
+      "0x1e395",
+      "0x1e51c",
+      "0x1e987",
+      "0x1e99c",
+      "0x1e9af",
+      "0x204c5"
+    ],
+    "KeBugCheckEx": [
+      "0x2df8"
+    ],
+    "KeWaitForSingleObject": [
+      "0x1104c",
+      "0x1593b",
+      "0x159b4",
+      "0x15e87",
+      "0x1906e",
+      "0x19ae6",
+      "0x1a03c",
+      "0x1a348",
+      "0x1de66",
+      "0x1e72f",
+      "0x2058f",
+      "0x20748",
+      "0x2bfe4",
+      "0x2c062",
+      "0x2c3dd",
+      "0x2c827",
+      "0x2c850"
+    ],
+    "KeReleaseMutex": [
+      "0x1108b",
+      "0x15972",
+      "0x15a07",
+      "0x15f43",
+      "0x19b2a",
+      "0x19bf5",
+      "0x1a370",
+      "0x1de86",
+      "0x2065f",
+      "0x20826"
+    ],
+    "KeCancelTimer": [
+      "0x11098",
+      "0x16d16"
+    ],
+    "ZwClose": [
+      "0x1115d",
+      "0x14dba",
+      "0x152b1",
+      "0x16254"
+    ],
+    "IoDeleteSymbolicLink": [
+      "0x11174",
+      "0x11181"
+    ],
+    "IoDeleteDevice": [
+      "0x111a5",
+      "0x32523"
+    ],
+    "_wcsicmp": [
+      "0x11220",
+      "0x11236"
+    ],
+    "SeSinglePrivilegeCheck": [
+      "0x11250"
+    ],
+    "IoGetDeviceObjectPointer": [
+      "0x11285",
+      "0x14a53",
+      "0x14dfa",
+      "0x19ddf",
+      "0x1c2cd",
+      "0x1e4f5"
+    ],
+    "ObfReferenceObject": [
+      "0x112ae",
+      "0x114bf",
+      "0x14ad6",
+      "0x19df8",
+      "0x1c2df",
+      "0x1df66",
+      "0x1e50e",
+      "0x2044f"
+    ],
+    "ExAllocatePool": [
+      "0x113e0",
+      "0x1e005",
+      "0x1e0fa",
+      "0x203b0"
+    ],
+    "RtlInitUnicodeString": [
+      "0x114d4",
+      "0x191ad",
+      "0x191bf",
+      "0x191d1",
+      "0x191e6",
+      "0x191f8",
+      "0x1920a",
+      "0x1921c",
+      "0x19231",
+      "0x19243",
+      "0x19258",
+      "0x1926d",
+      "0x19282",
+      "0x19297",
+      "0x192ac",
+      "0x192c1",
+      "0x192d6",
+      "0x192eb",
+      "0x19300",
+      "0x194ad",
+      "0x19d4b",
+      "0x1c28b",
+      "0x1e461",
+      "0x32032",
+      "0x32543",
+      "0x32b88"
+    ],
+    "ExFreePoolWithTag": [
+      "0x117dc",
+      "0x1192b",
+      "0x19133",
+      "0x1e311",
+      "0x1e329",
+      "0x1e3aa",
+      "0x1e3ee",
+      "0x204db"
+    ],
+    "IofCompleteRequest": [
+      "0x1186d",
+      "0x11965",
+      "0x18ea2"
+    ],
+    "ProbeForRead": [
+      "0x11f1b"
+    ],
+    "ProbeForWrite": [
+      "0x11f31"
+    ],
+    "IoGetDeviceProperty": [
+      "0x14b3d",
+      "0x14ec7",
+      "0x15cab",
+      "0x15d0f",
+      "0x15d7f",
+      "0x15dc2",
+      "0x15e36",
+      "0x1601b",
+      "0x162fe",
+      "0x16362",
+      "0x1e083",
+      "0x1e16e"
+    ],
+    "ZwOpenSymbolicLinkObject": [
+      "0x14d39",
+      "0x15179"
+    ],
+    "ZwQuerySymbolicLinkObject": [
+      "0x14d8c",
+      "0x15241"
+    ],
+    "RtlCompareMemory": [
+      "0x14f6e",
+      "0x1df17"
+    ],
+    "HalTranslateBusAddress": [
+      "0x15618"
+    ],
+    "IoOpenDeviceRegistryKey": [
+      "0x161f1"
+    ],
+    "ZwQueryKey": [
+      "0x16230"
+    ],
+    "KeSetTimerEx": [
+      "0x16d06"
+    ],
+    "KeInitializeEvent": [
+      "0x18fc3",
+      "0x19eb5",
+      "0x1e59d",
+      "0x2bf4e",
+      "0x2c1bf",
+      "0x2c769"
+    ],
+    "IoBuildSynchronousFsdRequest": [
+      "0x18ff0",
+      "0x19ee8",
+      "0x1e5d0",
+      "0x2c292"
+    ],
+    "IofCallDriver": [
+      "0x19048",
+      "0x1a016",
+      "0x1e709",
+      "0x2bfb5",
+      "0x2c3b8",
+      "0x2c7f0"
+    ],
+    "KeInitializeMutex": [
+      "0x19189",
+      "0x19198",
+      "0x1bfb5",
+      "0x1c0aa",
+      "0x1c210"
+    ],
+    "MmGetSystemRoutineAddress": [
+      "0x1931c",
+      "0x1932e",
+      "0x19340",
+      "0x19355",
+      "0x19367",
+      "0x1938c",
+      "0x193b1",
+      "0x19457",
+      "0x1946e",
+      "0x2c8dc"
+    ],
+    "MmUnmapIoSpace": [
+      "0x19ca6"
+    ],
+    "KeDelayExecutionThread": [
+      "0x1aeb7",
+      "0x1b017",
+      "0x1b26e",
+      "0x1b9e8",
+      "0x1bc75",
+      "0x1bcc1",
+      "0x1cfe4",
+      "0x1d23e",
+      "0x1d320",
+      "0x1d4d9",
+      "0x2183e",
+      "0x24c84",
+      "0x24fcc",
+      "0x251ca",
+      "0x25262",
+      "0x2564c",
+      "0x259ad",
+      "0x27a77",
+      "0x298ba",
+      "0x29900",
+      "0x29979",
+      "0x2a301"
+    ],
+    "ZwYieldExecution": [
+      "0x1bb3e",
+      "0x1bc0a",
+      "0x1bccb",
+      "0x20e62"
+    ],
+    "strchr": [
+      "0x1c0ea",
+      "0x1c104",
+      "0x1c13e",
+      "0x1c167"
+    ],
+    "RtlInitAnsiString": [
+      "0x1c278"
+    ],
+    "RtlAnsiStringToUnicodeString": [
+      "0x1c2a8"
+    ],
+    "IoGetAttachedDeviceReference": [
+      "0x1df52"
+    ],
+    "strstr": [
+      "0x22b23",
+      "0x22b83"
+    ],
+    "RtlQueryRegistryValues": [
+      "0x28011"
+    ],
+    "IoBuildDeviceIoControlRequest": [
+      "0x2bf9d",
+      "0x2c7a1"
+    ],
+    "IoCancelIrp": [
+      "0x2c049",
+      "0x2c837"
+    ],
+    "PsGetVersion": [
+      "0x2c8c1",
+      "0x32180"
+    ],
+    "IoCreateDevice": [
+      "0x3206a"
+    ],
+    "KeQueryTimeIncrement": [
+      "0x32153"
+    ],
+    "KeInitializeTimer": [
+      "0x32208"
+    ],
+    "KeInitializeDpc": [
+      "0x3221f"
+    ],
+    "IoCreateSymbolicLink": [
+      "0x324dd",
+      "0x32561"
+    ],
+    "IoCreateSynchronizationEvent": [
+      "0x32b9d"
+    ]
+  },
+  "dispatch_handlers": {
+    "IRP_MJ_CREATE": "0x111c8",
+    "IRP_MJ_DEVICE_CONTROL": "0x11984"
+  },
+  "access_control": {
+    "mechanism": "SeSinglePrivilegeCheck in IRP_MJ_CREATE",
+    "required_privilege": "SeLoadDriverPrivilege (LUID 10,0)",
+    "additional_checks": [
+      "_wcsicmp against '\\GPIO-EXT' and '\\GPIO-INT' strings"
+    ],
+    "denial_status": "STATUS_ACCESS_DENIED (0xC0000022)",
+    "bypass_method": "AdjustTokenPrivileges(SeLoadDriverPrivilege) before CreateFileW"
+  },
+  "ioctl_interface": {
+    "device_path": "\\\\.\\SIVDRIVER",
+    "device_type": "0x22 (FILE_DEVICE_UNKNOWN)",
+    "codes": {
+      "0x08": {
+        "name": "RDMSR",
+        "in": "u32 msr_index (4B)",
+        "out": "u64 value (8B)",
+        "risk": "Read any MSR"
+      },
+      "0x0C": {
+        "name": "WRMSR",
+        "in": "u32 msr_index + u64 value",
+        "out": "none",
+        "risk": "Write whitelisted MSRs (0x38D,0x38F,0x19C,0x110A,0x1147,0xC0000086)"
+      },
+      "0x10": {
+        "name": "PhysMem_Scatter",
+        "in": "[u64 addr][u32 size] (12B)",
+        "out": "raw bytes",
+        "limits": "size: 4-0x40000",
+        "risk": "Read arbitrary physical memory"
+      },
+      "0x13": {
+        "name": "PhysMem_Bulk",
+        "in": "[u64 addr][u32 size] (12B)",
+        "out": "raw bytes",
+        "limits": "size: 0x400-0xFFFC00",
+        "risk": "Read large physical memory blocks"
+      },
+      "0x14": {
+        "name": "PhysMem_Map",
+        "in": "flags+addr+size",
+        "out": "mapped VA",
+        "risk": "Map physical memory to usermode (R/W)"
+      },
+      "0x44": {
+        "name": "Port_IO",
+        "in": "port address",
+        "out": "port value",
+        "risk": "Read I/O ports"
+      },
+      "0x48": {
+        "name": "PCI_Config",
+        "in": "[u8 bus][u8 dev][u8 fn][u8 off] (8B)",
+        "out": "u32 value (4B)",
+        "risk": "Read PCI config space"
+      }
+    }
+  },
+  "signing": {
+    "signer": "RH Software (SIV - System Information Viewer)",
+    "authority": "Microsoft Windows Hardware Compatibility Publisher (WHCP)",
+    "valid_from": "2025-07-17",
+    "valid_to": "2026-07-15",
+    "cross_signed": true
+  },
+  "detection_profile": {
+    "loldrivers": false,
+    "hvci_blocklist": false,
+    "cve_assigned": "None",
+    "eac_known_blocklist": "Unknown (not in public databases)",
+    "piddb_fingerprint": "Service name recorded in PiDDBCacheTable on load",
+    "mitigation": "Randomize service name, minimize load duration"
+  },
+  "strings": [
+    {
+      "section": ".text",
+      "rva": "0x103e",
+      "string": "#蔀诀࿘鞈\u0001䠀蒋耤"
+    },
+    {
+      "section": ".text",
+      "rva": "0x107a",
+      "string": "\"䠀钋蠤"
+    },
+    {
+      "section": ".text",
+      "rva": "0x10af",
+      "string": " 譈⒔"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1106",
+      "string": "@赈⒄°"
+    },
+    {
+      "section": ".text",
+      "rva": "0x111c",
+      "string": "!䠀䲋䀤譈⒔"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1166",
+      "string": " 䠑튅ᑴ譈⒄"
+    },
+    {
+      "section": ".text",
+      "rva": "0x117a",
+      "string": " 譈⒔"
+    },
+    {
+      "section": ".text",
+      "rva": "0x11d3",
+      "string": "E蕈瓶䠈䒋㠤襈謆䣃쒃彘嵞썛쳌쳌쳌䣌岉ࠤ襈⑬䠐璉ᠤ䡗䡠뜏Ғ\u0001㌀鏿Đ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1239",
+      "string": "'謀࿰馆"
+    },
+    {
+      "section": ".text",
+      "rva": "0x12a6",
+      "string": "0褀⑌䡀쁩Ϩ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x12d5",
+      "string": "?褀偫擫먏ᤣ平䮋䑌莋Ā"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1338",
+      "string": "0＀鼕>Āࢻ\u0001Āಳ\u0001䰀岍怤證ၛ證ᡫ證⁳證忣쳃쳌쳌쳌쳌區荈⃬譈￙ꔕ<䠀譌맘Ͽ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x13c4",
+      "string": "<䠀譌瓘䠒΋饈䡿숃셈߸襈䤃쎋饈䡿숃셈߸荈⃄썛쳌쳌쳌荈䣬먏ἡ譌珑謹ᚼ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1433",
+      "string": "/贀䭊譍ￊ鸕=렀\u0001"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1464",
+      "string": "=ༀ¾쳃쳌쳌쳌쳌蕈旉Ҋ营\u0001ༀ삶୴荦!䆈옂́쌀쳌쳌쳌쳌襈⑜䠐沉ᠤ襈⑴圠荈䃬譈㏹࿉響Đ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x14de",
+      "string": ";㌀￉႗\u0001䰀삋⭄䓃䜻爴䀅璊値㥄ぇѳ襄ぇ型䐴숻ݳƸ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x152c",
+      "string": ".褀⑌먨\u0002"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1540",
+      "string": ".䰀֍⻦"
+    },
+    {
+      "section": ".text",
+      "rva": "0x155d",
+      "string": "<㌀䣀岋堤譈⑬䡠璋栤荈䃄썟쳌쳌쳌쳌䣌岉ဤ襈⑬䠘璉․䡗䡀曆줳뜏￪႗\u0001䔀쀳㥄㑇譈盘༬햷꣬䀁♵ƹ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x15c1",
+      "string": ":㌀￉႗\u0001䰀삋⭄䓃䜻爴䀅璊値㥄ぇѳ襄ぇ型䐴숻ݳƸ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x160f",
+      "string": ".褀⑌먨\u0002"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1623",
+      "string": "-䰀֍⹓"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1640",
+      "string": ";㌀䣀岋堤譈⑬䡠璋栤荈䃄썟쳌쳌쳌譈䣄墉䠈炉䠐碉䰘悉䄠䡕茠⑼P證䇱뜏࿘覆譌࿩鞄"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1825",
+      "string": "0耀譈䣲苆。"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1847",
+      "string": "7茀ǅ蛶〉"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1861",
+      "string": "0Ꮻ欻猼뤗\n"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1876",
+      "string": "7茀ǅ蛶〉"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1890",
+      "string": "0 Ꮻ笻猼뤗\n"
+    },
+    {
+      "section": ".text",
+      "rva": "0x18a3",
+      "string": "7茀Ǉ蛶〉"
+    },
+    {
+      "section": ".text",
+      "rva": "0x18bd",
+      "string": "0䠀岋〤譈⑬䠸璋䀤荈⃄썟쳌쳌쳌䣌岉ࠤ襈⑼謐⑌䄰삋譅菐ῠ腁"
+    },
+    {
+      "section": ".text",
+      "rva": "0x19e9",
+      "string": "J䴀譅诰䣲뱁Ā"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1a80",
+      "string": "5蔀痀脵硻旄"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1ab9",
+      "string": "5䠀岋値譈⑬䡘璋怤譈⑼䡨쒃䄰䅞䅝썜쳌쳌쳌쳌䣌謸⑄䱨醋ᄈ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1b1b",
+      "string": "4䠀쒃쌸쳌쳌쳌쳌䣌岉ဤ襈⑴䠘䲉ࠤ䅗䅔䅕䅖䡗"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1c3c",
+      "string": "'猀䕼‏룄\u000e"
+    },
+    {
+      "section": ".text",
+      "rva": "0x1d5a",
+      "string": "4䤀䛇ࠈ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2129",
+      "string": "0䠀䏇耈"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2283",
+      "string": "$\u0001ༀ蒷"
+    },
+    {
+      "section": ".text",
+      "rva": "0x22ad",
+      "string": "$\u0001䄀욋㭈၃茏щ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x266e",
+      "string": "$\u0001䠀뒋ꀤ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2703",
+      "string": "*䐅撋琤捉䣄쒁°"
+    },
+    {
+      "section": ".text",
+      "rva": "0x283e",
+      "string": "e謕珰䄪똏䳔֍ᶀ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x286c",
+      "string": ")䠀眻䠐❳͈䇛똏㏄䇉璉ᣝ襁＜႕\u0001䄀䒉⃝䒋怤襁䠤岋栤譈⑬䡰璋砤쀳荈䃄嵁屁썟쳌쳌쳌襈⑜䠈沉ဤ襈⑴圠呁啁噁坁荈レ譈䣹쪋譁䧙譌￺뼕'萀瓀茠ӻ舏Ʀ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2936",
+      "string": "]譌袇\u0011䠀撃⠤䠀䒍瀤㍅뫉"
+    },
+    {
+      "section": ".text",
+      "rva": "0x295d",
+      "string": "'䔀줳㭁䓁谏ā"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2a2d",
+      "string": "\"쀀譈⑼䡰岋瀤ཁ욶ང쀢譈⑌ｰ䈕'䔀䱸ﺃ甐䠊嶉䠀綉褆]綉謄䧆䞉༯➺猞謩O"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2a9c",
+      "string": "'䄀쒋׫Ҹ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2acd",
+      "string": ";쀀젻輏Ņ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2b00",
+      "string": "\"耀瑴女\u0001쀀摴女\u0002쀀呴女\u0004쀀䑴女\u0005쀀㑴女\r쀀⑴女\u000e쀀ᑴ女\u000f쀀蔏Ǐ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2b9c",
+      "string": "\"쀀摴女#쀀呴女$쀀䑴女3쀀㑴女4쀀⑴女9쀀ᑴ女:쀀蔏Ļ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2c33",
+      "string": "C쀀萏"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2cfb",
+      "string": "6쀄⡴女\u000b쀔ᡴ女ă"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2dee",
+      "string": " 譈맑÷"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2dfb",
+      "string": "$찀쳌쳌쳌曌晦暐晦暐䲐⭈࿑鲆\u0001䤀爈߁㝴쇶琁訌਄ｉ裈䠁솃ˁུ警਄草˨襦䠁솃Ӂ൴ҋ䤊褄䠁솃䴄좋셉ש偵譍䧈球䠔ҋ䠊Ɖ荈ࣁｉ痉䧰䴇삅ݵ證쏃晦誐਄ƈｈ䧁죿證쏃晦遦晦遦晦遦晦暐晦暐遦腉ù\b猀䡂ҋ䰊咋ࠊ荈⃁襈襌譈੄䳰咋ｉ䣉䆉䳰冉痸䧔ｲ￿晦遦晦遦晦暐䢐嬨က"
+    },
+    {
+      "section": ".text",
+      "rva": "0x2f9d",
+      "string": "$뫩￾替晦暐晦暐晦暐晦暐晦璐䥯젃草ࣸ慲쇶琇ǁ୴ｈ諉਄ｉ裈ˁུ荈˩警਄草˨襦Ӂ൴荈өҋ䤊褄䴁좋셉ש偵譍䧈球䠔䠈ҋ䤊짿襈甁䧰䴇삅ݵ證쏃晦䢐짿Ҋ䤊죿ƈ證쏃晦遦晦遦晦遦晦暐晦暐遦腉ù\b猀䡂䒋譌੔䣰䠠䆉䰘冉䠐䒋ࠊ譌ਔｉ䣉䆉䰈ᆉ핵草ῠ珩￿替晦暐晦暐晦暐䢐嬨￿땷₸"
+    },
+    {
+      "section": ".text",
+      "rva": "0x313d",
+      "string": "$뫩￾쳿쳌쳌ￌ 찀쳌쳌ￌ䐥 찀쳌쳌ￌ耥 찀쳌쳌쳌䣌쒋襈ࡘ襈ၨ襈ᡰ襈⁸呁荈⃬譌⑤䡐懲證䣩譌䣊Ṵ먏⑤ౘᙳ赊䄔譈䧇쀫襈U襉␄荦\"먏⑤੘㝳똏⑜䵘솋펋골\u0003蔀痛䠊疉䤀㲉䠚ﾅ⹴赈繄䣾䖉䤀ӇĤ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x31fa",
+      "string": " 蕈瓿༔撺堤猋䠌疉䤀㲉昤⚃䠀岋〤譈⑬䠸璋䀤譈⑼㍈䣀쒃䄠썜쳌쳌쳌荈⣬荈˺譁盀䰐䊍䣾솃༂킶⯨\u0003㌀䣀쒃쌨쳌쳌쳌쳌襈⑜䠈沉ဤ襈⑴團荈⃬證䳁䲋値赈ｚ證䣸펋譌䣀뗨\u0002蔀磀䠕䢘쌻๷ݵⅦ嵴䠏૫Ⅶ嵴븀\u0005耀蕈瓿䠃ᾉ譈⑜䠰沋㠤욋譈⑴䡀쒃张쳃쳌쳌쳌쀳㭈瓐䰋ȹٲම"
+    },
+    {
+      "section": ".text",
+      "rva": "0x334d",
+      "string": " 쳃쳌쳌쳌䣌㌨࿀撺値䰈튋㑳譈䠉즅ࡵ譈䠒튅ࡵ證䤒턻նම"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3396",
+      "string": " 荈⣄䣃ኋ蕈瓒䤅턻նම"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3480",
+      "string": " ㍅䗉쀳툳줳\u0003茀￈鿩"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3663",
+      "string": "$哩￿쳿쳌쳌䳌襉࡛襉ᡫ襉⁳襉ၓ䅗䅔䅕䅖䡗䵀熋䴈⦋捉䡹譍㡡⭍с䥦譈䳲曆譈࿇鲅"
+    },
+    {
+      "section": ".text",
+      "rva": "0x397c",
+      "string": "M譌䣇횋０￿荈˅㾃痿茘밽·⨀፵譌䣇횋륦?￾藿翛䣉岋〤譈⑬䠸璋䀤荈⃄썟쳌쳌쳌襈⑜唘坖呁啁噁坁腈胬\u0004䠀֋뜖"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3a4b",
+      "string": "}譄解⑜昸כּ譄诳࿓炄\u0006䠀岋栤荈ￍ草˅蕅䣤ඍᡷ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3a89",
+      "string": "X౷뜏談ࡌ菠࿡˫줳捈䣂쥣赈젔赈䐅\u0018ༀᒾ섂Ӻ咉値쪋萏א"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3c60",
+      "string": "U䷨\u0006蔀䓀咋㐤୹粉尤׫襦⑄䡰岍瀤譄Ǩ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3cdc",
+      "string": "8ࡴ荈ˀ즅⭈䣃譄ź"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3d16",
+      "string": "Q읦⑄い䔀傍曲䒉䘤࿫葀䇶ࢸ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3e8c",
+      "string": "-෫ǆᑴ읦⑄⭄䄀Ƽ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3eb5",
+      "string": " 譄⑤䐴沋䀤⭅䗮ೆᙵ譌⑄䱈䲍㠤譁曕₹輻￿譌⑄䱈䲍㠤赈⑌䅄풋䣨￺䃿웶琈䀜웶甄䰖䒋䠤赌⑌䄸햋륦0컨￹藿痿䕩摾譌䇣ﺋ捌±䠀䲍堤證菔ǯ烨\u0003䠀ﶃ甂范ǯ삅♾譈⑔཈䲷堤赌⑄蘆￿͌藥翿䢿粋䠤荈ￍ⫫譈⑼䡈춃䓿沉㠤ᷫ譈⑼䱈䲍㠤譁䳖잋譈說￿譄⑤䔸ὸӆᥴ赌⑌䰸잋譁曕₹拉￿譄⑤䰸沋栤훩"
+    },
+    {
+      "section": ".text",
+      "rva": "0x3ffd",
+      "string": "}畬䤍얃༂µ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x4026",
+      "string": "}甶昕荁ɽ甴䤍얃༄"
+    },
+    {
+      "section": ".text",
+      "rva": "0x4043",
+      "string": "}申昒荁ɽ甲䤊얃༄晪荁}瑤晢荁}瑩晚荁}瑯晒荁}瑵晊荁}瑸時荁}瑘茺⑤P赌⑄䤸펋뜏쟏⑄İ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x40c7",
+      "string": "}蕦࿿馅￹䇿쒋譈⒌Ѱ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x41bd",
+      "string": "\\㍅䗀툳쀳譄䓍䒉䀤襄⑔褴⑬褼⑄ﻡ￿荈⑤ ㍅䗉쀳툳줳部￶诿ﻖ￿쳌쳌쳌曌晦暐晦暐䢐䲉ࠤ襈⑔䐘䒉ဤ읉⃁錅찈쳌쳌曌쎐쳌쳌쳌晦遦晦遦쎐쳌쳌쳌䣌උ꺱"
+    },
+    {
+      "section": ".text",
+      "rva": "0x42cf",
+      "string": ":ᙵ蕈瓉昄Ↄ㌀䣀岋〤荈⃄썟赈⑌䠸咉㠤ヨ"
+    },
+    {
+      "section": ".text",
+      "rva": "0x4412",
+      "string": "]쳌쳌쳌쳌쳌쳌㵛]쳌쳌쳌쳌쳌쳌佉呃彌䥓彖䍋当䅄䅔猠歩歟獣坟楡呴汩䥬晢†潩⁳〥場†猥瑳⁳〥堲†甥漠⁦甥\n쳌쳌쳌쳌佉呃彌䥓彖䍋当䅄䅔猠歩歟獣坟楡䙴牯扏⁦†潩⁳〥場†猥瑳⁳〥堲†甥漠⁦甥\n쳌쳌쳌쳌䥓彖協彃䅒䥔⁏琠捳┠甶†灭⁣㘥⁵愠捰┠甶†灦⁣㘥ੵ찀쳌쳌쳌쳌쳌쳌偃录䱃䍏⁋挠歬┠⁰愠瑬┠㠰⁘〥堸╟㠰⁘洠汵┠㠰⁘〥堸╟㠰⁘爠瑡┠㈭⁤瀠晲┠㐭⁤琠捳┠੤찀쳌쳌쳌쳌偉彉䱃䍏⁋䌠啐┭㐭⁵愠瑬┠㠰⁘〥堸╟㠰⁘洠汵┠㠰⁘〥堸╟㠰⁘爠瑡┠㈭⁤瀠晲┠㐭⁤琠捳┠੤찀쳌쳌쳌偉⁉潗歲牥†偃ⵕⴥ申†摰⁸瀥†捩⁸瀥†物ⁱ甥\n쳌佉呃彌"
+    },
+    {
+      "section": ".text",
+      "rva": "0x4677",
+      "string": "]쳌쳌쳌⃌嬠呓呁单䅟䍃卅当䕄䥎䑅]쳌쳌쳌⃌嬠呓呁单䅟䍃卅当䥖䱏呁佉嵎찀쳌⃌嬠呓呁单䉟䙕䕆归佔彏䵓䱁嵌찀쳌⃌嬠呓呁单䑟呁呁偙彅䥍䅓䥌乇䕍呎]쳌쳌쳌쳌쳌쳌쳌⃌嬠呓呁单䑟噅䍉彅佄卅也呏䕟䥘呓]쳌쳌쳌쳌쳌쳌쳌⃌嬠呓呁单䑟噅䍉彅低彔佃乎䍅䕔嵄 嬠呓呁单䑟噅䍉彅低彔䕒䑁嵙찀쳌⃌嬠呓呁单䝟久剅䍉也呏䵟偁䕐嵄찀⃌嬠呓呁单䥟䙎彏䕌䝎䡔䵟卉䅍䍔嵈 嬠呓呁单䥟华䙕䥆䥃久彔䕒体剕䕃嵓찀쳌쳌쳌쳌쳌쳌⃌嬠呓呁单䥟噎䱁䑉䉟䙕䕆归䥓䕚]⃌嬠呓呁单䥟噎䱁䑉䑟噅䍉彅䕒啑卅嵔찀쳌쳌쳌쳌쳌쳌⃌嬠呓呁单䥟噎䱁䑉䑟噅䍉彅呓呁嵅 嬠呓呁单䥟"
+    },
+    {
+      "section": ".text",
+      "rva": "0x487c",
+      "string": "]쳌†卛䅔啔当义䅖䥌彄䅐䅒䕍䕔嵒찀쳌†卛䅔啔当佉䑟噅䍉彅剅佒嵒찀쳌쳌†卛䅔啔当佉呟䵉佅呕]쳌쳌쳌쳌쳌†卛䅔啔当低䕎䥘呓久彔䕓呃剏]쳌†卛䅔啔当低彔但乕嵄찀쳌쳌쳌쳌쳌†卛䅔啔当低彔䵉䱐䵅久䕔嵄찀쳌쳌†卛䅔啔当低彔啓偐剏䕔嵄찀쳌쳌쳌†卛䅔啔当低䑟呁彁䕄䕔呃䑅]쳌쳌†卛䅔啔当低卟䍕彈䕄䥖䕃]쳌쳌쳌†卛䅔啔当低卟䍕彈䥆䕌]쳌쳌쳌쳌†卛䅔啔当䉏䕊呃也䵁彅义䅖䥌嵄찀†卛䅔啔当䉏䕊呃也䵁彅低彔但乕嵄찀쳌쳌쳌쳌쳌쳌쳌†卛䅔啔当䉏䕊呃偟呁彈义䅖䥌嵄찀†卛䅔啔当䉏䕊呃偟呁彈低彔但乕嵄찀쳌쳌쳌쳌쳌쳌쳌†卛䅔啔当䉏䕊呃"
+    },
+    {
+      "section": ".text",
+      "rva": "0x4a80",
+      "string": "]쳌쳌쳌쳌쳌쳌쳌†卛䅔啔当䉏䕊呃呟偙彅䥍䵓呁䡃]†卛䅔啔当䕐䑎义嵇찀쳌쳌쳌쳌쳌쳌†卛䅔啔当乐彐剔乁䱓呁佉彎䅆䱉䑅]쳌쳌쳌쳌쳌쳌쳌†卛䅔啔当剐噉䱉䝅䑅䥟华剔䍕䥔乏]쳌쳌쳌쳌쳌쳌쳌†卛䅔啔当䡓剁义彇䥖䱏呁佉嵎찀쳌†卛䅔啔当乕啓䍃卅䙓䱕]쳌쳌쳌쳌†卛䅔啔当佖啌䕍䑟卉位乕䕔嵄찀쳌"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x5290",
+      "string": "RtlQueryModuleInformation"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x52d8",
+      "string": "(null)"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x532e",
+      "string": "`砀硰灸pࠇ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x6d3c",
+      "string": "P呁⁉啍ⵘ?"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x8e6a",
+      "string": "HLㄵ〰䘠䉓"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x8eb2",
+      "string": "tx〵〰䘠䑂〠䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x8efa",
+      "string": "v|〵〰䘠䑂〠䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x8f42",
+      "string": "tx㐵〰䘠䑂〠䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x8f8a",
+      "string": "v|㐵〰䘠䑂〠䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x8fd2",
+      "string": "tx㌷〰䘠䑂〠䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x901a",
+      "string": "v|㌷〰䘠䑂〠䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x9062",
+      "string": "tx〵〰䘠䑂ㄠ䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x90aa",
+      "string": "v|〵〰䘠䑂ㄠ䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x90f2",
+      "string": "tx㐵〰䘠䑂ㄠ䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x913a",
+      "string": "v|㐵〰䘠䑂ㄠ䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x9182",
+      "string": "tx㌷〰䘠䑂ㄠ䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0x91ca",
+      "string": "v|㌷〰䘠䑂ㄠ䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb464",
+      "string": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb4ac",
+      "string": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb4f4",
+      "string": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb53c",
+      "string": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb584",
+      "string": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb5cc",
+      "string": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb614",
+      "string": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb65c",
+      "string": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb6a4",
+      "string": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb6ec",
+      "string": "p偃ⵕ甥匠䉍獵䄭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb734",
+      "string": "p偃ⵕ甥匠䉍獵䈭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb77c",
+      "string": "p偃ⵕ甥匠䉍獵䌭"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb7c0",
+      "string": " 前剈㠠㠲㌰䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb808",
+      "string": "@前剈㠠㠲㌰䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb850",
+      "string": " 前剈㠠㠲㌰䄠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb898",
+      "string": "@前剈㠠㠲㌰䈠"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb910",
+      "string": "@䘀ER✀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb970",
+      "string": "@圀VB\u0004S8夀]>"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb997",
+      "string": "9帀Ā児尀Ā呓怀Ā噕樀Ȁ児栀Ȁ呓氀Ȁ噕切"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb9c8",
+      "string": ";þ崀GĄ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb9da",
+      "string": "<Ĉ崀GĎ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xb9ec",
+      "string": "=Ē崀KƆ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xba70",
+      "string": "8Ǭ\u0005PǮ\u0005TǪ\u0005UǾ\u0005QȀ\u0005VǼ\u0005W<䤀G\u001c者"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbab0",
+      "string": "@圀VB\u0004S8夀]>"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbad7",
+      "string": "9嘀ЀT帀Ā児尀Ā呓怀Ā噕戀ЀU樀Ȁ児栀Ȁ呓氀Ȁ噕渀ЀV切"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbb1a",
+      "string": ";þ崀GĄ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbb2c",
+      "string": "<Ĉ崀GĎ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbb3e",
+      "string": "=Ē崀KƆ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbb9e",
+      "string": "4Ǭ\u0005PǮ\u0005TǪ\u0005UǾ\u0005QȀ\u0005VǼ\u0005W<䤀G\u001c者"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbbd0",
+      "string": "@圀VB\u0004S8夀]>"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbbf7",
+      "string": "9嘀ЀT帀Ā児尀Ā呓怀Ā噕戀ЀU樀Ȁ児栀Ȁ呓氀Ȁ噕渀ЀV切"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbc3a",
+      "string": ";þ崀GĄ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbc4c",
+      "string": "<Ĉ崀GĎ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbc5e",
+      "string": "=Ē崀KĘ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbc70",
+      "string": ">Ĝ䰀YĢ\u0005SĠ\u0005\\Ħ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbd18",
+      "string": "8Ǹ\u0005PǺ\u0005TǶ\u0005UǬ\u0005RǮ\u0005XǪ\u0005YǾ\u0005QȀ\u0005VǼ\u0005W<䤀G\u001c耇"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbd60",
+      "string": "8夀]>"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbd7b",
+      "string": "9嘀ЀT娀؀℀帀Ā児尀Ā呓怀Ā噕戀ЀU昀؀∀樀Ȁ児栀Ȁ呓氀Ȁ噕渀ЀV爀؀⌀瘀؀+縀؀␀舀؀,言؀─踀؀-阀؀☀切؀㄰؀㬺Ѐ؁㌲Ȁ؁㴼฀؁㔴ఀ؁㼾᠀؁㜶ᘀ؁䅀ࠀԁ؀ᰀԁ܀蘀\u0001 \u0001℀\u0001∀츀\u0001⌀谀\u0001␀퐀\u0001─\u0001☀ԁ倀︀ԁ儀㰀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbe70",
+      "string": "R\u0001\u0001^ȁ\u0003jЁ\u0005v؁\u0007ࠁ\tú䀁AĄ䈁CĎ䐁EĘ䘁GĢ䠁IĬ䨁KĶ䰁Mŀ丁Oǚ !ǔ∁#ǎ␁%Ǹ☁'Ɔ⠁)Ǧ⨁+ƌⰁ-Ǡ⸁/\b\u00068\f\u0006`\u001c＇"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbf00",
+      "string": "R\u0001\u0001^ȁ\u0003jЁ\u0005v؁\u0007ࠁ\tਁ\u000bఁ\u000f¦ก\u000fú䀁AĄ䈁CĎ䐁EĘ䘁GĢ䠁IĬ䨁KĶ䰁Mŀ丁Oǚ !ǔ∁#Ɔ␁%ƌ☁'ƒ⠁)Ƙ⨁+ƞⰁ-Ƥ⸁/ǎ、1Ǹ㘁7ǲ㠁9Ǡ㨁;Ǿ㰁=Ǧ㸁?\b\u00068\f\u0006`\u001c＇"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbfd0",
+      "string": "8夀]>"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xbfeb",
+      "string": "9嘀ЀT娀؀℀帀Ā児尀Ā呓怀Ā噕戀ЀU昀؀∀樀Ȁ児栀Ȁ呓氀Ȁ噕渀ЀV爀؀⌀瘀؀+縀؀␀舀؀,言؀─踀؀-阀؀☀騀Ѐ\u0001ꘀЀ̂눀Ѐ\u0004븀Ѐ\u0005쨀Ѐ\u0006혀Ѐ\u0007Ѐ\b܀℠䐀Āऀ䘀Ȁऀ䠀̀ऀ切؀㄰؀㬺Ѐ؁㌲Ȁ؁㴼฀؁㔴ఀ؁㼾᠀؁㜶ᘀ؁䅀∀؁㤸 ؁䍂蘀\u0001 \u0001℀\u0001∀츀\u0001⌀퐀\u0001␀谀\u0001─\u0001☀ԁ倀ԁ刀︀ԁ儀㰀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc12c",
+      "string": "jሀ\u0016ú　1Ą㈀3Ď㐀5Ę㘀7Ģ㠀9Ɔ`"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc190",
+      "string": "8夀]R✀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc19f",
+      "string": "T帀Ā児戀ЀU樀Ѐ冒渀ЀV瘀Ѐ舀Ѐ踀Ѐ騀Ѐ\u0001ꘀЀ̂눀Ѐ\u0004븀Ѐ\u0005쨀Ѐ\u0006혀Ѐ\u0007Ѐ\b܀℠爀؀␀縀؀─言؀☀阀؀✀切؀㄰؀㬺Ѐ؁㌲Ȁ؁㴼฀؁㔴ఀ؁㼾᠀؁㜶ᘀ؁䅀∀؁㤸 ؁䍂䐀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc2c0",
+      "string": "PǾ\u0005Q<䤀G\u001c"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc31a",
+      "string": ";Ą㰀=Ď㸀?Ę䀀AĢ䈀CĬ䐀EƆ@"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc3a9",
+      "string": "T帀Ѐ戀ЀU樀Ѐ渀ЀV瘀Ѐ稀ЀJ舀Ѐ蘀ЀK踀Ѐ鈀ЀL܀℠切Ѐ쇀ЀЁ쏂฀Ё엄᠀Ё쟆∀Ё질ⰀЁ쯊䐀Ā✀䘀Ȁ✀䠀̀✀䨀ࠀ✀䰀ऀ✀一਀✀蘀Ё耀퐀Ё脀Ё舀츀Ё茀Ё萀谀Ё蔀ꐀЁ蘀Ё蜀︀Ё蠀鈀Ё褀Ё言Ё謀頀Ё谀鸀Ё贀Ё踀ᰀ਀ÿ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc4e0",
+      "string": ";Ą㰀=Ď㸀?Ę䀀AĢ䈀CĬ䐀EĶ䘀GƆ@"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc589",
+      "string": "T帀Ѐ戀ЀU樀Ѐ渀ЀV瘀Ѐ稀ЀJ舀Ѐ蘀ЀK踀Ѐ鈀ЀL騀Ѐ鸀ЀMꘀ萀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc5de",
+      "string": "!ú쀄ÁĄ숄ÃĎ쐄ÅĘ옄ÇĢ전ÉĬ쨄ËĶ츄ÏD\u0001'F\u0002'H\u0003'J\b'L\t'N\n'Ɔ\u0004ǔ\u0004Ǹ\u0004ǎ\u0004ǚ\u0004ƌ\u0004Ƥ\u0004ǲ\u0004Ǿ\u0004ƒ\u0004Ǡ\u0004Ǧ\u0004Ƙ\u0004ƞ\u0004Ǭ\u0004\u001c＊"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc690",
+      "string": "8਀kR爀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc760",
+      "string": "@尀P8"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc772",
+      "string": "6ఀ\u0013R⤀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc890",
+      "string": "@尀P8"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc8a2",
+      "string": "6ఀ\u0013R⤀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xc9c0",
+      "string": "@尀P8"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcaf0",
+      "string": "@尀P8"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcafa",
+      "string": "Q4ఀ\u000bR⤀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcc40",
+      "string": "@尀P8"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcc4a",
+      "string": "Q4ఀ\u000bR⤀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcd90",
+      "string": "@尀P8"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcd9a",
+      "string": "Q4ఀ\u000bR⤀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcef7",
+      "string": ">\u0001∀\u0001⬀\u0001Ⰰ蘀\u0001⌀蠀\u0001ⴀ萀\u0001⸀퐀\u0001␀혀\u0001⼀툀\u0001　\u0001─\u0001㄀\u0001㈀츀\u0001☀퀀\u0001㌀찀\u0001㐀\u0001✀\u0001"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcfa0",
+      "string": "R KP㨀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcfb2",
+      "string": "^℀I\\㸀"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xcfc4",
+      "string": "jἀIhḀ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd116",
+      "string": "(Ą⬀*Ďⴀ,Ǡ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd1a6",
+      "string": "2ú⤀(Ą⬀*Ďⴀ,Ę⼀.Ģ褀Ĭ謀Ǭ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd222",
+      "string": "2ú⤀(Ą⬀*Ďⴀ,Ę⼀.Ǭ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd270",
+      "string": "R☠á^❀áj⡀åv⤠å⨠æ⬠â聁¦脡úⴀ,Ą⼀.Ď㄀0Ę㌀2Ɔ襁ǎ≀äƌ⌠äǾ⑀ãǸ┠ã\u001c！"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd2fc",
+      "string": "(Ą⬀*Ďⴀ,Ę⼀.Ɔ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd401",
+      "string": "e刀䑓ὓ鉋䶅巶덃◚콶ǎ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd436",
+      "string": "bЁ\u0001䈄"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd4bd",
+      "string": "P吀8瀀\u0004Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd5bd",
+      "string": "0瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd5e5",
+      "string": "0瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd60d",
+      "string": "0瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd6ad",
+      "string": "0瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd6b9",
+      "string": "\"刀&Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd6c5",
+      "string": "&ĀЊ਀ش਀زŰਘ᠀੤᠀॔᠀࠴᠀ᐲዐჀŰࠔ᐀൤᐀౔᐀଴᐀ၲŰਘ᠀፤᠀ቔ᠀ᄴ᠀ᒲዐჀ॰गᜀᘁက໰ೠૐࣀݰ٠0瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd7b1",
+      "string": "0Āଡ℀⌴℀ᨁᨀᣰᛠᓐዀᅰၠPĀజᰀ๤ᰀൔᰀఴᰀᡒᛰᓠዐჀŰ؏ༀݤༀشༀଲŰࠔ᐀ࡤ᐀ݔ᐀ش᐀ဲŰकᔀմᔀѤᔀ͔ᔀȴᔀÀĀȅԀĴĀਘ᠀୤᠀੔᠀ऴ᠀ᐲዐჀŰടἀὤἀᵔἀᰴἀᘁ᠀ᛰᓠዐჀpĀܐက爁ऀߐٰՠѐ0ĀਞḀ᜴Ḁ᪲ᣰᛠᓐዀᅰၠŐਙᤀᐴᤀᖲᏰᇠ࿐ව౰ୠŐਞḀᤴḀ᫒ᣰᛠᓐዀᅰၠŐਙᤀᘴᤀᖲᏰᇠ࿐ව౰ୠŐਙᤀᠴᤀᗒᏰᇠ࿐ව౰ୠŐਢ∀ᄁᬀ᧰០ᗐᏀተᅠၐरܗᜀᏢᇠ࿐ව౰ୠ0瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd951",
+      "string": "Pऀؚᨀᛒᓐዀᅰၠ瀰6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xd9c9",
+      "string": "0ĀਜᰀᨴᰀᗲᏰᇠ࿐ව౰ୠŐਝᴀጁᘀᓰዠაເ൰ౠ୐İజᰀᑤᰀፔᰀሴᰀᢲᛰᓠዐჀ॰ԙᤀᨁሀᅰၠ0瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xda79",
+      "string": "pĀణ⌀ᥤ⌀ᡔ⌀᜴⌀ᳲ᫰ᣠᛐᓀŰਘ᠀ཤ᠀๔᠀ഴ᠀ᑲዐჀŰਙᤀৄᤀࡴᤀݤᤀشᤀᔲǐؔ᐀।᐀࠴᐀ၒŰఝᴀᅴᴀၤᴀཔᴀิᴀᦒ០ᗐᧀറἀ㕤ἀ㑔ἀ㌴ἀⰁ᠀ᛰᓠዐჀp吀8倀\u0001Āघ᠀ᰁᄀ࿠ැீੰॠࡐ0Āఝᴀ൴ᴀ౤ᴀ୔ᴀ਴ᴀᥒ០ᗐǀЊ਀࠴਀ْŰਔ᐀ఴ᐀ဲ໰ೠૐࣀݰ٠Őࠔ᐀๤᐀ൔ᐀ఴ᐀႒ŰਙᤀᅴᤀၤᤀཔᤀิᤀᖲǀȆ؀ɒİ؏ༀ।ༀ࠴ༀ୒Űؑᄀఴᄀ൲౰ୠŐ،ఀ਴ఀࡒݰ٠Ő،ఀဴఀ࢒ݰ٠Őਘ᠀ᔁᄀ࿰෠ௐীࡰݠِİਗᜀᠴᜀჲ໰ೠૐࣀݰ٠ॐؖᘀኲაເ൰ౠ瀰6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xdcc5",
+      "string": "0ऀࠗᜀሴᜀ᎒ᇠ࿐ව౰灠6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xdde9",
+      "string": "p瀀6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xde01",
+      "string": "!ऀਟἀᡤἀ᜴ἀᣲᛰᓠዐჀ灰6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xde3a",
+      "string": "/吟.㐟-ğ&퀔쀒瀐"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xde55",
+      "string": "8 \u0001ᤀਦ᐀㌁ഀ௰ৠߐ׀Ѱ͠ɐ吰8耀\u0001Āਔ᐀ሴ᐀႒໰ೠૐࣀݰ٠Ő̉ऀ⠁Ȁ0ऀࠟἀᯒ᧰០ᗐᏀተᅠ瀰6Ā"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xdefe",
+      "string": "\"퀚쀘瀖怕〔"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xdf31",
+      "string": "Pᤀଭᬀ굤ᬀ갴ᬀꐁ᐀ደრ໐ೀp저3ᨀ"
+    },
+    {
+      "section": ".rdata",
+      "rva": "0xe115",
+      "string": "PĀਙᤀॴᤀࡤᤀݔᤀشᤀᔲÐ"
+    },
+    {
+      "section": ".data",
+      "rva": "0xf105",
+      "string": "+촀⁝曒ￔŒ"
+    },
+    {
+      "section": ".pdata",
+      "rva": "0x100ad",
+      "string": "!퀀Ý搀!㴀\"렀Ý䐀\"⌀'頀ÖⰀ'Ѐ(렀Ýఀ(먀(頀Ú쀀(였*鰀Ý-＀-搀Ô瀀1㈀2䀀Ô㠀2尀2㠀Ô搀22ﰀ×堀3숀3㠀Ô저3尀4䀀Ô搀4䌀5堀Ô䰀5戀5搀Ô耀5樀6瀀Ô瀀67琀Ô7䬀8搀×吀8焀8㠀Ô鰀88저Ö8㸀9退Ô䐀9였9ﰀ×찀9＀AꐀÔကB⠀B저Ô　B㄀B찀Ô䀀B䄀B퀀Ô栀B꬀B搀Ô됀BԀC저ÖࠀĐ쀀đ退×저đ蠀ĘᰀÛ退Ę紀ę耀×萀ę휀Ǝ㐀ßƎᨀƏ⠀ß␀Ə娀Ə⠀ß搀Ə騀Ə⠀ßꀀƏ刀Ƒ䠀×堀Ƒ밀Ɣ鐀Þ쐀Ɣ쌀Ƙ᠀×찀Ƙ㰀ƙ×䐀ƙ䨀ƚ"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x11171",
+      "string": ".＀ꘕ＿䣿讍⹐"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x1125c",
+      "string": "\"쀀\u0005蔀࿛삄\u0005䰀貍․\u0001䰀蒍려"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x11413",
+      "string": "]襌\u0002䤀溉䠘貋․\u0001＀悗\u0001䠀삅譈瓰茾䡾甲䠛䚋䡀삅ቴ碁倈升瑟脦ၸ䝐当ᵴ譈䣎響Š"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x117e9",
+      "string": "4쀀棫譈⒌Ġ"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x11807",
+      "string": "(赌 Ʋ䰀캋ʺ"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x11864",
+      "string": "8譈䓈梉Ｐ촕Ｘ䇿얋腈"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x1195a",
+      "string": "8暃0툳譈ￎ픕Ｗ䣿岋値譈⑴㍘䣀쒃彀쳃쳌쳌쳌譌䧜安䤘玉圠呁啁噁坁腈⃬\u0005䠀֋흚￿㍈䣄蒉ဤ\u0005䰀懲襈⒔Ġ"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x11b0c",
+      "string": "<㬀࿐몄;茀瓺蜏⁛"
+    },
+    {
+      "section": "PAGE",
+      "rva": "0x11b8e",
+      "string": "g䐀蔏犗"
+    }
+  ]
+}

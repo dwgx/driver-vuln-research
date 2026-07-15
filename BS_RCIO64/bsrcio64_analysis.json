@@ -1,0 +1,197 @@
+{
+  "driver_name": "BS_RCIO64.sys",
+  "vendor": "BIOSTAR Group",
+  "cve": "CVE-2021-44852",
+  "sha256": "d205286bffdf09bc033c09e95c519c1c267b40c2ee8bab703c6a2d86741ccd3e",
+  "file_size": 24592,
+  "build_timestamp": "0x5c37fa12",
+  "build_date": "2019-01-11 02:19:46 UTC",
+  "pdb_path": "e:\\code\\driver_workspace\\racing\\2019_01_11_for_win10\\driver\\objfre_wnet_amd64\\amd64\\BS_RCIO64.pdb",
+  "pe_info": {
+    "machine": "AMD64 (0x8664)",
+    "image_base": "0x10000",
+    "entry_point_rva": "0x715c",
+    "subsystem": "NATIVE (1) - kernel driver",
+    "size_of_image": "0x9000",
+    "sections": [
+      { "name": ".text", "va": "0x1000", "vsize": "0x23a8", "raw_size": "0x2400", "chars": "0x68000020 (CODE|EXEC|READ)" },
+      { "name": ".rdata", "va": "0x4000", "vsize": "0x2b0", "raw_size": "0x400", "chars": "0x48000040 (INITIALIZED_DATA|READ)" },
+      { "name": ".data", "va": "0x5000", "vsize": "0x14c", "raw_size": "0x200", "chars": "0xc8000040 (INITIALIZED_DATA|READ|WRITE)" },
+      { "name": ".pdata", "va": "0x6000", "vsize": "0x168", "raw_size": "0x200", "chars": "0x48000040 (INITIALIZED_DATA|READ)" },
+      { "name": "INIT", "va": "0x7000", "vsize": "0x550", "raw_size": "0x600", "chars": "0xe2000020 (CODE|EXEC|READ|DISCARDABLE)" },
+      { "name": ".rsrc", "va": "0x8000", "vsize": "0x410", "raw_size": "0x600", "chars": "0x42000040 (INITIALIZED_DATA|READ)" }
+    ],
+    "imports": {
+      "ntoskrnl.exe": [
+        "KeInitializeSemaphore", "IoCreateSymbolicLink", "IoCreateDevice",
+        "KeSetEvent", "MmUnmapIoSpace", "KeDelayExecutionThread",
+        "PsCreateSystemThread", "IoStartNextPacket", "PsTerminateSystemThread",
+        "ExEventObjectType", "MmMapIoSpace", "IoDeleteDevice",
+        "ObReferenceObjectByHandle", "KeWaitForSingleObject", "KeReleaseSemaphore",
+        "ObfDereferenceObject", "IoReleaseCancelSpinLock", "IoAcquireCancelSpinLock",
+        "IoStartPacket", "IofCompleteRequest", "KeRemoveEntryDeviceQueue",
+        "KeBugCheckEx", "RtlInitUnicodeString", "ZwClose", "IoDeleteSymbolicLink"
+      ],
+      "HAL.dll": ["HalSetBusDataByOffset", "HalGetBusDataByOffset"]
+    },
+    "total_imports": 27,
+    "total_functions_in_text": 25
+  },
+  "version_info": {
+    "CompanyName": "BIOSTAR Group",
+    "FileDescription": "I/O Interface driver file",
+    "FileVersion": "10.0.1901.1100",
+    "InternalName": "I/O driver",
+    "LegalCopyright": "Copyright (c) 2018-2019 BIOSTAR Group",
+    "OriginalFilename": "BS_RCIO64.sys",
+    "ProductName": "BIOSTAR I/O driver",
+    "ProductVersion": "10.0.1901.1100"
+  },
+  "device": {
+    "name": "\\Device\\BS_RCIO",
+    "symlink": "\\DosDevices\\BS_RCIO",
+    "user_mode_path": "\\\\.\\BS_RCIO",
+    "type": "FILE_DEVICE_UNKNOWN (0x22)",
+    "exclusive": false,
+    "characteristics": 0,
+    "extension_size_bytes": 48,
+    "flags": "DO_BUFFERED_IO (0x4)"
+  },
+  "access_control": {
+    "creation_api": "IoCreateDevice (NOT IoCreateDeviceSecure)",
+    "explicit_security_descriptor": false,
+    "dacl_set_post_creation": false,
+    "irp_mj_create_handler": "Unconditionally returns STATUS_SUCCESS (0x00000000)",
+    "irp_mj_create_checks": "NONE - no token, PID, integrity, or SID validation",
+    "caller_validation_in_ioctl": "NONE",
+    "default_dacl": "OS-assigned: typically SYSTEM + Administrators (depends on install context)",
+    "cve_claim": "CVE-2021-44852 claims low-integrity processes can open the device",
+    "verdict": "The driver code itself enforces ZERO access restrictions. If the OS default DACL or installer sets permissive permissions, any user-mode process can exploit it."
+  },
+  "physical_memory": {
+    "mechanism": "MmMapIoSpace / MmUnmapIoSpace",
+    "cache_type": "MmNonCached (0)",
+    "address_bits": 32,
+    "max_addressable": "0xFFFFFFFF (4 GB)",
+    "range_restrictions": "NONE",
+    "size_restrictions": "NONE",
+    "serialization": "Kernel semaphore (KeWaitForSingleObject / KeReleaseSemaphore)",
+    "irp_processing": "IoStartPacket/StartIo queued model"
+  },
+  "ioctls": {
+    "phys_read": {
+      "code": "0x226040",
+      "ctl_code_decomposition": {
+        "device_type": "0x22 (FILE_DEVICE_UNKNOWN)",
+        "function": "0x810",
+        "method": "METHOD_BUFFERED (0)",
+        "access": "FILE_READ_ACCESS (1)"
+      },
+      "input": {
+        "buffer": "SystemBuffer",
+        "layout": [
+          { "offset": 0, "size": 4, "type": "DWORD", "field": "PhysicalAddress" }
+        ],
+        "min_input_size": 4
+      },
+      "output": {
+        "buffer": "SystemBuffer (overwrites input)",
+        "layout": [
+          { "offset": 0, "size": "OutputBufferLength", "type": "BYTE[]", "field": "ReadData" }
+        ]
+      },
+      "flow": [
+        "KeWaitForSingleObject(semaphore, Executive, KernelMode, FALSE, NULL)",
+        "zero-extend PhysicalAddress to 64-bit PHYSICAL_ADDRESS",
+        "VA = MmMapIoSpace(PhysAddr, OutputBufferLength, MmNonCached)",
+        "if (size == 4) *(DWORD*)out = *(DWORD*)VA",
+        "else if (size == 2) *(WORD*)out = *(WORD*)VA",
+        "else rep movsb(out, VA, size)",
+        "MmUnmapIoSpace(VA, size)",
+        "KeReleaseSemaphore(semaphore, 1, 0, FALSE)"
+      ]
+    },
+    "phys_write": {
+      "code": "0x226044",
+      "ctl_code_decomposition": {
+        "device_type": "0x22 (FILE_DEVICE_UNKNOWN)",
+        "function": "0x811",
+        "method": "METHOD_BUFFERED (0)",
+        "access": "FILE_READ_ACCESS (1)"
+      },
+      "input": {
+        "buffer": "SystemBuffer",
+        "layout": [
+          { "offset": 0, "size": 4, "type": "DWORD", "field": "PhysicalAddress" },
+          { "offset": 4, "size": "InputBufferLength - 4", "type": "BYTE[]", "field": "WriteData" }
+        ],
+        "min_input_size": 5
+      },
+      "output": "None",
+      "flow": [
+        "KeWaitForSingleObject(semaphore, Executive, KernelMode, FALSE, NULL)",
+        "zero-extend PhysicalAddress to 64-bit PHYSICAL_ADDRESS",
+        "size = InputBufferLength - 4",
+        "VA = MmMapIoSpace(PhysAddr, size, MmNonCached)",
+        "if (size == 4) *(DWORD*)VA = *(DWORD*)(buf+4)",
+        "else if (size == 2) *(WORD*)VA = *(WORD*)(buf+4)",
+        "else if (size == 1) *(BYTE*)VA = *(BYTE*)(buf+4)",
+        "else memcpy(VA, buf+4, size)",
+        "MmUnmapIoSpace(VA, size)",
+        "KeReleaseSemaphore(semaphore, 1, 0, FALSE)"
+      ]
+    }
+  },
+  "all_ioctls": [
+    { "code": "0x226000", "func": "0x800", "purpose": "Callback invoke (calls function pointer from buffer)" },
+    { "code": "0x226040", "func": "0x810", "purpose": "Physical memory READ (MmMapIoSpace)" },
+    { "code": "0x226044", "func": "0x811", "purpose": "Physical memory WRITE (MmMapIoSpace)" },
+    { "code": "0x226080", "func": "0x820", "purpose": "I/O port read (indexed, dword result)" },
+    { "code": "0x226084", "func": "0x821", "purpose": "I/O port read (byte/indexed)" },
+    { "code": "0x2260C0", "func": "0x830", "purpose": "I/O port/CR read (with index register)" },
+    { "code": "0x2260C4", "func": "0x831", "purpose": "PCI config space read (HalGetBusDataByOffset)" },
+    { "code": "0x226100", "func": "0x840", "purpose": "I/O port write" },
+    { "code": "0x226104", "func": "0x841", "purpose": "PCI config space write (HalSetBusDataByOffset)" },
+    { "code": "0x226108", "func": "0x842", "purpose": "PCI config read (byte)" },
+    { "code": "0x22610C", "func": "0x843", "purpose": "PCI config read (dword, indexed)" },
+    { "code": "0x226110", "func": "0x844", "purpose": "PCI config write (byte, indexed)" },
+    { "code": "0x226114", "func": "0x845", "purpose": "MSR/Model-specific register operation" },
+    { "code": "0x226118", "func": "0x846", "purpose": "Thread/semaphore event control" },
+    { "code": "0x226140", "func": "0x850", "purpose": "I/O port write (dword, different encoding)" },
+    { "code": "0x2261C4", "func": "0x871", "purpose": "Kernel thread create/manage" },
+    { "code": "0x2261C8", "func": "0x872", "purpose": "Worker thread parameter set" },
+    { "code": "0x2261CC", "func": "0x873", "purpose": "Worker thread parameter set" },
+    { "code": "0x2261D0", "func": "0x874", "purpose": "Worker thread parameter set" },
+    { "code": "0x2261D4", "func": "0x875", "purpose": "Worker thread parameter set" },
+    { "code": "0x2261D8", "func": "0x876", "purpose": "Worker thread parameter set" }
+  ],
+  "detection_indicators": {
+    "device_object": "\\Device\\BS_RCIO",
+    "symlink": "\\DosDevices\\BS_RCIO",
+    "user_path": "\\\\.\\BS_RCIO",
+    "service_name": "BS_RCIO64",
+    "registry": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\BS_RCIO64",
+    "file_sha256": "d205286bffdf09bc033c09e95c519c1c267b40c2ee8bab703c6a2d86741ccd3e",
+    "file_size": 24592,
+    "pdb_string": "BS_RCIO64.pdb",
+    "version_string": "10.0.1901.1100"
+  },
+  "saomola_integration": {
+    "usable": true,
+    "priority": "MEDIUM (32-bit address limit is significant constraint)",
+    "driver_chain_position": "After SIVX64 and ASMMAP64 (due to 4GB limit)",
+    "advantages": [
+      "No range restrictions (unlike AsIO3 g_goodRanges)",
+      "Simple IOCTL interface",
+      "Properly serialized via semaphore",
+      "METHOD_BUFFERED (safe, no page fault risk)"
+    ],
+    "limitations": [
+      "32-bit physical address only (cannot access RAM above 4GB)",
+      "Most modern systems have >4GB RAM - critical kernel structures may be above 4GB",
+      "Requires admin to load initially (standard for vulnerable drivers)",
+      "One operation at a time due to semaphore serialization"
+    ],
+    "recommendation": "Use as last-resort fallback only. The 32-bit address limitation makes it unreliable for systems with >4GB RAM where EPROCESS/key data may reside in high memory. SIVX64 or ASMMAP64 should be preferred if they support 64-bit addressing."
+  }
+}

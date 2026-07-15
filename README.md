@@ -1,0 +1,322 @@
+# Kernel Driver Vulnerability Research
+# 内核驱动漏洞研究
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║     ██╗  ██╗███████╗██████╗ ███╗   ██╗███████╗██╗                          ║
+║     ██║ ██╔╝██╔════╝██╔══██╗████╗  ██║██╔════╝██║                          ║
+║     █████╔╝ █████╗  ██████╔╝██╔██╗ ██║█████╗  ██║                          ║
+║     ██╔═██╗ ██╔══╝  ██╔══██╗██║╚██╗██║██╔══╝  ██║                          ║
+║     ██║  ██╗███████╗██║  ██║██║ ╚████║███████╗███████╗                      ║
+║     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝                      ║
+║                                                                            ║
+║          D R I V E R   V U L N E R A B I L I T Y   R E S E A R C H        ║
+║                     驱 动 漏 洞 研 究 武 器 库                               ║
+║                                                                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+```
+
+> **Independent security research for educational purposes only.**
+> **仅用于教育目的的独立安全研究。**
+> All drivers are legitimate signed software with known vulnerabilities (BYOVD).
+> 所有驱动均为具有已知漏洞的合法签名软件。
+
+---
+
+## Project Status / 项目状态
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║  RESEARCH       ████████████████████████████████████░░  95% ║
+║  研究完整度                                                  ║
+╠══════════════════════════════════════════════════════════════╣
+║  IMPLEMENTATION ██████████████████████████████░░░░░░░░  80% ║
+║  代码实现                                                    ║
+╠══════════════════════════════════════════════════════════════╣
+║  VERIFICATION   ████████████████░░░░░░░░░░░░░░░░░░░░░  40% ║
+║  实际验证                                                    ║
+╠══════════════════════════════════════════════════════════════╣
+║  E2E SUCCESS    ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  20% ║
+║  端到端成功                                                  ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║  OVERALL SCORE:  ████████████████████░░░░░░░░░░░░░░░░  5.5  ║
+║  综合评分                                         /10        ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## Arsenal Overview / 武器库概览
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         T I E R   0 :  G O D   M O D E                  │
+│                              完 全 控 制 模 式                            │
+│  ┌─────────────────┐  ┌──────────────────────┐                          │
+│  │   LnvMSRIO.sys  │  │  CorsairLLAccess64   │                          │
+│  │   ★ PROVEN ★    │  │   ★ WHQL+HVCI ★      │                          │
+│  │   Phys R/W+MSR  │  │   Phys R/W+MSR       │                          │
+│  │   EAC-Safe 72h  │  │   Loads w/ MemInteg  │                          │
+│  └─────────────────┘  └──────────────────────┘                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│                    T I E R   1 :  F U L L   P H Y S I C A L             │
+│                         完 整 物 理 内 存 访 问                           │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐               │
+│  │ Portwell │  │  SIVX64  │  │  IOMap64 │  │ WDTKernl │               │
+│  │ 12 IOCTL │  │ 3 modes  │  │ 16MB win │  │ Dell WDT │               │
+│  │ 16KB     │  │ WHCP     │  │ sliding  │  │ WHQL     │               │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘               │
+├─────────────────────────────────────────────────────────────────────────┤
+│                    T I E R   2 :  S P E C I A L I Z E D                  │
+│                           特 殊 能 力                                    │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                  │
+│  │  SparkIO.sys │  │  AsIO3.sys   │  │ KernCoreLib  │                  │
+│  │  Read-Only   │  │  ZERO-LOAD   │  │  >3.94GB     │                  │
+│  │  WHQL+HVCI   │  │  3 CVEs      │  │  MSI WinIo   │                  │
+│  └──────────────┘  └──────────────┘  └──────────────┘                  │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Capability Matrix / 能力矩阵
+
+```
+Driver            │ Phys R │ Phys W │ MSR R │ MSR W │ PortIO │ PCI  │ WHQL │ HVCI │ EAC
+══════════════════╪════════╪════════╪═══════╪═══════╪════════╪══════╪══════╪══════╪══════
+LnvMSRIO         │  ██    │  ██    │  ██   │  ██   │  ██    │  ██  │  ██  │  --  │  ██
+CorsairLLAccess  │  ██    │  ██    │  ██   │  ██   │  ██    │  ██  │  ██  │  ██  │  ??
+Portwell         │  ██    │  ██    │  ██   │  ██   │  ██    │  ██  │  ??  │  --  │  ??
+SIVX64           │  ██    │  ██    │  ██   │  ░░   │  ██    │  ██  │  ██  │  --  │  ░░
+IOMap64          │  ██    │  ██    │  --   │  --   │  --    │  --  │  ??  │  --  │  ??
+SparkIO          │  ██    │  --    │  --   │  --   │  ██    │  ██  │  ██  │  ██  │  ??
+AsIO3 (3 CVEs)   │  ██*   │  ██*   │  ░░   │  ░░   │  ██    │  --  │  ██  │  --  │  ??
+──────────────────┼────────┼────────┼───────┼───────┼────────┼──────┼──────┼──────┼──────
+██ = Full   ░░ = Partial   -- = None   ?? = Untested   * = Requires CVE exploit
+```
+
+---
+
+## Attack Chains / 攻击链
+
+### Chain A — Stealth Extraction / 隐秘提取 (Primary / 主路径)
+
+```
+    ┌─────────┐         ┌─────────────┐         ┌──────────┐         ┌─────────┐
+    │  LOAD   │────────▶│   LOCATE    │────────▶│   PPL    │────────▶│  SCAN   │
+    │ LnvMSRIO│         │  EPROCESS   │         │  BYPASS  │         │  HEAP   │
+    └─────────┘         └─────────────┘         └──────────┘         └─────────┘
+         │                     │                      │                     │
+    sc create/start      KPCR → KPRCB          Write 0x00 to         ReadProcessMemory
+    CreateFile           → CurrentThread        EPROCESS+0x5FA        + AES key scan
+    \\.\WinMsrDev        → EPROCESS walk        (PPL cleared)         (176B schedule)
+         │                     │                      │                     │
+    IOCTLs: 1            IOCTLs: ~50             IOCTLs: 1            IOCTLs: 0
+    Time: 0.5s           Time: 0.3s              Time: 0.01s          Time: 2-5s
+                                                                            │
+                                                                     ┌──────▼──────┐
+                                                                     │  AES-128    │
+                                                                     │  KEY FOUND  │
+                                                                     │  密钥已提取  │
+                                                                     └─────────────┘
+```
+
+### Chain B — HVCI-Hardened / HVCI加固系统
+
+```
+    CorsairLLAccess64 (WHQL + LoadsDespiteHVCI)
+    ├── IOCTL 0x225388 ──▶ Read MSR → KPCR
+    ├── IOCTL 0x22934C ──▶ Physical Read → EPROCESS chain
+    ├── IOCTL 0x229350 ──▶ Physical Write → Token steal
+    └── Result: NT AUTHORITY\SYSTEM on HVCI-enabled system
+```
+
+### Chain C — Zero Footprint / 零痕迹 (via AsIO3)
+
+```
+    ╔═══════════════════════════════════════════════════════╗
+    ║  NO DRIVER LOADING — AsIO3 ALREADY RUNNING ON ASUS  ║
+    ║  无需加载驱动 — AsIO3 已在华硕系统上运行               ║
+    ╠═══════════════════════════════════════════════════════╣
+    ║                                                       ║
+    ║  CVE-2025-3464 (≤Win11 22H2)                         ║
+    ║    Hardlink TOCTOU → PreviousMode → Full R/W         ║
+    ║                                                       ║
+    ║  CVE-2026-8070 (ALL Windows versions)                ║
+    ║    Permission flaw → Direct physical memory          ║
+    ║                                                       ║
+    ║  CVE-2026-8918 (Admin required)                      ║
+    ║    Allowlist bypass → g_goodRanges defeated           ║
+    ║                                                       ║
+    ╚═══════════════════════════════════════════════════════╝
+```
+
+---
+
+## Target System Intel / 目标系统情报
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║  ███ SYSTEM: Generic Research Workstation                     ║
+║  ███ OS: Windows 11 25H2 (Build 26200)                     ║
+║                                                              ║
+║  SECURITY STATUS / 安全状态:                                 ║
+║  ┌────────────────────────────────────────────────┐         ║
+║  │ HVCI (Memory Integrity)  ▓▓▓░░░░░░░░  OFF ✅  │         ║
+║  │ VDB (Driver Blocklist)   ▓▓▓░░░░░░░░  OFF ✅  │         ║
+║  │ Secure Boot              ▓▓▓▓▓▓▓▓▓▓  ON      │         ║
+║  │ VBS                      ▓▓▓▓▓▓▓▓▓▓  ON      │         ║
+║  │ EAC                      ░░░░░░░░░░░  NOT RUN │         ║
+║  └────────────────────────────────────────────────┘         ║
+║                                                              ║
+║  LOADED VULNERABLE DRIVERS / 已加载漏洞驱动:                  ║
+║  ┌────────────────────────────────────────────────┐         ║
+║  │ ● AsIO3.sys v1.03.02      [RUNNING] Boot-start│         ║
+║  │   └── CVE-2025-3464 / CVE-2026-8070 / 8918   │         ║
+║  │ ○ SIVX64.sys              [STOPPED] Registered│         ║
+║  └────────────────────────────────────────────────┘         ║
+║                                                              ║
+║  KEY INSIGHT / 关键发现:                                     ║
+║  ┌────────────────────────────────────────────────┐         ║
+║  │ ★ VDB DISABLED = Load ANY driver (no block)   │         ║
+║  │ ★ HVCI OFF = No compilation flag requirements │         ║
+║  │ ★ AsIO3 RUNNING = Zero-load attack possible   │         ║
+║  │ ★ SysMain ON = Superfetch VtoP available      │         ║
+║  └────────────────────────────────────────────────┘         ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## Risk Gauge / 风险仪表
+
+```
+Detection Risk / 检测风险:
+Load LnvMSRIO     ▓▓░░░░░░░░  LOW    (PiDDB entry only)
+Physical Read     ░░░░░░░░░░  ZERO   (no hooks exist)
+PPL Bypass        ▓▓▓░░░░░░░  LOW    (single byte write)
+Heap Scan         ░░░░░░░░░░  ZERO   (usermode ReadProcessMemory)
+Cleanup           ▓░░░░░░░░░  MINIMAL (event log entry)
+
+BSoD Risk / 蓝屏风险:
+Correct offsets   ░░░░░░░░░░  ZERO   (Vergilius verified)
+Wrong offsets     ▓▓▓▓▓▓▓▓▓▓  FATAL  (instant crash)
+Safe phys range   ░░░░░░░░░░  ZERO   (validated before read)
+Unsafe phys addr  ▓▓▓▓▓▓▓▓▓▓  FATAL  (MMIO/hole = hang/BSoD)
+```
+
+---
+
+## Driver Binaries / 驱动二进制文件
+
+```
+binaries/
+├── portwell.sys            16,848 B  ✅ SHA256 verified  CVE-2026-3437
+├── IOMap64.sys             34,064 B  ✅ SHA256 verified  CVE-2024-41498
+├── KernCoreLib64.sys       25,656 B  ✅ SHA256 verified  CVE-2026-57851
+├── CorsairLLAccess64.sys   21,752 B  ✅ SHA256 verified  CVE-2020-8808
+├── SparkIO.sys             22,128 B  ✅ SHA256 verified  CVE-2022-37415
+└── [AsIO3/Asusgio3.sys]    69,768 B  ✅ On target system (v1.03.02)
+```
+
+---
+
+## Extractor Crate / 提取器工具
+
+```
+extractor/                          3,137 lines Rust
+├── Cargo.toml                      Zero external dependencies
+├── src/
+│   ├── main.rs                     653 LOC  │ Pipeline orchestrator
+│   ├── drivers/
+│   │   ├── mod.rs                  18  LOC  │ PhysicalMemoryDriver trait
+│   │   ├── lnvmsrio.rs            268 LOC  │ LnvMSRIO backend
+│   │   └── service.rs             234 LOC  │ SCM wrapper (create/start/stop/delete)
+│   ├── memory/
+│   │   ├── physical.rs            162 LOC  │ Safe address validation
+│   │   └── eprocess.rs            244 LOC  │ KPCR chain + PPL bypass
+│   └── scan/
+│       ├── aes.rs                  143 LOC  │ AES-128 key expansion + validate
+│       └── pattern.rs             166 LOC  │ Heap page scanner
+└── examples/
+    ├── test_superfetch.rs          259 LOC  │ Superfetch availability test
+    ├── test_offsets.rs             358 LOC  │ Kernel offset verification
+    └── test_aes_scan.rs            618 LOC  │ Full AES key scan test
+
+Build:  cargo build --release
+Test:   cargo test (10/10 passing)
+Run:    target/release/extractor.exe --target VRChat.exe
+```
+
+---
+
+## Documentation Map / 文档索引
+
+| Document / 文档 | Lines / 行数 | Content / 内容 |
+|---|---|---|
+| [`CAPABILITY_MATRIX.md`](CAPABILITY_MATRIX.md) | 343 | Full capability breakdown per driver / 每驱动完整能力分解 |
+| [`MASTER_DRIVER_INTELLIGENCE.md`](MASTER_DRIVER_INTELLIGENCE.md) | 1147 | Operational manual / 操作手册 |
+| [`MASSIVE_DISCOVERY_2026-07-15.md`](MASSIVE_DISCOVERY_2026-07-15.md) | ~300 | 6 WHQL+HVCI drivers / 6个WHQL+HVCI兼容驱动 |
+| [`E2E_EXTRACTION_PIPELINE.md`](E2E_EXTRACTION_PIPELINE.md) | ~360 | Pipeline design / 端到端设计 |
+| [`ADVERSARIAL_REVIEW_2026-07-15.md`](ADVERSARIAL_REVIEW_2026-07-15.md) | ~200 | 16-agent audit / 16代理对抗审查 |
+| [`SYSTEM_RECON_2026-07-15.md`](SYSTEM_RECON_2026-07-15.md) | ~150 | Live system intel / 实时系统情报 |
+| [`AsIO3/CVE-2025-3464_BREAKTHROUGH.md`](AsIO3/CVE-2025-3464_BREAKTHROUGH.md) | ~250 | 3-CVE exploit chain / 三CVE利用链 |
+| [`DEEP_RESEARCH_NEW_DRIVERS_2026.md`](DEEP_RESEARCH_NEW_DRIVERS_2026.md) | ~400 | 13 new candidates / 13个新候选驱动 |
+
+---
+
+## Quick Start / 快速开始
+
+```bash
+# Build the extractor / 构建提取器
+cd extractor && cargo build --release
+
+# Verify kernel offsets (SAFE, requires admin) / 验证内核偏移
+cargo run --example test_offsets
+
+# Check Superfetch availability / 检查Superfetch
+cargo run --example test_superfetch
+
+# Run full extraction (requires admin + target running) / 完整提取
+target/release/extractor.exe --target VRChat.exe
+```
+
+---
+
+## Research Methodology / 研究方法论
+
+```
+Phase 1: Discovery          Phase 2: Analysis           Phase 3: Exploitation
+发现                         分析                        利用
+┌───────────────┐           ┌───────────────┐           ┌───────────────┐
+│ • PE parsing  │           │ • IDA/Ghidra  │           │ • Rust FFI    │
+│ • pefile      │──────────▶│ • Capstone    │──────────▶│ • Zero-dep    │
+│ • LOLDrivers  │           │ • IOCTL trace │           │ • Safe wraprs │
+│ • CVE search  │           │ • Access ctrl │           │ • IOCTL budget│
+└───────────────┘           └───────────────┘           └───────────────┘
+       │                           │                           │
+       ▼                           ▼                           ▼
+  13+ drivers found          11 IOCTLs reversed          3,137 LOC Rust
+  5 binaries acquired        6 critical bugs fixed       10/10 tests pass
+  找到13+驱动                 逆向11个IOCTL                3137行Rust代码
+```
+
+---
+
+## Legal / 法律声明
+
+```
+╔═══════════════════════════════════════════════════════════════╗
+║  This research is conducted for EDUCATIONAL PURPOSES ONLY.   ║
+║  本研究仅用于教育目的。                                        ║
+║                                                               ║
+║  All analyzed drivers are LEGITIMATE SIGNED SOFTWARE with    ║
+║  PUBLICLY DISCLOSED vulnerabilities (CVE assigned).          ║
+║  所有分析的驱动均为具有公开披露漏洞(已分配CVE)的合法签名软件。    ║
+║                                                               ║
+║  No unauthorized access to third-party systems is performed. ║
+║  未对第三方系统进行未授权访问。                                  ║
+╚═══════════════════════════════════════════════════════════════╝
+```
